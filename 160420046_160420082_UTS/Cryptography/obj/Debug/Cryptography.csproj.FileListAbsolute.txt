@@ -1,0 +1,5 @@
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Cryptography\bin\Debug\Cryptography.dll
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Cryptography\bin\Debug\Cryptography.pdb
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Cryptography\obj\Debug\Cryptography.csproj.CoreCompileInputs.cache
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Cryptography\obj\Debug\Cryptography.dll
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Cryptography\obj\Debug\Cryptography.pdb
