@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Cryptography
 {
-    public class Class1
+    public class Des
     {
     }
 }
