@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class Form1 : Form
+    public partial class FormProfilePatient : Form
     {
-        public Form1()
+        public FormProfilePatient()
         {
             InitializeComponent();
         }

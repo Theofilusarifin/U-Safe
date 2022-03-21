@@ -46,11 +46,113 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormListCheckUpAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormListCheckUpAdmin.Designer.cs">
+      <DependentUpon>FormListCheckUpAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListCheckUpPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListCheckUpPatient.Designer.cs">
+      <DependentUpon>FormListCheckUpPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryCheckupDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryCheckupDoctor.Designer.cs">
+      <DependentUpon>FormHistoryCheckupDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormHistoryCheckUpPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormHistoryCheckUpPatient.Designer.cs">
+      <DependentUpon>FormHistoryCheckUpPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListCheckUpDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListCheckUpDoctor.Designer.cs">
+      <DependentUpon>FormListCheckUpDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormListUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormListUser.Designer.cs">
+      <DependentUpon>FormListUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseRegister.Designer.cs">
+      <DependentUpon>FormChooseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrescribeMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrescribeMedicine.Designer.cs">
+      <DependentUpon>FormPrescribeMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfileAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfileAdmin.Designer.cs">
+      <DependentUpon>FormProfileAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfileDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfileDoctor.Designer.cs">
+      <DependentUpon>FormProfileDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProfilePatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProfilePatient.Designer.cs">
+      <DependentUpon>FormProfilePatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegisterAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegisterAdmin.Designer.cs">
+      <DependentUpon>FormRegisterAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegisterDoctor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegisterDoctor.Designer.cs">
+      <DependentUpon>FormRegisterDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegisterPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegisterPatient.Designer.cs">
+      <DependentUpon>FormRegisterPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWithdrawBalance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWithdrawBalance.Designer.cs">
+      <DependentUpon>FormWithdrawBalance.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
