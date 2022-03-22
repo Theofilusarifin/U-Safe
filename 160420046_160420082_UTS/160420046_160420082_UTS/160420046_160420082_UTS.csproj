@@ -159,6 +159,12 @@
     <EmbeddedResource Include="FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -187,6 +193,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo Loading1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Login Form.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Closed Eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Open Eye.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
