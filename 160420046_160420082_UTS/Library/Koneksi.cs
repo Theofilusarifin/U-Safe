@@ -18,7 +18,7 @@ namespace Library
         public Koneksi(string pServer, string pDatabase, string pUsername, string pPassword)
         {
             string strCon = "server=" + pServer + ";database=" + pDatabase + ";uid=" + pUsername + ";password=" + pPassword + ";SSL Mode=None" + // Tambahkan SSL Mode supaya tidak error SSL
-                ";MultipleActiveResultSets=true";
+                            ";MultipleActiveResultSets=true";
 
             KoneksiDB = new MySqlConnection();
             KoneksiDB.ConnectionString = strCon;
