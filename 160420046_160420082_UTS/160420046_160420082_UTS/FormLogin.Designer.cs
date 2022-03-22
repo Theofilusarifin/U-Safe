@@ -107,7 +107,7 @@ namespace _160420046_160420082_UTS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Login_Form;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(434, 599);
+            this.ClientSize = new System.Drawing.Size(452, 599);
             this.Controls.Add(this.pictureBoxMata);
             this.Controls.Add(this.labelRegistrasi);
             this.Controls.Add(this.textBoxPassword);
