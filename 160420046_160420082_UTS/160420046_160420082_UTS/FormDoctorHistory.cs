@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class FormHistoryCheckupDoctor : Form
+    public partial class FormDoctorHistory : Form
     {
-        public FormHistoryCheckupDoctor()
+        public FormDoctorHistory()
         {
             InitializeComponent();
         }

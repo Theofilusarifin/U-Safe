@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class FormListCheckUpDoctor : Form
+    public partial class FormDoctorWithdrawBalance : Form
     {
-        public FormListCheckUpDoctor()
+        public FormDoctorWithdrawBalance()
         {
             InitializeComponent();
         }
