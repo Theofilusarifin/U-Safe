@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class FormProfileDoctor : Form
+    public partial class FormAdminListDoctor : Form
     {
-        public FormProfileDoctor()
+        public FormAdminListDoctor()
         {
             InitializeComponent();
         }
