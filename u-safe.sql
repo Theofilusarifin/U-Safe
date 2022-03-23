@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2022 at 05:38 AM
+-- Generation Time: Mar 23, 2022 at 01:27 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -31,8 +31,10 @@ CREATE TABLE `admins` (
   `id` int(10) UNSIGNED NOT NULL,
   `username` mediumtext DEFAULT NULL,
   `email` mediumtext DEFAULT NULL,
+  `phone_number` mediumtext DEFAULT NULL,
   `password` mediumtext DEFAULT NULL,
-  `profile_photo` longblob DEFAULT NULL
+  `profile_photo` longblob DEFAULT NULL,
+  `KTPnum` mediumtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -76,7 +78,8 @@ CREATE TABLE `customers` (
   `phone_number` mediumtext DEFAULT NULL,
   `password` mediumtext DEFAULT NULL,
   `balance` int(11) DEFAULT NULL,
-  `profile_photo` longblob DEFAULT NULL
+  `profile_photo` longblob DEFAULT NULL,
+  `KTPnum` mediumtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
