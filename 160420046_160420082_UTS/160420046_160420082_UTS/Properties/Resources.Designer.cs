@@ -113,6 +113,26 @@ namespace _160420046_160420082_UTS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Doctor {
+            get {
+                object obj = ResourceManager.GetObject("Doctor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Choose_Register {
+            get {
+                object obj = ResourceManager.GetObject("Form Choose Register", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Form_Reegistration {
             get {
                 object obj = ResourceManager.GetObject("Form Reegistration", resourceCulture);
@@ -206,6 +226,16 @@ namespace _160420046_160420082_UTS.Properties {
         internal static System.Drawing.Bitmap Open_Eye {
             get {
                 object obj = ResourceManager.GetObject("Open Eye", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Patient {
+            get {
+                object obj = ResourceManager.GetObject("Patient", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -29,12 +29,56 @@ namespace _160420046_160420082_UTS
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.pictureBoxPatient = new System.Windows.Forms.PictureBox();
+            this.pictureBoxDoctor = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatient)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoctor)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pictureBoxPatient
+            // 
+            this.pictureBoxPatient.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxPatient.Image = global::_160420046_160420082_UTS.Properties.Resources.Patient;
+            this.pictureBoxPatient.Location = new System.Drawing.Point(100, 207);
+            this.pictureBoxPatient.Name = "pictureBoxPatient";
+            this.pictureBoxPatient.Size = new System.Drawing.Size(280, 299);
+            this.pictureBoxPatient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxPatient.TabIndex = 0;
+            this.pictureBoxPatient.TabStop = false;
+            // 
+            // pictureBoxDoctor
+            // 
+            this.pictureBoxDoctor.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxDoctor.Image = global::_160420046_160420082_UTS.Properties.Resources.Doctor;
+            this.pictureBoxDoctor.Location = new System.Drawing.Point(554, 207);
+            this.pictureBoxDoctor.Name = "pictureBoxDoctor";
+            this.pictureBoxDoctor.Size = new System.Drawing.Size(202, 277);
+            this.pictureBoxDoctor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDoctor.TabIndex = 1;
+            this.pictureBoxDoctor.TabStop = false;
+            // 
+            // FormChooseRegister
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Form_Choose_Register;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(904, 643);
+            this.Controls.Add(this.pictureBoxDoctor);
+            this.Controls.Add(this.pictureBoxPatient);
+            this.DoubleBuffered = true;
+            this.Name = "FormChooseRegister";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegister";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPatient)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoctor)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.PictureBox pictureBoxPatient;
+        private System.Windows.Forms.PictureBox pictureBoxDoctor;
     }
 }

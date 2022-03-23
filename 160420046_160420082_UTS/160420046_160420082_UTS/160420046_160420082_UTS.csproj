@@ -204,6 +204,9 @@
     <EmbeddedResource Include="FormAdminListPatient.resx">
       <DependentUpon>FormAdminListPatient.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseRegister.resx">
+      <DependentUpon>FormChooseRegister.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormDoctorCheckUpSchedule.resx">
       <DependentUpon>FormDoctorCheckUpSchedule.cs</DependentUpon>
     </EmbeddedResource>
@@ -325,6 +328,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Button_Register1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Choose Register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Patient.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Doctor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
