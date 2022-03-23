@@ -1,7 +1,7 @@
 ﻿
 namespace _160420046_160420082_UTS
 {
-    partial class FormPatientEditProfile
+    partial class FormPatientBookNewChekUp
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,10 @@ namespace _160420046_160420082_UTS
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // FormPatientEditProfile
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1084, 365);
-            this.Name = "FormPatientEditProfile";
-            this.Text = "FormProfilePatient";
-            this.ResumeLayout(false);
-
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "FormPatientBookNewChekUp";
         }
 
         #endregion

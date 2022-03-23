@@ -42,16 +42,10 @@ namespace _160420046_160420082_UTS
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelSaldo = new System.Windows.Forms.Label();
             this.labelSaldoHeader = new System.Windows.Forms.Label();
-            this.labelPoin = new System.Windows.Forms.Label();
-            this.labelPoinHeader = new System.Windows.Forms.Label();
-            this.pictureBoxSaldo = new System.Windows.Forms.PictureBox();
-            this.pictureBoxPoin = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelNama = new System.Windows.Forms.Label();
             this.labelwelcome = new System.Windows.Forms.Label();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonRekapPendapatan = new System.Windows.Forms.Button();
             this.timerLoading = new System.Windows.Forms.Timer(this.components);
             this.panelLeftNavbar = new System.Windows.Forms.Panel();
@@ -65,18 +59,22 @@ namespace _160420046_160420082_UTS
             this.buttonEditProfile = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.pictureBoxSaldo = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDoctor.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLeftNavbar.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panelShowData.SuspendLayout();
             this.panelPasien.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonChatKonsumen
@@ -105,7 +103,7 @@ namespace _160420046_160420082_UTS
             this.buttonBooking.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonBooking.Size = new System.Drawing.Size(233, 45);
             this.buttonBooking.TabIndex = 0;
-            this.buttonBooking.Text = "BOOKING CHECK UP";
+            this.buttonBooking.Text = "BOOK CHECK UP";
             this.buttonBooking.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonBooking.UseVisualStyleBackColor = true;
             // 
@@ -211,10 +209,7 @@ namespace _160420046_160420082_UTS
             this.panelHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panelHeader.Controls.Add(this.labelSaldo);
             this.panelHeader.Controls.Add(this.labelSaldoHeader);
-            this.panelHeader.Controls.Add(this.labelPoin);
-            this.panelHeader.Controls.Add(this.labelPoinHeader);
             this.panelHeader.Controls.Add(this.pictureBoxSaldo);
-            this.panelHeader.Controls.Add(this.pictureBoxPoin);
             this.panelHeader.Controls.Add(this.pictureBox2);
             this.panelHeader.Controls.Add(this.labelNama);
             this.panelHeader.Controls.Add(this.labelwelcome);
@@ -255,64 +250,6 @@ namespace _160420046_160420082_UTS
             this.labelSaldoHeader.Text = "Saldo";
             this.labelSaldoHeader.Visible = false;
             // 
-            // labelPoin
-            // 
-            this.labelPoin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPoin.AutoSize = true;
-            this.labelPoin.BackColor = System.Drawing.Color.White;
-            this.labelPoin.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPoin.ForeColor = System.Drawing.Color.Black;
-            this.labelPoin.Location = new System.Drawing.Point(313, 40);
-            this.labelPoin.Name = "labelPoin";
-            this.labelPoin.Size = new System.Drawing.Size(50, 22);
-            this.labelPoin.TabIndex = 5;
-            this.labelPoin.Text = "Poin";
-            this.labelPoin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelPoin.Visible = false;
-            // 
-            // labelPoinHeader
-            // 
-            this.labelPoinHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelPoinHeader.AutoSize = true;
-            this.labelPoinHeader.BackColor = System.Drawing.Color.White;
-            this.labelPoinHeader.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPoinHeader.ForeColor = System.Drawing.Color.Gray;
-            this.labelPoinHeader.Location = new System.Drawing.Point(313, 17);
-            this.labelPoinHeader.Name = "labelPoinHeader";
-            this.labelPoinHeader.Size = new System.Drawing.Size(48, 21);
-            this.labelPoinHeader.TabIndex = 4;
-            this.labelPoinHeader.Text = "Poin";
-            this.labelPoinHeader.Visible = false;
-            // 
-            // pictureBoxSaldo
-            // 
-            this.pictureBoxSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSaldo.Location = new System.Drawing.Point(532, 15);
-            this.pictureBoxSaldo.Name = "pictureBoxSaldo";
-            this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
-            this.pictureBoxSaldo.TabIndex = 3;
-            this.pictureBoxSaldo.TabStop = false;
-            this.pictureBoxSaldo.Visible = false;
-            // 
-            // pictureBoxPoin
-            // 
-            this.pictureBoxPoin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxPoin.Location = new System.Drawing.Point(246, 15);
-            this.pictureBoxPoin.Name = "pictureBoxPoin";
-            this.pictureBoxPoin.Size = new System.Drawing.Size(237, 63);
-            this.pictureBoxPoin.TabIndex = 3;
-            this.pictureBoxPoin.TabStop = false;
-            this.pictureBoxPoin.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Location = new System.Drawing.Point(-546, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 60);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
             // labelNama
             // 
             this.labelNama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -343,7 +280,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogout.FlatAppearance.BorderSize = 0;
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogout.Location = new System.Drawing.Point(0, 926);
+            this.buttonLogout.Location = new System.Drawing.Point(0, 1004);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLogout.Size = new System.Drawing.Size(233, 45);
@@ -360,15 +297,6 @@ namespace _160420046_160420082_UTS
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(233, 184);
             this.panelLogo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 46);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(199, 87);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // buttonRekapPendapatan
             // 
@@ -409,14 +337,15 @@ namespace _160420046_160420082_UTS
             // 
             // panelAdmin
             // 
+            this.panelAdmin.Controls.Add(this.button4);
             this.panelAdmin.Controls.Add(this.buttonAccPenjual);
             this.panelAdmin.Controls.Add(this.buttonRekapPenjualan);
             this.panelAdmin.Controls.Add(this.panelShowData);
             this.panelAdmin.Controls.Add(this.buttonPengaturan);
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAdmin.Location = new System.Drawing.Point(0, 596);
+            this.panelAdmin.Location = new System.Drawing.Point(0, 641);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(233, 330);
+            this.panelAdmin.Size = new System.Drawing.Size(233, 363);
             this.panelAdmin.TabIndex = 3;
             this.panelAdmin.Visible = false;
             // 
@@ -495,13 +424,14 @@ namespace _160420046_160420082_UTS
             // 
             // panelPasien
             // 
+            this.panelPasien.Controls.Add(this.button3);
             this.panelPasien.Controls.Add(this.buttonChatKonsumen);
             this.panelPasien.Controls.Add(this.buttonRekapPendapatan);
             this.panelPasien.Controls.Add(this.buttonBooking);
             this.panelPasien.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelPasien.Location = new System.Drawing.Point(0, 431);
             this.panelPasien.Name = "panelPasien";
-            this.panelPasien.Size = new System.Drawing.Size(233, 165);
+            this.panelPasien.Size = new System.Drawing.Size(233, 210);
             this.panelPasien.TabIndex = 1;
             this.panelPasien.Visible = false;
             // 
@@ -552,6 +482,65 @@ namespace _160420046_160420082_UTS
             this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(0, 135);
+            this.button3.Name = "button3";
+            this.button3.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button3.Size = new System.Drawing.Size(233, 45);
+            this.button3.TabIndex = 20;
+            this.button3.Text = "EDIT PROFILE";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(0, 295);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(233, 45);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "EDIT PROFILE";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // pictureBoxSaldo
+            // 
+            this.pictureBoxSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSaldo.Location = new System.Drawing.Point(532, 15);
+            this.pictureBoxSaldo.Name = "pictureBoxSaldo";
+            this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
+            this.pictureBoxSaldo.TabIndex = 3;
+            this.pictureBoxSaldo.TabStop = false;
+            this.pictureBoxSaldo.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Location = new System.Drawing.Point(-546, 18);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(57, 60);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_160420046_160420082_UTS.Properties.Resources.Logo_White_2;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -565,15 +554,14 @@ namespace _160420046_160420082_UTS
             this.panelLeft.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPoin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelLogo.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelLeftNavbar.ResumeLayout(false);
             this.panelAdmin.ResumeLayout(false);
             this.panelShowData.ResumeLayout(false);
             this.panelPasien.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,10 +579,7 @@ namespace _160420046_160420082_UTS
         public System.Windows.Forms.Panel panelHeader;
         public System.Windows.Forms.Label labelSaldo;
         public System.Windows.Forms.Label labelSaldoHeader;
-        public System.Windows.Forms.Label labelPoin;
-        public System.Windows.Forms.Label labelPoinHeader;
         public System.Windows.Forms.PictureBox pictureBoxSaldo;
-        public System.Windows.Forms.PictureBox pictureBoxPoin;
         private System.Windows.Forms.PictureBox pictureBox2;
         public System.Windows.Forms.Label labelNama;
         private System.Windows.Forms.Label labelwelcome;
@@ -615,5 +600,7 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.Button buttonEditProfile;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button3;
     }
 }

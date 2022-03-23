@@ -29,10 +29,17 @@ namespace _160420046_160420082_UTS
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // FormDoctorEditProfile
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1084, 365);
+            this.Name = "FormDoctorEditProfile";
             this.Text = "FormDoctorEditProfile";
+            this.ResumeLayout(false);
+
         }
 
         #endregion

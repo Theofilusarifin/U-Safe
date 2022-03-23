@@ -123,6 +123,26 @@ namespace _160420046_160420082_UTS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_White {
+            get {
+                object obj = ResourceManager.GetObject("Logo White", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logo_White_2 {
+            get {
+                object obj = ResourceManager.GetObject("Logo White 2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Open_Eye {
             get {
                 object obj = ResourceManager.GetObject("Open Eye", resourceCulture);

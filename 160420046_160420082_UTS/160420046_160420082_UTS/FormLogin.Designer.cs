@@ -55,11 +55,11 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.BackColor = System.Drawing.Color.White;
             this.labelRegistrasi.Cursor = System.Windows.Forms.Cursors.Hand;
             this.labelRegistrasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.labelRegistrasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.labelRegistrasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRegistrasi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(65)))), ((int)(((byte)(36)))));
-            this.labelRegistrasi.Location = new System.Drawing.Point(232, 526);
+            this.labelRegistrasi.Location = new System.Drawing.Point(243, 524);
             this.labelRegistrasi.Name = "labelRegistrasi";
-            this.labelRegistrasi.Size = new System.Drawing.Size(141, 16);
+            this.labelRegistrasi.Size = new System.Drawing.Size(152, 18);
             this.labelRegistrasi.TabIndex = 12;
             this.labelRegistrasi.Text = "&Lakukan Registrasi";
             // 
@@ -88,15 +88,16 @@ namespace _160420046_160420082_UTS
             // 
             this.buttonLogin.AutoSize = true;
             this.buttonLogin.BackColor = System.Drawing.Color.Transparent;
+            this.buttonLogin.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Leave;
             this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonLogin.FlatAppearance.BorderSize = 0;
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(36, 461);
+            this.buttonLogin.Location = new System.Drawing.Point(37, 459);
             this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(366, 41);
+            this.buttonLogin.Size = new System.Drawing.Size(379, 44);
             this.buttonLogin.TabIndex = 11;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;

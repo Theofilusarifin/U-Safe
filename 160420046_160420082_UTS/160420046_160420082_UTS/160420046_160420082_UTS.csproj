@@ -46,11 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormListMedicine.cs">
+    <Compile Include="FormAdminListDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListMedicine.Designer.cs">
-      <DependentUpon>FormListMedicine.cs</DependentUpon>
+    <Compile Include="FormAdminListDoctor.Designer.cs">
+      <DependentUpon>FormAdminListDoctor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminListMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminListMedicine.Designer.cs">
+      <DependentUpon>FormAdminListMedicine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminListPatient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminListPatient.Designer.cs">
+      <DependentUpon>FormAdminListPatient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDoctorEditProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoctorEditProfile.Designer.cs">
+      <DependentUpon>FormDoctorEditProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDoctorListMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDoctorListMedicine.Designer.cs">
+      <DependentUpon>FormDoctorListMedicine.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLoading.cs">
       <SubType>Form</SubType>
@@ -58,41 +82,47 @@
     <Compile Include="FormLoading.Designer.cs">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListCheckUpPatient.cs">
+    <Compile Include="FormPatientBookCheckUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListCheckUpPatient.Designer.cs">
-      <DependentUpon>FormListCheckUpPatient.cs</DependentUpon>
+    <Compile Include="FormPatientBookCheckUp.Designer.cs">
+      <DependentUpon>FormPatientBookCheckUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHistoryCheckupDoctor.cs">
+    <Compile Include="FormDoctorHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHistoryCheckupDoctor.Designer.cs">
-      <DependentUpon>FormHistoryCheckupDoctor.cs</DependentUpon>
+    <Compile Include="FormDoctorHistory.Designer.cs">
+      <DependentUpon>FormDoctorHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormHistoryCheckUpPatient.cs">
+    <Compile Include="FormPatientBookNewChekUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormHistoryCheckUpPatient.Designer.cs">
-      <DependentUpon>FormHistoryCheckUpPatient.cs</DependentUpon>
+    <Compile Include="FormPatientBookNewChekUp.Designer.cs">
+      <DependentUpon>FormPatientBookNewChekUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListCheckUpDoctor.cs">
+    <Compile Include="FormPatientHistory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListCheckUpDoctor.Designer.cs">
-      <DependentUpon>FormListCheckUpDoctor.cs</DependentUpon>
+    <Compile Include="FormPatientHistory.Designer.cs">
+      <DependentUpon>FormPatientHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListUser.cs">
+    <Compile Include="FormDoctorCheckUpSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListUser.Designer.cs">
-      <DependentUpon>FormListUser.cs</DependentUpon>
+    <Compile Include="FormDoctorCheckUpSchedule.Designer.cs">
+      <DependentUpon>FormDoctorCheckUpSchedule.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListCheckUpAdmin.cs">
+    <Compile Include="FormAdminListAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListCheckUpAdmin.Designer.cs">
-      <DependentUpon>FormListCheckUpAdmin.cs</DependentUpon>
+    <Compile Include="FormAdminListAdmin.Designer.cs">
+      <DependentUpon>FormAdminListAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminListCheckUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminListCheckUp.Designer.cs">
+      <DependentUpon>FormAdminListCheckUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -112,29 +142,29 @@
     <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPrescribeMedicine.cs">
+    <Compile Include="FormDoctorPrescribeMedicine.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPrescribeMedicine.Designer.cs">
-      <DependentUpon>FormPrescribeMedicine.cs</DependentUpon>
+    <Compile Include="FormDoctorPrescribeMedicine.Designer.cs">
+      <DependentUpon>FormDoctorPrescribeMedicine.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProfileAdmin.cs">
+    <Compile Include="FormAdminEditProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProfileAdmin.Designer.cs">
-      <DependentUpon>FormProfileAdmin.cs</DependentUpon>
+    <Compile Include="FormAdminEditProfile.Designer.cs">
+      <DependentUpon>FormAdminEditProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProfileDoctor.cs">
+    <Compile Include="FormPatientEditProfile.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProfileDoctor.Designer.cs">
-      <DependentUpon>FormProfileDoctor.cs</DependentUpon>
+    <Compile Include="FormPatientEditProfile.Designer.cs">
+      <DependentUpon>FormPatientEditProfile.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormProfilePatient.cs">
+    <Compile Include="FormPatientTopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProfilePatient.Designer.cs">
-      <DependentUpon>FormProfilePatient.cs</DependentUpon>
+    <Compile Include="FormPatientTopUp.Designer.cs">
+      <DependentUpon>FormPatientTopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRegisterAdmin.cs">
       <SubType>Form</SubType>
@@ -154,14 +184,53 @@
     <Compile Include="FormRegisterPatient.Designer.cs">
       <DependentUpon>FormRegisterPatient.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormWithdrawBalance.cs">
+    <Compile Include="FormDoctorWithdrawBalance.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormWithdrawBalance.Designer.cs">
-      <DependentUpon>FormWithdrawBalance.cs</DependentUpon>
+    <Compile Include="FormDoctorWithdrawBalance.Designer.cs">
+      <DependentUpon>FormDoctorWithdrawBalance.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAdminEditProfile.resx">
+      <DependentUpon>FormAdminEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminListDoctor.resx">
+      <DependentUpon>FormAdminListDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminListMedicine.resx">
+      <DependentUpon>FormAdminListMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminListPatient.resx">
+      <DependentUpon>FormAdminListPatient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctorCheckUpSchedule.resx">
+      <DependentUpon>FormDoctorCheckUpSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctorEditProfile.resx">
+      <DependentUpon>FormDoctorEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctorHistory.resx">
+      <DependentUpon>FormDoctorHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctorListMedicine.resx">
+      <DependentUpon>FormDoctorListMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminListCheckUp.resx">
+      <DependentUpon>FormAdminListCheckUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctorPrescribeMedicine.resx">
+      <DependentUpon>FormDoctorPrescribeMedicine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDoctorWithdrawBalance.resx">
+      <DependentUpon>FormDoctorWithdrawBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientBookCheckUp.resx">
+      <DependentUpon>FormPatientBookCheckUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminListAdmin.resx">
+      <DependentUpon>FormAdminListAdmin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLoading.resx">
       <DependentUpon>FormLoading.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,6 +239,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientEditProfile.resx">
+      <DependentUpon>FormPatientEditProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientHistory.resx">
+      <DependentUpon>FormPatientHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientTopUp.resx">
+      <DependentUpon>FormPatientTopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -208,6 +286,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Open Eye.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Hover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo White 2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

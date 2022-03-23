@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class FormListCheckUpAdmin : Form
+    public partial class FormAdminListCheckUp : Form
     {
-        public FormListCheckUpAdmin()
+        public FormAdminListCheckUp()
         {
             InitializeComponent();
         }

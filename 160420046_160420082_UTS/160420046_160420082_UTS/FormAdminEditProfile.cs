@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class FormProfileAdmin : Form
+    public partial class FormAdminEditProfile : Form
     {
-        public FormProfileAdmin()
+        public FormAdminEditProfile()
         {
             InitializeComponent();
         }

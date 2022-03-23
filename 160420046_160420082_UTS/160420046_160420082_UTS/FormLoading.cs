@@ -17,6 +17,9 @@ namespace _160420046_160420082_UTS
             InitializeComponent();
         }
 
+        string role_user = "";
+
+
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
