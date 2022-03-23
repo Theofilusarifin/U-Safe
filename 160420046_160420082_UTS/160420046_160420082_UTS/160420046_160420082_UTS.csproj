@@ -249,6 +249,15 @@
     <EmbeddedResource Include="FormPatientTopUp.resx">
       <DependentUpon>FormPatientTopUp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormRegisterAdmin.resx">
+      <DependentUpon>FormRegisterAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegisterDoctor.resx">
+      <DependentUpon>FormRegisterDoctor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegisterPatient.resx">
+      <DependentUpon>FormRegisterPatient.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -298,6 +307,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Logo White 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Reegistration.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Reegistration User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Reegistration PatientDoctor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Reegistration Admin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Register.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_Register1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

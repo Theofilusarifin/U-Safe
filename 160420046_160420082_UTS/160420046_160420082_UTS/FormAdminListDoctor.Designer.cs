@@ -88,9 +88,9 @@ namespace _160420046_160420082_UTS
             this.label1.Font = new System.Drawing.Font("Montserrat", 12F);
             this.label1.Location = new System.Drawing.Point(325, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 22);
+            this.label1.Size = new System.Drawing.Size(114, 22);
             this.label1.TabIndex = 53;
-            this.label1.Text = "List Doctor :";
+            this.label1.Text = "Doctor Data :";
             // 
             // pictureBox1
             // 

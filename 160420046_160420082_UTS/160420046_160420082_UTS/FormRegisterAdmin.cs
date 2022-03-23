@@ -16,5 +16,10 @@ namespace _160420046_160420082_UTS
         {
             InitializeComponent();
         }
+
+        private void FormRegisterAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

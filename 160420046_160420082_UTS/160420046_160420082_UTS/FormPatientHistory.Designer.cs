@@ -88,9 +88,9 @@ namespace _160420046_160420082_UTS
             this.label1.Font = new System.Drawing.Font("Montserrat", 12F);
             this.label1.Location = new System.Drawing.Point(329, 36);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(153, 22);
+            this.label1.Size = new System.Drawing.Size(158, 22);
             this.label1.TabIndex = 53;
-            this.label1.Text = "Cari Berdasarkan :";
+            this.label1.Text = "Check Up History :";
             // 
             // pictureBox1
             // 
