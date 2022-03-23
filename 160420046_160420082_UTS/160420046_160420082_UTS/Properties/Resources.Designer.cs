@@ -93,6 +93,46 @@ namespace _160420046_160420082_UTS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Form_Reegistration {
+            get {
+                object obj = ResourceManager.GetObject("Form Reegistration", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Reegistration_Admin {
+            get {
+                object obj = ResourceManager.GetObject("Form Reegistration Admin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Reegistration_PatientDoctor {
+            get {
+                object obj = ResourceManager.GetObject("Form Reegistration PatientDoctor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Reegistration_User {
+            get {
+                object obj = ResourceManager.GetObject("Form Reegistration User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_Form {
             get {
                 object obj = ResourceManager.GetObject("Login Form", resourceCulture);
