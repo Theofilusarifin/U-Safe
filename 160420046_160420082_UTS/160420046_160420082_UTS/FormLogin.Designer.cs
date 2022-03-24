@@ -42,7 +42,7 @@ namespace _160420046_160420082_UTS
             this.pictureBoxMata.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxMata.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBoxMata.Image = global::_160420046_160420082_UTS.Properties.Resources.Closed_Eye;
-            this.pictureBoxMata.Location = new System.Drawing.Point(348, 389);
+            this.pictureBoxMata.Location = new System.Drawing.Point(366, 390);
             this.pictureBoxMata.Name = "pictureBoxMata";
             this.pictureBoxMata.Size = new System.Drawing.Size(35, 27);
             this.pictureBoxMata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

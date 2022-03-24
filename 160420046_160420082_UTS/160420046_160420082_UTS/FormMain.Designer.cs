@@ -33,6 +33,7 @@ namespace _160420046_160420082_UTS
             this.buttonChatKonsumen = new System.Windows.Forms.Button();
             this.buttonBooking = new System.Windows.Forms.Button();
             this.panelDoctor = new System.Windows.Forms.Panel();
+            this.buttonEditProfile = new System.Windows.Forms.Button();
             this.buttonWithdraw = new System.Windows.Forms.Button();
             this.buttonHistory = new System.Windows.Forms.Button();
             this.buttonMedicines = new System.Windows.Forms.Button();
@@ -42,39 +43,38 @@ namespace _160420046_160420082_UTS
             this.panelHeader = new System.Windows.Forms.Panel();
             this.labelSaldo = new System.Windows.Forms.Label();
             this.labelSaldoHeader = new System.Windows.Forms.Label();
+            this.pictureBoxSaldo = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelNama = new System.Windows.Forms.Label();
             this.labelwelcome = new System.Windows.Forms.Label();
             this.buttonLogout = new System.Windows.Forms.Button();
             this.panelLogo = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonRekapPendapatan = new System.Windows.Forms.Button();
             this.timerLoading = new System.Windows.Forms.Timer(this.components);
             this.panelLeftNavbar = new System.Windows.Forms.Panel();
             this.panelAdmin = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.buttonAccPenjual = new System.Windows.Forms.Button();
             this.buttonRekapPenjualan = new System.Windows.Forms.Button();
             this.panelShowData = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonPengaturanCabang = new System.Windows.Forms.Button();
             this.buttonPengaturan = new System.Windows.Forms.Button();
             this.panelPasien = new System.Windows.Forms.Panel();
-            this.buttonEditProfile = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.pictureBoxSaldo = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelDoctor.SuspendLayout();
             this.panelLeft.SuspendLayout();
             this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLeftNavbar.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panelShowData.SuspendLayout();
             this.panelPasien.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonChatKonsumen
@@ -120,6 +120,21 @@ namespace _160420046_160420082_UTS
             this.panelDoctor.Size = new System.Drawing.Size(233, 247);
             this.panelDoctor.TabIndex = 2;
             this.panelDoctor.Visible = false;
+            // 
+            // buttonEditProfile
+            // 
+            this.buttonEditProfile.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonEditProfile.FlatAppearance.BorderSize = 0;
+            this.buttonEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEditProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEditProfile.Location = new System.Drawing.Point(0, 180);
+            this.buttonEditProfile.Name = "buttonEditProfile";
+            this.buttonEditProfile.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.buttonEditProfile.Size = new System.Drawing.Size(233, 45);
+            this.buttonEditProfile.TabIndex = 19;
+            this.buttonEditProfile.Text = "EDIT PROFILE";
+            this.buttonEditProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEditProfile.UseVisualStyleBackColor = true;
             // 
             // buttonWithdraw
             // 
@@ -184,8 +199,8 @@ namespace _160420046_160420082_UTS
             // panelLeft
             // 
             this.panelLeft.BackColor = System.Drawing.Color.Transparent;
-            this.panelLeft.Controls.Add(this.panelActiveForm);
             this.panelLeft.Controls.Add(this.panelHeader);
+            this.panelLeft.Controls.Add(this.panelActiveForm);
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLeft.Location = new System.Drawing.Point(250, 0);
             this.panelLeft.Name = "panelLeft";
@@ -197,11 +212,10 @@ namespace _160420046_160420082_UTS
             // 
             this.panelActiveForm.BackColor = System.Drawing.Color.White;
             this.panelActiveForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelActiveForm.Location = new System.Drawing.Point(0, 87);
+            this.panelActiveForm.Location = new System.Drawing.Point(0, 0);
             this.panelActiveForm.Name = "panelActiveForm";
-            this.panelActiveForm.Size = new System.Drawing.Size(934, 674);
+            this.panelActiveForm.Size = new System.Drawing.Size(934, 761);
             this.panelActiveForm.TabIndex = 1;
-            this.panelActiveForm.Visible = false;
             // 
             // panelHeader
             // 
@@ -219,7 +233,6 @@ namespace _160420046_160420082_UTS
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(934, 87);
             this.panelHeader.TabIndex = 0;
-            this.panelHeader.Visible = false;
             // 
             // labelSaldo
             // 
@@ -249,6 +262,25 @@ namespace _160420046_160420082_UTS
             this.labelSaldoHeader.TabIndex = 6;
             this.labelSaldoHeader.Text = "Saldo";
             this.labelSaldoHeader.Visible = false;
+            // 
+            // pictureBoxSaldo
+            // 
+            this.pictureBoxSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSaldo.Location = new System.Drawing.Point(532, 15);
+            this.pictureBoxSaldo.Name = "pictureBoxSaldo";
+            this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
+            this.pictureBoxSaldo.TabIndex = 3;
+            this.pictureBoxSaldo.TabStop = false;
+            this.pictureBoxSaldo.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Location = new System.Drawing.Point(-546, 18);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(57, 60);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
             // 
             // labelNama
             // 
@@ -298,6 +330,16 @@ namespace _160420046_160420082_UTS
             this.panelLogo.Size = new System.Drawing.Size(233, 184);
             this.panelLogo.TabIndex = 0;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_160420046_160420082_UTS.Properties.Resources.Logo_White_2;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // buttonRekapPendapatan
             // 
             this.buttonRekapPendapatan.Dock = System.Windows.Forms.DockStyle.Top;
@@ -325,15 +367,14 @@ namespace _160420046_160420082_UTS
             this.panelLeftNavbar.Controls.Add(this.panelAdmin);
             this.panelLeftNavbar.Controls.Add(this.panelPasien);
             this.panelLeftNavbar.Controls.Add(this.panelDoctor);
-            this.panelLeftNavbar.Controls.Add(this.buttonLogout);
             this.panelLeftNavbar.Controls.Add(this.panelLogo);
+            this.panelLeftNavbar.Controls.Add(this.buttonLogout);
             this.panelLeftNavbar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeftNavbar.ForeColor = System.Drawing.Color.White;
             this.panelLeftNavbar.Location = new System.Drawing.Point(0, 0);
             this.panelLeftNavbar.Name = "panelLeftNavbar";
             this.panelLeftNavbar.Size = new System.Drawing.Size(250, 761);
             this.panelLeftNavbar.TabIndex = 2;
-            this.panelLeftNavbar.Visible = false;
             // 
             // panelAdmin
             // 
@@ -348,6 +389,21 @@ namespace _160420046_160420082_UTS
             this.panelAdmin.Size = new System.Drawing.Size(233, 363);
             this.panelAdmin.TabIndex = 3;
             this.panelAdmin.Visible = false;
+            // 
+            // button4
+            // 
+            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(0, 295);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.button4.Size = new System.Drawing.Size(233, 45);
+            this.button4.TabIndex = 20;
+            this.button4.Text = "EDIT PROFILE";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // buttonAccPenjual
             // 
@@ -390,6 +446,38 @@ namespace _160420046_160420082_UTS
             this.panelShowData.Name = "panelShowData";
             this.panelShowData.Size = new System.Drawing.Size(233, 160);
             this.panelShowData.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 90);
+            this.button2.Name = "button2";
+            this.button2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button2.Size = new System.Drawing.Size(233, 45);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "MEDICINE";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(0, 45);
+            this.button1.Name = "button1";
+            this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.button1.Size = new System.Drawing.Size(233, 45);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "PATIENT";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // buttonPengaturanCabang
             // 
@@ -435,53 +523,6 @@ namespace _160420046_160420082_UTS
             this.panelPasien.TabIndex = 1;
             this.panelPasien.Visible = false;
             // 
-            // buttonEditProfile
-            // 
-            this.buttonEditProfile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonEditProfile.FlatAppearance.BorderSize = 0;
-            this.buttonEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonEditProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEditProfile.Location = new System.Drawing.Point(0, 180);
-            this.buttonEditProfile.Name = "buttonEditProfile";
-            this.buttonEditProfile.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonEditProfile.Size = new System.Drawing.Size(233, 45);
-            this.buttonEditProfile.TabIndex = 19;
-            this.buttonEditProfile.Text = "EDIT PROFILE";
-            this.buttonEditProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEditProfile.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(0, 45);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button1.Size = new System.Drawing.Size(233, 45);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "PATIENT";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(0, 90);
-            this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.button2.Size = new System.Drawing.Size(233, 45);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "MEDICINE";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -497,71 +538,29 @@ namespace _160420046_160420082_UTS
             this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button3.UseVisualStyleBackColor = true;
             // 
-            // button4
-            // 
-            this.button4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(0, 295);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.button4.Size = new System.Drawing.Size(233, 45);
-            this.button4.TabIndex = 20;
-            this.button4.Text = "EDIT PROFILE";
-            this.button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // pictureBoxSaldo
-            // 
-            this.pictureBoxSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSaldo.Location = new System.Drawing.Point(532, 15);
-            this.pictureBoxSaldo.Name = "pictureBoxSaldo";
-            this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
-            this.pictureBoxSaldo.TabIndex = 3;
-            this.pictureBoxSaldo.TabStop = false;
-            this.pictureBoxSaldo.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Location = new System.Drawing.Point(-546, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 60);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::_160420046_160420082_UTS.Properties.Resources.Logo_White_2;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 59);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelLeftNavbar);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormMain";
             this.panelDoctor.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelLeftNavbar.ResumeLayout(false);
             this.panelAdmin.ResumeLayout(false);
             this.panelShowData.ResumeLayout(false);
             this.panelPasien.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
