@@ -123,7 +123,7 @@ namespace _160420046_160420082_UTS
             this.panelDoctor.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDoctor.Location = new System.Drawing.Point(0, 184);
             this.panelDoctor.Name = "panelDoctor";
-            this.panelDoctor.Size = new System.Drawing.Size(233, 235);
+            this.panelDoctor.Size = new System.Drawing.Size(233, 247);
             this.panelDoctor.TabIndex = 2;
             // 
             // buttonDoctorEditProfile
@@ -234,7 +234,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogout.FlatAppearance.BorderSize = 0;
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogout.Location = new System.Drawing.Point(0, 952);
+            this.buttonLogout.Location = new System.Drawing.Point(0, 1008);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLogout.Size = new System.Drawing.Size(233, 45);
@@ -299,9 +299,9 @@ namespace _160420046_160420082_UTS
             this.panelAdmin.Controls.Add(this.panelShowData);
             this.panelAdmin.Controls.Add(this.buttonAdminShowData);
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelAdmin.Location = new System.Drawing.Point(0, 609);
+            this.panelAdmin.Location = new System.Drawing.Point(0, 641);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(233, 343);
+            this.panelAdmin.Size = new System.Drawing.Size(233, 367);
             this.panelAdmin.TabIndex = 3;
             // 
             // buttonAdminEditProfile
@@ -438,9 +438,9 @@ namespace _160420046_160420082_UTS
             this.panelPasien.Controls.Add(this.ButtonPatientHistory);
             this.panelPasien.Controls.Add(this.ButtonPatientBook);
             this.panelPasien.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelPasien.Location = new System.Drawing.Point(0, 419);
+            this.panelPasien.Location = new System.Drawing.Point(0, 431);
             this.panelPasien.Name = "panelPasien";
-            this.panelPasien.Size = new System.Drawing.Size(233, 190);
+            this.panelPasien.Size = new System.Drawing.Size(233, 210);
             this.panelPasien.TabIndex = 1;
             // 
             // ButtonPatientEditProfile
