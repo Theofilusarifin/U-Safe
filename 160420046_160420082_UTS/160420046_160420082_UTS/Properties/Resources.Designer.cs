@@ -223,6 +223,16 @@ namespace _160420046_160420082_UTS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Navbar_atas {
+            get {
+                object obj = ResourceManager.GetObject("Navbar atas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Open_Eye {
             get {
                 object obj = ResourceManager.GetObject("Open Eye", resourceCulture);
@@ -236,6 +246,26 @@ namespace _160420046_160420082_UTS.Properties {
         internal static System.Drawing.Bitmap Patient {
             get {
                 object obj = ResourceManager.GetObject("Patient", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap saldo_panel {
+            get {
+                object obj = ResourceManager.GetObject("saldo panel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap User {
+            get {
+                object obj = ResourceManager.GetObject("User", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

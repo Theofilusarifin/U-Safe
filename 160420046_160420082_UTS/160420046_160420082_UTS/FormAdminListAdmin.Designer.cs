@@ -67,7 +67,7 @@ namespace _160420046_160420082_UTS
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView.GridColor = System.Drawing.Color.Coral;
-            this.dataGridView.Location = new System.Drawing.Point(334, 85);
+            this.dataGridView.Location = new System.Drawing.Point(316, 85);
             this.dataGridView.Name = "dataGridView";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -87,7 +87,7 @@ namespace _160420046_160420082_UTS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.label1.Location = new System.Drawing.Point(330, 36);
+            this.label1.Location = new System.Drawing.Point(312, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 22);
             this.label1.TabIndex = 53;
@@ -114,7 +114,7 @@ namespace _160420046_160420082_UTS
             this.buttonTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(334, 294);
+            this.buttonTambah.Location = new System.Drawing.Point(316, 294);
             this.buttonTambah.Name = "buttonTambah";
             this.buttonTambah.Size = new System.Drawing.Size(171, 39);
             this.buttonTambah.TabIndex = 51;
@@ -133,7 +133,7 @@ namespace _160420046_160420082_UTS
             this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonClose.ForeColor = System.Drawing.Color.White;
-            this.buttonClose.Location = new System.Drawing.Point(909, 294);
+            this.buttonClose.Location = new System.Drawing.Point(891, 294);
             this.buttonClose.Name = "buttonClose";
             this.buttonClose.Size = new System.Drawing.Size(128, 39);
             this.buttonClose.TabIndex = 52;

@@ -338,5 +338,24 @@
   <ItemGroup>
     <None Include="Resources\Doctor.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cryptography\Cryptography.csproj">
+      <Project>{0377e63c-1373-492f-8718-39867467f801}</Project>
+      <Name>Cryptography</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Library\Library.csproj">
+      <Project>{9a34c743-7481-45b9-9312-c3fff045115b}</Project>
+      <Name>Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Navbar atas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saldo panel.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

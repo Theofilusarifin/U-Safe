@@ -43,5 +43,16 @@ namespace _160420046_160420082_UTS
                 this.Close();
             }
         }
+
+        private void FormLoading_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Error, Pesan kesalahan : " + ex.Message, "Error");
+            }
+        }
     }
 }
