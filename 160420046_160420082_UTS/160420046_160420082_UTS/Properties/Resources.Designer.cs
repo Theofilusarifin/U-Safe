@@ -123,6 +123,36 @@ namespace _160420046_160420082_UTS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Form_Add_Check_Up {
+            get {
+                object obj = ResourceManager.GetObject("Form Add Check Up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Add_Medicine {
+            get {
+                object obj = ResourceManager.GetObject("Form Add Medicine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Book_Check_Up {
+            get {
+                object obj = ResourceManager.GetObject("Form Book Check Up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Form_Choose_Register {
             get {
                 object obj = ResourceManager.GetObject("Form Choose Register", resourceCulture);
@@ -166,6 +196,26 @@ namespace _160420046_160420082_UTS.Properties {
         internal static System.Drawing.Bitmap Form_Reegistration_User {
             get {
                 object obj = ResourceManager.GetObject("Form Reegistration User", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Top_Up {
+            get {
+                object obj = ResourceManager.GetObject("Form Top Up", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Form_Withdraw_Balance {
+            get {
+                object obj = ResourceManager.GetObject("Form Withdraw Balance", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

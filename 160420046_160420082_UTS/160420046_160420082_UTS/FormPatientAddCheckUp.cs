@@ -19,6 +19,13 @@ namespace _160420046_160420082_UTS
         public FormPatientAddCheckUp()
         {
             InitializeComponent();
+            dateTimePickerWaktuMulai.Format = DateTimePickerFormat.Time;
+            dateTimePickerWaktuMulai.ShowUpDown = true;
+
+            // To get the DateTime from both these controls use the following code
+            // DateTime myDate = datePortionDateTimePicker.Value.Date + timePortionDateTimePicker.Value.TimeOfDay;
+            //dateTimePickerTanggalMulai.Value = myDate.Date;
+            //dateTimePickerWaktuMulai.Value = myDate.TimeOfDay;
         }
 
         #region No Tick Constrols
@@ -33,5 +40,21 @@ namespace _160420046_160420082_UTS
             }
         }
         #endregion
+
+        #region Desain Button
+        private void buttonBook_MouseEnter(object sender, EventArgs e)
+        {
+            buttonBook.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonBook_MouseLeave(object sender, EventArgs e)
+        {
+            buttonBook.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
+
+        private void buttonBook_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

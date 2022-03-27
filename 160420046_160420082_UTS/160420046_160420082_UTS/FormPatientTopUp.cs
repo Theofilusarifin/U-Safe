@@ -33,5 +33,21 @@ namespace _160420046_160420082_UTS
             }
         }
         #endregion
+
+        #region Desain Button
+        private void buttonTopUp_MouseEnter(object sender, EventArgs e)
+        {
+            buttonTopUp.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonTopUp_MouseLeave(object sender, EventArgs e)
+        {
+            buttonTopUp.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
+
+        private void buttonTopUp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

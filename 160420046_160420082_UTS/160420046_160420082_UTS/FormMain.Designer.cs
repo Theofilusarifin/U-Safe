@@ -108,7 +108,7 @@ namespace _160420046_160420082_UTS
             this.ButtonPatientBook.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.ButtonPatientBook.Size = new System.Drawing.Size(233, 45);
             this.ButtonPatientBook.TabIndex = 0;
-            this.ButtonPatientBook.Text = "BOOK CHECK UP";
+            this.ButtonPatientBook.Text = "CHECK UP";
             this.ButtonPatientBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.ButtonPatientBook.UseVisualStyleBackColor = true;
             this.ButtonPatientBook.Click += new System.EventHandler(this.ButtonPatientBook_Click);
@@ -201,7 +201,7 @@ namespace _160420046_160420082_UTS
             this.buttonDoctorCheckUp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonDoctorCheckUp.Size = new System.Drawing.Size(233, 45);
             this.buttonDoctorCheckUp.TabIndex = 13;
-            this.buttonDoctorCheckUp.Text = "CHECK-UP SCHEDULE";
+            this.buttonDoctorCheckUp.Text = "CHECK-UP";
             this.buttonDoctorCheckUp.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonDoctorCheckUp.UseVisualStyleBackColor = true;
             this.buttonDoctorCheckUp.Click += new System.EventHandler(this.buttonDoctorCheckUp_Click);

@@ -33,5 +33,21 @@ namespace _160420046_160420082_UTS
             }
         }
         #endregion
+
+        #region Desain Button
+        private void buttonWithdraw_MouseEnter(object sender, EventArgs e)
+        {
+            buttonWithdraw.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonWithdraw_MouseLeave(object sender, EventArgs e)
+        {
+            buttonWithdraw.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
+
+        private void buttonWithdraw_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

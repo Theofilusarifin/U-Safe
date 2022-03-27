@@ -16,7 +16,7 @@ namespace _160420046_160420082_UTS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMain());
+            Application.Run(new FormPatientAddCheckUp());
         }
     }
 }

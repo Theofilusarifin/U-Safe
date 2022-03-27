@@ -121,6 +121,9 @@
   <data name="Navbar atas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Navbar atas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Form Book Check Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Book Check Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Button_Register" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Register.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,17 +142,23 @@
   <data name="Doctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Doctor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="saldo panel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\saldo panel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Form Reegistration Admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Reegistration Admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Form Withdraw Balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Withdraw Balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Logo Loading1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo Loading1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Button_Leave" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Leave.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo Loading1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo Loading1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo Loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo Loading.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,14 +166,20 @@
   <data name="Closed Eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Closed Eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Form Reegistration Admin" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Form Reegistration Admin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Patient" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Patient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Logo White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Form Reegistration User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Reegistration User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Patient" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Patient.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Form Add Check Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Add Check Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Form Add Medicine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Add Medicine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Login Form" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login Form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,7 +193,7 @@
   <data name="Form Reegistration PatientDoctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Reegistration PatientDoctor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="saldo panel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\saldo panel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Form Top Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Top Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

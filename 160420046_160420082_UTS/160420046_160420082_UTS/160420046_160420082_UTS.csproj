@@ -106,12 +106,6 @@
     <Compile Include="FormDoctorHistory.Designer.cs">
       <DependentUpon>FormDoctorHistory.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPatientBookNewChekUp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPatientBookNewChekUp.Designer.cs">
-      <DependentUpon>FormPatientBookNewChekUp.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPatientHistory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +198,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormAdminAddMedicine.resx">
+      <DependentUpon>FormAdminAddMedicine.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormAdminEditProfile.resx">
       <DependentUpon>FormAdminEditProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -239,6 +236,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormDoctorWithdrawBalance.resx">
       <DependentUpon>FormDoctorWithdrawBalance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientAddCheckUp.resx">
+      <DependentUpon>FormPatientAddCheckUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPatientBookCheckUp.resx">
       <DependentUpon>FormPatientBookCheckUp.cs</DependentUpon>
@@ -368,6 +368,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\saldo panel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Add Medicine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Withdraw Balance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Book Check Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Add Check Up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Top Up.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
