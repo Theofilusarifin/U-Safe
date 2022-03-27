@@ -45,6 +45,7 @@ namespace _160420046_160420082_UTS
             this.pictureBoxPatient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPatient.TabIndex = 0;
             this.pictureBoxPatient.TabStop = false;
+            this.pictureBoxPatient.Click += new System.EventHandler(this.pictureBoxPatient_Click);
             // 
             // pictureBoxDoctor
             // 
@@ -56,6 +57,7 @@ namespace _160420046_160420082_UTS
             this.pictureBoxDoctor.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxDoctor.TabIndex = 1;
             this.pictureBoxDoctor.TabStop = false;
+            this.pictureBoxDoctor.Click += new System.EventHandler(this.pictureBoxDoctor_Click);
             // 
             // FormChooseRegister
             // 

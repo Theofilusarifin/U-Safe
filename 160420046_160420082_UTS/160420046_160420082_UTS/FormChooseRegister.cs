@@ -33,5 +33,15 @@ namespace _160420046_160420082_UTS
             }
         }
         #endregion
+
+        private void pictureBoxPatient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBoxDoctor_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
