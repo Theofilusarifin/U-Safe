@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormAdminAddMedicine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminAddMedicine.Designer.cs">
+      <DependentUpon>FormAdminAddMedicine.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAdminListDoctor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,12 @@
     </Compile>
     <Compile Include="FormLoading.Designer.cs">
       <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPatientAddCheckUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPatientAddCheckUp.Designer.cs">
+      <DependentUpon>FormPatientAddCheckUp.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPatientBookCheckUp.cs">
       <SubType>Form</SubType>

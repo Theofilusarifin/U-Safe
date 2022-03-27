@@ -48,6 +48,7 @@ namespace _160420046_160420082_UTS
             this.pictureBoxMata.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxMata.TabIndex = 13;
             this.pictureBoxMata.TabStop = false;
+            this.pictureBoxMata.Click += new System.EventHandler(this.pictureBoxMata_Click);
             // 
             // labelRegistrasi
             // 
@@ -62,6 +63,7 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.Size = new System.Drawing.Size(152, 18);
             this.labelRegistrasi.TabIndex = 12;
             this.labelRegistrasi.Text = "&Lakukan Registrasi";
+            this.labelRegistrasi.Click += new System.EventHandler(this.labelRegistrasi_Click);
             // 
             // textBoxPassword
             // 
@@ -101,6 +103,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.TabIndex = 11;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             this.buttonLogin.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
             this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
             // 

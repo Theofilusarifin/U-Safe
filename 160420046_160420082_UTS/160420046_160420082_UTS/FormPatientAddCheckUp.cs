@@ -14,9 +14,9 @@ using Cryptography;
 
 namespace _160420046_160420082_UTS
 {
-    public partial class FormPatientTopUp : Form
+    public partial class FormPatientAddCheckUp : Form
     {
-        public FormPatientTopUp()
+        public FormPatientAddCheckUp()
         {
             InitializeComponent();
         }

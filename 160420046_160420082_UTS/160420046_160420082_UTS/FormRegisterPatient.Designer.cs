@@ -114,6 +114,7 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.Size = new System.Drawing.Size(165, 18);
             this.labelRegistrasi.TabIndex = 18;
             this.labelRegistrasi.Text = "&Silahkan Login Disini";
+            this.labelRegistrasi.Click += new System.EventHandler(this.labelRegistrasi_Click);
             // 
             // buttonLogin
             // 
@@ -132,6 +133,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.TabIndex = 17;
             this.buttonLogin.Text = "Register";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             this.buttonLogin.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
             this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
             // 

@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Tambahkan using reference
+using Library;
+using Cryptography;
+
 namespace _160420046_160420082_UTS
 {
     public partial class FormRegisterPatient : Form
@@ -16,6 +20,19 @@ namespace _160420046_160420082_UTS
         {
             InitializeComponent();
         }
+
+        #region No Tick Constrols
+        //Optimized Controls(No Tick)
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;
+                return cp;
+            }
+        }
+        #endregion
 
         #region Desain Button
         private void buttonLogin_MouseEnter(object sender, EventArgs e)
@@ -27,5 +44,18 @@ namespace _160420046_160420082_UTS
             buttonLogin.BackgroundImage = Properties.Resources.Button_Leave;
         }
         #endregion
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void labelRegistrasi_Click(object sender, EventArgs e)
+        {
+            FormLogin frm = new FormLogin(); //Create Object
+            frm.Owner = this.Owner;
+            frm.Show();
+            this.Owner.Hide();
+            this.Hide();
+        }
     }
 }

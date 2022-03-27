@@ -55,6 +55,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.TabIndex = 25;
             this.buttonLogin.Text = "Register";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             this.buttonLogin.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
             this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
             // 
@@ -138,7 +139,6 @@ namespace _160420046_160420082_UTS
             this.Name = "FormRegisterAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegisterAdmin";
-            this.Load += new System.EventHandler(this.FormRegisterAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

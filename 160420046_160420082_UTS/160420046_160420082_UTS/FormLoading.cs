@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+// Tambahkan using reference
+using Library;
+using Cryptography;
+
 namespace _160420046_160420082_UTS
 {
     public partial class FormLoading : Form
