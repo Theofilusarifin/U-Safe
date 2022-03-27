@@ -55,6 +55,8 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.TabIndex = 25;
             this.buttonLogin.Text = "Register";
             this.buttonLogin.UseVisualStyleBackColor = false;
+            this.buttonLogin.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
+            this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
             // 
             // textBoxNomorTelepon
             // 

@@ -21,5 +21,16 @@ namespace _160420046_160420082_UTS
         {
 
         }
+
+        #region Desain Button
+        private void buttonLogin_MouseEnter(object sender, EventArgs e)
+        {
+            buttonLogin.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonLogin_MouseLeave(object sender, EventArgs e)
+        {
+            buttonLogin.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
     }
 }

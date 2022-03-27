@@ -16,5 +16,24 @@ namespace _160420046_160420082_UTS
         {
             InitializeComponent();
         }
+
+        #region Desain Button
+        private void buttonClose_MouseEnter(object sender, EventArgs e)
+        {
+            buttonClose.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonClose_MouseLeave(object sender, EventArgs e)
+        {
+            buttonClose.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        private void buttonTambah_MouseEnter(object sender, EventArgs e)
+        {
+            buttonTambah.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonTambah_MouseLeave(object sender, EventArgs e)
+        {
+            buttonTambah.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
     }
 }

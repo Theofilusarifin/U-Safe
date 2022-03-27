@@ -29,14 +29,14 @@ namespace _160420046_160420082_UTS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonTambah = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
             this.buttonClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -49,37 +49,37 @@ namespace _160420046_160420082_UTS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dataGridView.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Montserrat", 10F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Montserrat", 10F);
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridView.GridColor = System.Drawing.Color.Coral;
             this.dataGridView.Location = new System.Drawing.Point(316, 85);
             this.dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Montserrat", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Montserrat", 12F);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dataGridView.RowHeadersWidth = 51;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Montserrat", 10F);
-            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Montserrat", 10F);
+            this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridView.Size = new System.Drawing.Size(703, 173);
             this.dataGridView.TabIndex = 55;
             // 
@@ -102,24 +102,26 @@ namespace _160420046_160420082_UTS
             this.pictureBox1.TabIndex = 54;
             this.pictureBox1.TabStop = false;
             // 
-            // buttonTambah
+            // buttonRegister
             // 
-            this.buttonTambah.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.buttonTambah.AutoSize = true;
-            this.buttonTambah.BackColor = System.Drawing.Color.Transparent;
-            this.buttonTambah.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Leave;
-            this.buttonTambah.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonTambah.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonTambah.FlatAppearance.BorderSize = 0;
-            this.buttonTambah.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTambah.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
-            this.buttonTambah.ForeColor = System.Drawing.Color.White;
-            this.buttonTambah.Location = new System.Drawing.Point(316, 294);
-            this.buttonTambah.Name = "buttonTambah";
-            this.buttonTambah.Size = new System.Drawing.Size(171, 39);
-            this.buttonTambah.TabIndex = 51;
-            this.buttonTambah.Text = "Register New Admin";
-            this.buttonTambah.UseVisualStyleBackColor = false;
+            this.buttonRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.buttonRegister.AutoSize = true;
+            this.buttonRegister.BackColor = System.Drawing.Color.Transparent;
+            this.buttonRegister.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Leave;
+            this.buttonRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegister.FlatAppearance.BorderSize = 0;
+            this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.buttonRegister.ForeColor = System.Drawing.Color.White;
+            this.buttonRegister.Location = new System.Drawing.Point(316, 294);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(171, 39);
+            this.buttonRegister.TabIndex = 51;
+            this.buttonRegister.Text = "Register New Admin";
+            this.buttonRegister.UseVisualStyleBackColor = false;
+            this.buttonRegister.MouseEnter += new System.EventHandler(this.buttonRegister_MouseEnter);
+            this.buttonRegister.MouseLeave += new System.EventHandler(this.buttonRegister_MouseLeave);
             // 
             // buttonClose
             // 
@@ -139,6 +141,8 @@ namespace _160420046_160420082_UTS
             this.buttonClose.TabIndex = 52;
             this.buttonClose.Text = "Close";
             this.buttonClose.UseVisualStyleBackColor = false;
+            this.buttonClose.MouseEnter += new System.EventHandler(this.buttonClose_MouseEnter);
+            this.buttonClose.MouseLeave += new System.EventHandler(this.buttonClose_MouseLeave);
             // 
             // FormAdminListAdmin
             // 
@@ -149,7 +153,7 @@ namespace _160420046_160420082_UTS
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.buttonTambah);
+            this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.buttonClose);
             this.Name = "FormAdminListAdmin";
             this.Text = "FormListUser";
@@ -165,7 +169,7 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button buttonTambah;
+        private System.Windows.Forms.Button buttonRegister;
         private System.Windows.Forms.Button buttonClose;
     }
 }
