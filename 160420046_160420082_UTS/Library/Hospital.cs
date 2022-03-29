@@ -17,16 +17,14 @@ namespace Library
         private int id;
         private string name;
         private string address;
-        List<Hospital> listHospital;
         #endregion
 
         #region Constructors
-        public Hospital(int id, string name, string address, List<Hospital> listHospital)
+        public Hospital(int id, string name, string address)
         {
             Id = id;
             Name = name;
             Address = address;
-            ListHospital = listHospital;
         }
         #endregion
 
@@ -45,11 +43,6 @@ namespace Library
         {
             get => address; 
             set => address = value; 
-        }
-        internal List<Hospital> ListHospital 
-        {
-            get => listHospital; 
-            set => listHospital = value; 
         }
         #endregion
 

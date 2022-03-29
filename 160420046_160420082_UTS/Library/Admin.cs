@@ -144,6 +144,7 @@ namespace Library
             string sql = "update admins set username = '" + encName + "', email = '" + encMail + "', " +
                          "phone_number = '" + a.Phone_number + "', password = '" + encPass + "', " +
                          "profile_photo = @img, KTPnum = '" + a.KTPNum + "' where id = " + a.Id;
+
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
             else return true;
