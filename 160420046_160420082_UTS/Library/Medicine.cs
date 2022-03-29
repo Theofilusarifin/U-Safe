@@ -53,14 +53,46 @@ namespace Library
             get => stock;
             set => stock = value;
         }
-        internal List<Checkup_Medicine> Checkup_medicine
+        public List<Checkup_Medicine> Checkup_medicine
         {
             get => checkup_medicine;
-            set => checkup_medicine = value;
+            private set => checkup_medicine = value;
         }
         #endregion
 
         #region Methods
+
+        public static Boolean TambahData(Medicine m)
+        {
+            //string yang menampung sql query insert into
+            string sql = "insert into medicines (name, price, stock) " +
+                         "values ('" + m.Name + "', " + m.Price + ", " + m.Stock + ")";
+
+            //menjalankan perintah sql
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            if (jumlahDitambah == 0) return false;
+            else return true;
+        }
+
+        public static Boolean UbahData(Medicine m)
+        {
+            // Querry Insert
+            string sql = "update medicines set name = " + m.Name + ", price = " + m.Price + ", stock = " + m.Stock + " where id = " + m.Id;
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            if (jumlahDitambah == 0) return false;
+            else return true;
+        }
+
+        public static Boolean HapusData(int id)
+        {
+            string sql = "delete from medicines where id = " + id;
+
+            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
+            //Dicek apakah ada data yang berubah atau tidak
+            if (jumlahDihapus == 0) return false;
+            else return true;
+        }
+
         #endregion
     }
 }

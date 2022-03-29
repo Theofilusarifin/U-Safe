@@ -85,7 +85,7 @@ namespace Library
         internal List<Checkup_Medicine> ListCheckupMedicine
         {
             get => listCheckupMedicine; 
-            set => listCheckupMedicine = value; 
+            private set => listCheckupMedicine = value; 
         }
         #endregion
 
@@ -115,7 +115,7 @@ namespace Library
             else return true;
         }
 
-        /*public static List<Checkup> BacaData(string kriteria, string nilaiKriteria)
+        public static List<Checkup> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "select * from checkups";
             //apabila kriteria tidak kosong
@@ -128,19 +128,30 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                Customer c = new Customer()
+                Customer c = new Customer(hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), hasil.GetString(11), hasil.GetString(12), hasil.GetInt32(13), , hasil.GetString(15);
 
-                Doctor d = new Doctor()
+                Doctor d = new Doctor(hasil.GetInt32(16), hasil.GetString(17), hasil.GetString(18), hasil.GetString(19), hasil.GetString(20), , hasil.GetString(22), hasil.GetInt32(23), hasil.GetString(24), hasil.GetString(25), h);
 
-                Checkup adm = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
+                Checkup chk = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
 
-                listCheckup.Add(adm);
+                listCheckup.Add(chk);
             }
             //hasil.Dispose();
             //hasil.Close();
 
             return listCheckup;
-        }*/
+        }
+
+        public static Boolean HapusData(int id)
+        {
+            string sql = "delete from checkups where id = " + id;
+
+            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
+            //Dicek apakah ada data yang berubah atau tidak
+            if (jumlahDihapus == 0) return false;
+            else return true;
+        }
+
         #endregion
     }
 }

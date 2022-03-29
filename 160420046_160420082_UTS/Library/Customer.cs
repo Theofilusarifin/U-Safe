@@ -189,6 +189,16 @@ namespace Library
             return listCustomer;
         }
 
+        public static Boolean HapusData(int id)
+        {
+            string sql = "delete from customers where id = " + id;
+
+            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
+            //Dicek apakah ada data yang berubah atau tidak
+            if (jumlahDihapus == 0) return false;
+            else return true;
+        }
+
         public static Image ConvertByte(byte[] img)
         {
             MemoryStream stream = new MemoryStream(img);
