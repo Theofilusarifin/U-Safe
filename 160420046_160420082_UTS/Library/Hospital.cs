@@ -8,6 +8,7 @@ using Cryptography;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace Library
 {
@@ -75,6 +76,28 @@ namespace Library
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
             else return true;
+        }
+
+        public static List<Hospital> BacaData(string kriteria, string nilaiKriteria)
+        {
+            string sql = "select * from hospitals";
+            //apabila kriteria tidak kosong
+            if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<Hospital> listHospital = new List<Hospital>();
+
+            //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
+            while (hasil.Read() == true)
+            {
+                Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(3));
+                listHospital.Add(hos);
+            }
+            //hasil.Dispose();
+            //hasil.Close();
+
+            return listHospital;
         }
 
         public static Boolean HapusData(int id)

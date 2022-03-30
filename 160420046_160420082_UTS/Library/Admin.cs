@@ -163,7 +163,7 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(3).ToString());
+                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(4).ToString());
                 byte[] salt = new byte[16];
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");

@@ -8,6 +8,7 @@ using Cryptography;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
+using MySql.Data.MySqlClient;
 
 namespace Library
 {
@@ -22,13 +23,13 @@ namespace Library
         #endregion
 
         #region Constructors
-        public Medicine(int id, string name, int price, int stock, List<Checkup_Medicine> checkup_medicine)
+        public Medicine(int id, string name, int price, int stock)
         {
             Id = id;
             Name = name;
             Price = price;
             Stock = stock;
-            Checkup_medicine = checkup_medicine;
+            Checkup_medicine = new List<Checkup_Medicine>();
         }
         #endregion
 
@@ -81,6 +82,29 @@ namespace Library
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
             else return true;
+        }
+
+        public static List<Medicine> BacaData(string kriteria, string nilaiKriteria)
+        {
+            string sql = "select * from medicines";
+            //apabila kriteria tidak kosong
+            if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
+
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<Medicine> listMedicine = new List<Medicine>();
+
+            //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
+            while (hasil.Read() == true)
+            {
+                Medicine med = new Medicine(hasil.GetInt32(0), hasil.GetString(1), hasil.GetInt32(2), hasil.GetInt32(3));
+
+                listMedicine.Add(med);
+            }
+            //hasil.Dispose();
+            //hasil.Close();
+
+            return listMedicine;
         }
 
         public static Boolean HapusData(int id)

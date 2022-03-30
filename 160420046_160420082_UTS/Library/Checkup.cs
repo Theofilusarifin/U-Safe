@@ -117,7 +117,10 @@ namespace Library
 
         public static List<Checkup> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "select * from checkups";
+            string sql = "select * from checkups ch " +
+                         "inner join customers cu on ch.customer_id=cu.id " +
+                         "inner join doctors d on ch.doctor_id=d.id " +
+                         "inner join hospitals h on d.hospital_id=h.id";
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
@@ -128,9 +131,35 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                Customer c = new Customer(hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), hasil.GetString(11), hasil.GetString(12), hasil.GetInt32(13), , hasil.GetString(15);
+                #region Decrypt
+                // Decrypt customer
+                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetString(12));
+                byte[] cusSalt = new byte[16];
+                Array.Copy(cusHashedBytes, 0, cusSalt, 0, 16);
+                string cusSaltString = Convert.ToBase64String(cusSalt).Replace("=", "");
 
-                Doctor d = new Doctor(hasil.GetInt32(16), hasil.GetString(17), hasil.GetString(18), hasil.GetString(19), hasil.GetString(20), , hasil.GetString(22), hasil.GetInt32(23), hasil.GetString(24), hasil.GetString(25), h);
+                string cusPlainName = HashAes.Decrypt(cusSaltString, hasil.GetString(9));
+                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetString(10));
+
+                byte[] cusImg = ((byte[])hasil.GetValue(14));
+
+                // Decrypt doctor
+                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetString(20));
+                byte[] docSalt = new byte[16];
+                Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
+                string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
+
+                string docPlainName = HashAes.Decrypt(docSaltString, hasil.GetString(17));
+                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetString(18));
+
+                byte[] docImg = ((byte[])hasil.GetValue(21));
+                #endregion Decrypt
+
+                Hospital h = new Hospital(hasil.GetInt32(27), hasil.GetString(28), hasil.GetString(29));
+
+                Doctor d = new Doctor(hasil.GetInt32(16), docPlainName, docPlainMail, hasil.GetString(19), hasil.GetString(20), docImg, hasil.GetString(22), hasil.GetInt32(23), hasil.GetString(24), hasil.GetString(25), h);
+
+                Customer c = new Customer(hasil.GetInt32(8), cusPlainName, cusPlainMail, hasil.GetString(11), hasil.GetString(12), hasil.GetInt32(13), cusImg, hasil.GetString(15));
 
                 Checkup chk = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
 
