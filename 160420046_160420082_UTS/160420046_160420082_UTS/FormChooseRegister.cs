@@ -43,5 +43,10 @@ namespace _160420046_160420082_UTS
         {
 
         }
+
+        private void pictureBoxDoctorClick_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
