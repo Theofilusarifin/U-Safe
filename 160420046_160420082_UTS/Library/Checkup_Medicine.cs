@@ -11,7 +11,7 @@ using System.IO;
 
 namespace Library
 {
-    class Checkup_Medicine
+    public class Checkup_Medicine
     {
         #region Fields
         private Checkup checkup;

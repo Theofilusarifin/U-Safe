@@ -13,7 +13,7 @@ using MySql.Data.MySqlClient;
 
 namespace Library
 {
-    class Admin
+    public class Admin
     {
         #region Fields
         private int id;

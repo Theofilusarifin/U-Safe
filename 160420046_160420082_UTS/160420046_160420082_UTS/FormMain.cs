@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Imaging;
 
 // Tambahkan using reference
 using Library;
@@ -26,6 +28,9 @@ namespace _160420046_160420082_UTS
         public static Koneksi koneksi = null;
         public static string role;
 
+        public static Admin active_admin;
+        public static Doctor active_doctor;
+        public static Customer active_rider;
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)
@@ -36,6 +41,54 @@ namespace _160420046_160420082_UTS
                 CreateParams cp = base.CreateParams;
                 cp.ExStyle |= 0x02000000;
                 return cp;
+            }
+        }
+        #endregion
+
+        #region Method Public
+        public static void EditPhoto(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pb.Image = Image.FromFile(dialog.FileName);
+            }
+        }
+
+        public static Image ConvertByte(byte[] img)
+        {
+            MemoryStream stream = new MemoryStream(img);
+            Image result = Image.FromStream(stream);
+
+            return result;
+        }
+
+        public static byte[] ConvertImage(Image image)
+        {
+            MemoryStream stream = new MemoryStream();
+            image.Save(stream, image.RawFormat);
+            byte[] img = stream.ToArray();
+
+            return img;
+        }
+
+        public static void NumberCheck(object sender, KeyPressEventArgs e)
+        {
+            if ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        public static void NumConverter(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if (tb.Text != "")
+            {
+                tb.Text = string.Format(System.Globalization.CultureInfo.GetCultureInfo("id-ID"), "{0:#,###}", double.Parse(tb.Text));
+                tb.SelectionStart = tb.TextLength;
             }
         }
         #endregion
