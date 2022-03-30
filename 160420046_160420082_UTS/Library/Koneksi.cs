@@ -95,6 +95,38 @@ namespace Library
             return hasil;
         }
 
+        public static void JalankanPerintahDMLFoto(string pSql, byte[] img)
+        {
+            Koneksi koneksi = new Koneksi();
+            koneksi.Connect(); //bisa di skip karena di cons sudah connect
+
+            //buat mysqlcommand
+            MySqlCommand c = new MySqlCommand(pSql, koneksi.KoneksiDB);
+            c.Parameters.Add("@img", MySqlDbType.LongBlob);
+
+            c.Parameters["@img"].Value = img;
+            //gunakan ExecuteNonQuery untuk menjalankan perintah INSERT/UPDATE/DELETE
+            c.ExecuteNonQuery();
+
+            koneksi.KoneksiDB.Close();
+        }
+
+        public static void JalankanPerintahDMLFotoCreateUser(string pSql, byte[] img)
+        {
+            Koneksi koneksi = new Koneksi("localhost", "prunn", "root", "mysql");
+            koneksi.Connect(); //bisa di skip karena di cons sudah connect
+
+            //buat mysqlcommand
+            MySqlCommand c = new MySqlCommand(pSql, koneksi.KoneksiDB);
+            c.Parameters.Add("@img", MySqlDbType.LongBlob);
+
+            c.Parameters["@img"].Value = img;
+            //gunakan ExecuteNonQuery untuk menjalankan perintah INSERT/UPDATE/DELETE
+            c.ExecuteNonQuery();
+
+            koneksi.KoneksiDB.Close();
+        }
+
         #endregion Methods
     }
 }
