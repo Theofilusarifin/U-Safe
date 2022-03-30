@@ -34,6 +34,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
+            this.checkBoxDoctor = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMata)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelRegistrasi.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelRegistrasi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(227)))), ((int)(((byte)(65)))), ((int)(((byte)(36)))));
-            this.labelRegistrasi.Location = new System.Drawing.Point(243, 524);
+            this.labelRegistrasi.Location = new System.Drawing.Point(243, 555);
             this.labelRegistrasi.Name = "labelRegistrasi";
             this.labelRegistrasi.Size = new System.Drawing.Size(152, 18);
             this.labelRegistrasi.TabIndex = 12;
@@ -97,7 +98,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(37, 459);
+            this.buttonLogin.Location = new System.Drawing.Point(37, 490);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(379, 44);
             this.buttonLogin.TabIndex = 11;
@@ -107,13 +108,26 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
             this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
             // 
+            // checkBoxDoctor
+            // 
+            this.checkBoxDoctor.AutoSize = true;
+            this.checkBoxDoctor.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxDoctor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxDoctor.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDoctor.Location = new System.Drawing.Point(41, 448);
+            this.checkBoxDoctor.Name = "checkBoxDoctor";
+            this.checkBoxDoctor.Size = new System.Drawing.Size(15, 14);
+            this.checkBoxDoctor.TabIndex = 14;
+            this.checkBoxDoctor.UseVisualStyleBackColor = false;
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Login_Form;
+            this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Login_Form1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(452, 599);
+            this.ClientSize = new System.Drawing.Size(452, 630);
+            this.Controls.Add(this.checkBoxDoctor);
             this.Controls.Add(this.pictureBoxMata);
             this.Controls.Add(this.labelRegistrasi);
             this.Controls.Add(this.textBoxPassword);
@@ -138,6 +152,7 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.CheckBox checkBoxDoctor;
     }
 }
 

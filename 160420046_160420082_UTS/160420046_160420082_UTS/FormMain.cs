@@ -30,7 +30,7 @@ namespace _160420046_160420082_UTS
 
         public static Admin active_admin;
         public static Doctor active_doctor;
-        public static Customer active_rider;
+        public static Customer active_patient;
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)

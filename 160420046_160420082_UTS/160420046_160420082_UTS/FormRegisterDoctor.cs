@@ -37,25 +37,58 @@ namespace _160420046_160420082_UTS
         #region Desain Button
         private void buttonLogin_MouseEnter(object sender, EventArgs e)
         {
-            buttonLogin.BackgroundImage = Properties.Resources.Button_Hover;
+            buttonRegister.BackgroundImage = Properties.Resources.Button_Hover;
         }
         private void buttonLogin_MouseLeave(object sender, EventArgs e)
         {
-            buttonLogin.BackgroundImage = Properties.Resources.Button_Leave;
+            buttonRegister.BackgroundImage = Properties.Resources.Button_Leave;
         }
         #endregion
 
-        private void buttonLogin_Click(object sender, EventArgs e)
+        private void buttonRegister_Click(object sender, EventArgs e)
         {
+            try
+            {
+                // Tidak ada data yang kosong
+                if (textBoxUsername.Text != "" && textBoxEmail.Text != "" && textBoxNomorTelepon.Text != "" && textBoxPassword.Text != "" && textBoxPasswordKonfirmasi.Text != "" && textBoxNomorKTP.Text != "")
+                {
+                    if (textBoxPassword.Text == textBoxPasswordKonfirmasi.Text) // Password dan Password konfimasi sudah sama
+                    {
+                        // Foto admin
+                        PictureBox pb = pictureBoxFoto;
 
+                        Doctor d = new Doctor(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text);
+
+                        Doctor.TambahData(d);
+
+                        MessageBox.Show("Doctor data has been added!", "Update Info");
+
+                        this.Close();
+                    }
+                    else
+                    {
+                        throw new Exception("Password does not match!");
+                    }
+                }
+                else
+                {
+                    throw new Exception("Please fill out all input!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\nMessage : '" + ex.Message + "'");
+
+            }
         }
         private void labelRegistrasi_Click(object sender, EventArgs e)
         {
-            FormLogin frm = new FormLogin(); //Create Object
-            frm.Owner = this.Owner;
-            frm.Show();
-            this.Owner.Hide();
-            this.Hide();
+            this.Owner.Show();
+            this.Close();
+        }
+        private void FormRegisterDoctor_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Owner.Show();
         }
     }
 }

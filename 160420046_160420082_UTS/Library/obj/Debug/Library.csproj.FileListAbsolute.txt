@@ -17,3 +17,5 @@ C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Library\obj\D
 C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Library\obj\Debug\Library.csproj.CopyComplete
 C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Library\obj\Debug\Library.dll
 C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Library\obj\Debug\Library.pdb
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Library\bin\Debug\Cryptography.dll
+C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\Library\bin\Debug\Cryptography.pdb

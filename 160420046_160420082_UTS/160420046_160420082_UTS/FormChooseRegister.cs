@@ -36,17 +36,24 @@ namespace _160420046_160420082_UTS
 
         private void pictureBoxPatient_Click(object sender, EventArgs e)
         {
-
+            FormRegisterPatient frm = new FormRegisterPatient(); //Create Object
+            frm.Owner = this.Owner;
+            frm.Show();
+            this.Close();
         }
-
         private void pictureBoxDoctor_Click(object sender, EventArgs e)
         {
-
+            FormRegisterDoctor frm = new FormRegisterDoctor(); //Create Object
+            frm.Owner = this;
+            frm.Show();
+            this.Close();
         }
-
         private void pictureBoxDoctorClick_Click(object sender, EventArgs e)
         {
-
+            FormRegisterDoctor frm = new FormRegisterDoctor(); //Create Object
+            frm.Owner = this;
+            frm.Show();
+            this.Close();
         }
     }
 }

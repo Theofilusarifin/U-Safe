@@ -36,7 +36,9 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorKTP = new System.Windows.Forms.TextBox();
             this.textBoxNomorTelepon = new System.Windows.Forms.TextBox();
             this.labelRegistrasi = new System.Windows.Forms.Label();
-            this.buttonLogin = new System.Windows.Forms.Button();
+            this.buttonRegister = new System.Windows.Forms.Button();
+            this.pictureBoxFoto = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).BeginInit();
             this.SuspendLayout();
             // 
             // textBoxPassword
@@ -116,26 +118,34 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.Text = "&Silahkan Login Disini";
             this.labelRegistrasi.Click += new System.EventHandler(this.labelRegistrasi_Click);
             // 
-            // buttonLogin
+            // buttonRegister
             // 
-            this.buttonLogin.AutoSize = true;
-            this.buttonLogin.BackColor = System.Drawing.Color.Transparent;
-            this.buttonLogin.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Register1;
-            this.buttonLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonLogin.FlatAppearance.BorderSize = 0;
-            this.buttonLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
-            this.buttonLogin.ForeColor = System.Drawing.Color.White;
-            this.buttonLogin.Location = new System.Drawing.Point(37, 696);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(632, 44);
-            this.buttonLogin.TabIndex = 17;
-            this.buttonLogin.Text = "Register";
-            this.buttonLogin.UseVisualStyleBackColor = false;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            this.buttonLogin.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
-            this.buttonLogin.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
+            this.buttonRegister.AutoSize = true;
+            this.buttonRegister.BackColor = System.Drawing.Color.Transparent;
+            this.buttonRegister.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Register1;
+            this.buttonRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonRegister.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonRegister.FlatAppearance.BorderSize = 0;
+            this.buttonRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.buttonRegister.ForeColor = System.Drawing.Color.White;
+            this.buttonRegister.Location = new System.Drawing.Point(37, 696);
+            this.buttonRegister.Name = "buttonRegister";
+            this.buttonRegister.Size = new System.Drawing.Size(632, 44);
+            this.buttonRegister.TabIndex = 17;
+            this.buttonRegister.Text = "Register";
+            this.buttonRegister.UseVisualStyleBackColor = false;
+            this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
+            this.buttonRegister.MouseEnter += new System.EventHandler(this.buttonLogin_MouseEnter);
+            this.buttonRegister.MouseLeave += new System.EventHandler(this.buttonLogin_MouseLeave);
+            // 
+            // pictureBoxFoto
+            // 
+            this.pictureBoxFoto.Location = new System.Drawing.Point(37, 564);
+            this.pictureBoxFoto.Name = "pictureBoxFoto";
+            this.pictureBoxFoto.Size = new System.Drawing.Size(107, 107);
+            this.pictureBoxFoto.TabIndex = 19;
+            this.pictureBoxFoto.TabStop = false;
             // 
             // FormRegisterPatient
             // 
@@ -144,8 +154,9 @@ namespace _160420046_160420082_UTS
             this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Form_Reegistration_PatientDoctor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(704, 821);
+            this.Controls.Add(this.pictureBoxFoto);
             this.Controls.Add(this.labelRegistrasi);
-            this.Controls.Add(this.buttonLogin);
+            this.Controls.Add(this.buttonRegister);
             this.Controls.Add(this.textBoxNomorTelepon);
             this.Controls.Add(this.textBoxNomorKTP);
             this.Controls.Add(this.textBoxEmail);
@@ -156,6 +167,8 @@ namespace _160420046_160420082_UTS
             this.Name = "FormRegisterPatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegisterPatient";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormRegisterPatient_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -170,6 +183,7 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.TextBox textBoxNomorKTP;
         private System.Windows.Forms.TextBox textBoxNomorTelepon;
         private System.Windows.Forms.Label labelRegistrasi;
-        private System.Windows.Forms.Button buttonLogin;
+        private System.Windows.Forms.Button buttonRegister;
+        private System.Windows.Forms.PictureBox pictureBoxFoto;
     }
 }

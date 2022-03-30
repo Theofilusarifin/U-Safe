@@ -103,69 +103,83 @@ namespace _160420046_160420082_UTS
                     }
 
                 }
-                else // Doctor/Patient
+                else // Patient
                 {
-                    if (!cb.Checked)
+                    if (!checkBoxDoctor.Checked)
                     {
-                        List<Customer> a = Customer.BacaData("username", this.Controls["textBoxUsernameLogin"].Text);
-                        Customer c = a[0];
-                        if (c != null)
+                        // Cari data customer
+                        Customer c = Customer.BacaData("username", textBoxUsername.Text)[0];
+                        if (c != null) // Apabila data ditemukan
                         {
-                            bool success = HashSalt.Compare(c.Password, this.Controls["textBoxPasswordLogin"].Text);
-                            if (success)
+                            bool success = HashSalt.Compare(c.Password, textBoxPassword.Text);
+                            if (success) // Apabila password sama
                             {
-                                if (c.Status != "inactive")
-                                {
-                                    MessageBox.Show("USER LOGIN SUCCESS!\nWelcome back " + c.Name);
+                                // Set variabel di form main
+                                FormMain.role = "patient";
+                                FormMain.active_patient = c;
+                                FormMain.frmMain.labelNama.Text = c.Username;
 
-                                    c.Password = this.Controls["textBoxPasswordLogin"].Text;
-                                    ChangeForm(4);
-                                    activeCus = c;
-                                    UpdateDisplayMainMenu();
-                                }
-                                else
-                                {
-                                    throw (new Exception("Your account has been banned by the admin."));
-                                }
+                                FormLoading form = new FormLoading(); //Create Object
+                                form.Owner = this;
+                                form.Show();
+                                this.Hide();
                             }
                             else
                             {
+                                var original = this.Location;
+                                var rnd = new Random(1337);
+                                const int shake_amplitude = 10;
+                                for (int i = 0; i < 10; i++)
+                                {
+                                    this.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                                    System.Threading.Thread.Sleep(20);
+                                }
+                                this.Location = original;
+
                                 throw (new Exception("Username or Password is incorrect!"));
                             }
                         }
-                        else
+                        else // Apabila data customer tidak ditemukan
                         {
                             throw (new Exception("Username is not registered!"));
                         }
                     }
-                    else //driver
+                    else //Doctor
                     {
-                        Driver d = Driver.BacaDataSpesifik("id", this.Controls["textBoxUsernameLogin"].Text)[0];
-                        if (d != null)
-                        {
-                            bool success = HashSalt.Compare(d.Password, this.Controls["textBoxPasswordLogin"].Text);
-                            if (success)
-                            {
-                                if (d.Status != "inactive")
-                                {
-                                    MessageBox.Show("DRIVER LOGIN SUCCESS!\nWelcome back " + d.Name);
+                        // Cari data doctor
+                        Doctor d = Doctor.BacaData("username", textBoxUsername.Text)[0];
 
-                                    d.Password = this.Controls["textBoxPasswordLogin"].Text;
-                                    activeDri = d;
-                                    ChangeForm(11);
-                                    UpdateDisplayMainMenuDriver();
-                                }
-                                else
-                                {
-                                    throw (new Exception("Your account has been banned by the admin."));
-                                }
-                            }
-                            else
+                        if (d != null) // Apabila data ditemukan
+                        {
+                            bool success = HashSalt.Compare(d.Password, textBoxPassword.Text);
+                            if (success) // Apabila password sama
                             {
-                                throw (new Exception("Driver Username or Password is incorrect!"));
+                                // Set variabel di form main
+                                FormMain.role = "doctor";
+                                FormMain.active_doctor = d;
+                                FormMain.frmMain.labelNama.Text = d.Username;
+
+                                FormLoading form = new FormLoading(); //Create Object
+                                form.Owner = this;
+                                form.Show();
+                                this.Hide();
+                            }
+                            else // Apabila gagal
+                            {
+                                var original = this.Location;
+                                var rnd = new Random(1337);
+                                const int shake_amplitude = 10;
+                                for (int i = 0; i < 10; i++)
+                                {
+                                    this.Location = new Point(original.X + rnd.Next(-shake_amplitude, shake_amplitude), original.Y + rnd.Next(-shake_amplitude, shake_amplitude));
+                                    System.Threading.Thread.Sleep(20);
+                                }
+                                this.Location = original;
+
+                                throw (new Exception("Username or Password is incorrect!"));
                             }
                         }
-                        else
+                        else // Data Doctor tidak ditemukan
                         {
                             throw (new Exception("Driver Username is not registered!"));
                         }
