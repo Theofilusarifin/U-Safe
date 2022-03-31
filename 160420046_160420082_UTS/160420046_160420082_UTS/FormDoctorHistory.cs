@@ -21,6 +21,8 @@ namespace _160420046_160420082_UTS
             InitializeComponent();
         }
 
+        List<Checkup> HistoryDoctor = new List<Checkup>();
+
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -45,9 +47,78 @@ namespace _160420046_160420082_UTS
         }
         #endregion
 
+        #region Methods
+        private void FormatDataGrid()
+        {
+            //Kosongi semua kolom di datagridview
+            dataGridView.Columns.Clear();
+
+            //Menambah kolom di datagridview
+            dataGridView.Columns.Add("customer", "Customer");
+            dataGridView.Columns.Add("doctor", "Doctor");
+            dataGridView.Columns.Add("price", "Price"); // buat total_price
+            dataGridView.Columns.Add("start", "Start");
+            dataGridView.Columns.Add("finish", "Finish");
+
+            dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 142, 123);
+            dataGridView.EnableHeadersVisualStyles = false;
+
+            //Agar lebar kolom dapat menyesuaikan panjang / isi data
+            dataGridView.Columns["customer"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView.Columns["doctor"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView.Columns["price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView.Columns["start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView.Columns["finish"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
+
+            // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.ReadOnly = true;
+        }
+
+        private void TampilDataGrid()
+        {
+            //Kosongi isi datagridview
+            dataGridView.Rows.Clear();
+
+            // kalau list tidak kosong
+            if (HistoryDoctor.Count > 0)
+            {
+                // untuk setiap checkup di history
+                foreach (Checkup c in HistoryDoctor)
+                {
+                    // kalau selesai
+                    if(c.Finished == 1)
+                    {
+                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.TotalPrice, c.Start_date, c.Finish_date);
+                    }
+                }
+            }
+            else
+            {
+                dataGridView.DataSource = null;
+            }
+        }
+        #endregion Methods
+
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FormDoctorHistory_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                HistoryDoctor = Checkup.BacaData("doctor_username", FormMain.active_doctor.Username); ;
+
+                FormatDataGrid();
+                TampilDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Error");
+            }
         }
     }
 }

@@ -189,7 +189,7 @@ namespace Library
 
         public static List<Doctor> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "select * from customers c inner join hospitals h on c.hospital_id=d.id";
+            string sql = "select * from doctors d inner join hospitals h on c.hospital_id=d.id";
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
@@ -200,19 +200,19 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(4).ToString());
+                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(3).ToString());
                 byte[] salt = new byte[16];
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
-                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(2).ToString());
+                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(0).ToString());
+                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
 
                 byte[] img = ((byte[])hasil.GetValue(6));
 
                 Hospital h = new Hospital(hasil.GetInt32(11), hasil.GetString(12), hasil.GetString(13));
 
-                Doctor doc = new Doctor(plainName, plainMail, hasil.GetString(4), hasil.GetValue(5).ToString(), img, hasil.GetString(7), hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), h);
+                Doctor doc = new Doctor(plainName, plainMail, hasil.GetString(3), hasil.GetValue(5).ToString(), img, hasil.GetString(7), hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), h);
 
                 listDoctor.Add(doc);
             }
@@ -229,6 +229,14 @@ namespace Library
             int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
             //Dicek apakah ada data yang berubah atau tidak
             if (jumlahDihapus == 0) return false;
+            else return true;
+        }
+
+        public static Boolean WithdrawBalance(int nominal, Doctor d)
+        {
+            string sql = "update doctors set balance = balance - " + nominal + " where username = " + d.Username;
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            if (jumlahDitambah == 0) return false;
             else return true;
         }
 

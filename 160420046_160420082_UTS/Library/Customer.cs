@@ -172,17 +172,17 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(4).ToString());
+                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(3).ToString());
                 byte[] salt = new byte[16];
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
-                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(2).ToString());
+                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(0).ToString());
+                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
 
-                byte[] img = ((byte[])hasil.GetValue(6));
+                byte[] img = ((byte[])hasil.GetValue(5));
 
-                Customer cus = new Customer(plainName, plainMail, hasil.GetString(3), hasil.GetString(4), hasil.GetInt32(5), img, hasil.GetString(7));
+                Customer cus = new Customer(plainName, plainMail, hasil.GetString(2), hasil.GetString(3), hasil.GetInt32(4), img, hasil.GetString(6));
 
                 listCustomer.Add(cus);
             }
@@ -192,13 +192,21 @@ namespace Library
             return listCustomer;
         }
 
-        public static Boolean HapusData(int id)
+        public static Boolean HapusData(string username)
         {
-            string sql = "delete from customers where id = " + id;
+            string sql = "delete from customers where username = " + username;
 
             int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
             //Dicek apakah ada data yang berubah atau tidak
             if (jumlahDihapus == 0) return false;
+            else return true;
+        }
+
+        public static Boolean TopUpBalance(int nominal, Customer c)
+        {
+            string sql = "update customers set balance = balance + " + nominal + " where username = " + c.Username;
+            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
+            if (jumlahDitambah == 0) return false;
             else return true;
         }
 

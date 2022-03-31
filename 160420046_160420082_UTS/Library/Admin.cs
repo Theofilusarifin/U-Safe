@@ -156,17 +156,17 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(4).ToString());
+                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(3).ToString());
                 byte[] salt = new byte[16];
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
-                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(2).ToString());
+                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(0).ToString());
+                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
 
                 byte[] img = ((byte[])hasil.GetValue(4));
 
-                Admin adm = new Admin(plainName, plainMail, hasil.GetString(3), hasil.GetString(4), img, hasil.GetString(6));
+                Admin adm = new Admin(plainName, plainMail, hasil.GetString(2), hasil.GetString(3), img, hasil.GetString(5));
 
                 listAdmin.Add(adm);
             }

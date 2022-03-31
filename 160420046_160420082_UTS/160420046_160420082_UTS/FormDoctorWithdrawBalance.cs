@@ -47,7 +47,15 @@ namespace _160420046_160420082_UTS
 
         private void buttonWithdraw_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                // kurangi saldo di database dengan nominal di textbox
+                Doctor.WithdrawBalance(int.Parse(textBoxSaldo.Text), FormMain.active_doctor);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Error");
+            }
         }
     }
 }

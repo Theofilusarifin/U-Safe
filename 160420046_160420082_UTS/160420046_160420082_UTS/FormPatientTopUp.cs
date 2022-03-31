@@ -47,7 +47,15 @@ namespace _160420046_160420082_UTS
 
         private void buttonTopUp_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                // tambah saldo di database dengan nominal di textbox
+                Customer.TopUpBalance(int.Parse(textBoxSaldo.Text), FormMain.active_patient);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Error");
+            }
         }
     }
 }
