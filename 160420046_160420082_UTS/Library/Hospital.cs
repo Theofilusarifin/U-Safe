@@ -100,6 +100,23 @@ namespace Library
             return listHospital;
         }
 
+        public static Hospital AmbilData()
+        {
+            string sql = "select * from hospitals where id = 1";
+            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<Hospital> listHospital = new List<Hospital>();
+
+            //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
+            while (hasil.Read() == true)
+            {
+                Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(3));
+                listHospital.Add(hos);
+            }
+            return listHospital[0];
+        }
+
+
         public static Boolean HapusData(int id)
         {
             string sql = "delete from hospitals where id = " + id;

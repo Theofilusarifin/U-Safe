@@ -93,9 +93,9 @@ namespace Library
         public static Boolean TambahData(Checkup c)
         {
             //string yang menampung sql query insert into
-            string sql = "insert into checkups (price, total_price, finished, start_date, finish_date, customer_id, doctor_id) " +
+            string sql = "insert into checkups (price, total_price, finished, start_date, finish_date, customer_username, doctor_username) " +
                          "values (" + c.Price + ", " + c.TotalPrice + ", " + c.Finished + ", " + c.Start_date + ", " +
-                         "" + c.Finish_date + ", " + c.Customer.Id + ", " + c.Doctor.Id + ")";
+                         "" + c.Finish_date + ", " + c.Customer.Username + ", " + c.Doctor.Username + ")";
 
             //menjalankan perintah sql
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
@@ -108,8 +108,8 @@ namespace Library
             // Querry Insert
             string sql = "update checkups set price = " + c.Price + ", total_price = " + c.TotalPrice + ", " +
                          "finished = " + c.Finished + ", start_date = '" + c.Start_date + "', " +
-                         "finish_date = " + c.Finish_date + ", customer_id = " + c.Customer.Id + ", " +
-                         "doctor_id = " + c.Doctor.Id + " where id = " + c.Id;
+                         "finish_date = " + c.Finish_date + ", customer_username = " + c.Customer.Username + ", " +
+                         "doctor_username = " + c.Doctor.Username + " where id = " + c.Id;
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
             else return true;
@@ -118,8 +118,8 @@ namespace Library
         public static List<Checkup> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "select * from checkups ch " +
-                         "inner join customers cu on ch.customer_id=cu.id " +
-                         "inner join doctors d on ch.doctor_id=d.id " +
+                         "inner join customers cu on ch.customer_username=cu.username " +
+                         "inner join doctors d on ch.doctor_username=d.username " +
                          "inner join hospitals h on d.hospital_id=h.id";
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";

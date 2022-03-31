@@ -16,7 +16,6 @@ namespace Library
     public class Admin
     {
         #region Fields
-        private int id;
         private string username;
         private string email;
         private string phone_number;
@@ -26,9 +25,8 @@ namespace Library
         #endregion
 
         #region Constructors
-        public Admin(int id, string username, string email, string phone_number, string password, byte[] profile_photo, string ktpNum)
+        public Admin(string username, string email, string phone_number, string password, byte[] profile_photo, string ktpNum)
         {
-            Id = id;
             Username = username;
             Email = email;
             Phone_number = phone_number;
@@ -39,11 +37,6 @@ namespace Library
         #endregion
 
         #region Properties
-        public int Id 
-        { 
-            get => id; 
-            set => id = value; 
-        }
         public string Username 
         { 
             get => username; 
@@ -143,7 +136,7 @@ namespace Library
             // Querry Insert
             string sql = "update admins set username = '" + encName + "', email = '" + encMail + "', " +
                          "phone_number = '" + a.Phone_number + "', password = '" + encPass + "', " +
-                         "profile_photo = @img, KTPnum = '" + a.KTPNum + "' where id = " + a.Id;
+                         "profile_photo = @img, KTPnum = '" + a.KTPNum + "' where username = " + a.username;
 
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
@@ -173,7 +166,7 @@ namespace Library
 
                 byte[] img = ((byte[])hasil.GetValue(4));
 
-                Admin adm = new Admin(hasil.GetInt32(0), plainName, plainMail, hasil.GetString(3), hasil.GetString(4), img, hasil.GetString(6));
+                Admin adm = new Admin(plainName, plainMail, hasil.GetString(3), hasil.GetString(4), img, hasil.GetString(6));
 
                 listAdmin.Add(adm);
             }
@@ -183,9 +176,9 @@ namespace Library
             return listAdmin;
         }
 
-        public static Boolean HapusData(int id)
+        public static Boolean HapusData(string username)
         {
-            string sql = "delete from admins where id = " + id;
+            string sql = "delete from admins where username = " + username;
 
             int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
             //Dicek apakah ada data yang berubah atau tidak

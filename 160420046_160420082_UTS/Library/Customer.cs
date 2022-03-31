@@ -15,7 +15,6 @@ namespace Library
     public class Customer
     {
         #region Fields
-        private int id;
         private string username;
         private string email;
         private string phone_number;
@@ -26,9 +25,8 @@ namespace Library
         #endregion
 
         #region Construtors
-        public Customer(int id, string username, string email, string phone_number, string password, int balance, byte[] profile_photo, string ktpNum)
+        public Customer(string username, string email, string phone_number, string password, int balance, byte[] profile_photo, string ktpNum)
         {
-            Id = id;
             Username = username;
             Email = email;
             Phone_number = phone_number;
@@ -37,14 +35,19 @@ namespace Library
             Profile_photo = profile_photo;
             KtpNum = ktpNum;
         }
+        public Customer(string username, string email, string phone_number, string password, byte[] profile_photo, string ktpNum)
+        {
+            Username = username;
+            Email = email;
+            Phone_number = phone_number;
+            Password = password;
+            Balance = 0;
+            Profile_photo = profile_photo;
+            KtpNum = ktpNum;
+        }
         #endregion
 
         #region Properties
-        public int Id 
-        { 
-            get => id; 
-            set => id = value; 
-        }
         public string Username 
         { 
             get => username; 
@@ -149,7 +152,7 @@ namespace Library
             // Querry Insert
             string sql = "update customers set username = '" + encName + "', email = '" + encMail + "', " +
                          "phone_number = '" + c.Phone_number + "', password = '" + encPass + "', " +
-                         "balance = " + c.Balance + "profile_photo = @img, KTPnum = '" + c.KtpNum + "' where id = " + c.Id;
+                         "balance = " + c.Balance + "profile_photo = @img, KTPnum = '" + c.KtpNum + "' where username = " + c.Username;
 
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
@@ -179,7 +182,7 @@ namespace Library
 
                 byte[] img = ((byte[])hasil.GetValue(6));
 
-                Customer cus = new Customer(hasil.GetInt32(0), plainName, plainMail, hasil.GetString(3), hasil.GetString(4), hasil.GetInt32(5), img, hasil.GetString(7));
+                Customer cus = new Customer(plainName, plainMail, hasil.GetString(3), hasil.GetString(4), hasil.GetInt32(5), img, hasil.GetString(7));
 
                 listCustomer.Add(cus);
             }

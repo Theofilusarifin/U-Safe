@@ -56,8 +56,10 @@ namespace _160420046_160420082_UTS
                     {
                         // Foto admin
                         PictureBox pb = pictureBoxFoto;
+                        // Ambil default hospital
+                        Hospital h = Hospital.AmbilData();
 
-                        Doctor d = new Doctor(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text);
+                        Doctor d = new Doctor(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text, h);
 
                         Doctor.TambahData(d);
 

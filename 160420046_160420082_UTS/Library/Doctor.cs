@@ -15,7 +15,6 @@ namespace Library
     public class Doctor
     {
         #region Fields
-        private int id;
         private string username;
         private string email;
         private string phone_number;
@@ -29,9 +28,8 @@ namespace Library
         #endregion
 
         #region Constructors
-        public Doctor(int id, string username, string email, string phone_number, string password, byte[] profile_photo, string ktpNum, int balance, string availability, string bank_account, Hospital hospital)
+        public Doctor(string username, string email, string phone_number, string password, byte[] profile_photo, string ktpNum, int balance, string availability, string bank_account, Hospital hospital)
         {
-            Id = id;
             Username = username;
             Email = email;
             Phone_number = phone_number;
@@ -43,14 +41,22 @@ namespace Library
             Bank_account = bank_account;
             Hospital = hospital;
         }
+        public Doctor(string username, string email, string phone_number, string password, byte[] profile_photo, string ktpNum, Hospital hospital)
+        {
+            Username = username;
+            Email = email;
+            Phone_number = phone_number;
+            Password = password;
+            Profile_photo = profile_photo;
+            KtpNum = ktpNum;
+            Balance = 0;
+            Availability = "true";
+            Bank_account = null;
+            Hospital = hospital;
+        }
         #endregion
 
         #region Properties
-        public int Id 
-        {
-            get => id; 
-            set => id = value; 
-        }
         public string Username 
         {
             get => username; 
@@ -174,7 +180,7 @@ namespace Library
                          "phone_number = '" + d.Phone_number + "', password = '" + encPass + "', " +
                          "profile_photo = @img, KTPnum = '" + d.KtpNum + "', balance = " + d.Balance + ", " +
                          "availability = '" + d.Availability + "', bank_account = '" + d.Bank_account + "', " +
-                         "hospital_id = " + d.Hospital.Id + " where id = " + d.Id;
+                         "hospital_id = " + d.Hospital.Id + " where username = " + d.username;
 
             int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
             if (jumlahDitambah == 0) return false;
@@ -206,7 +212,7 @@ namespace Library
 
                 Hospital h = new Hospital(hasil.GetInt32(11), hasil.GetString(12), hasil.GetString(13));
 
-                Doctor doc = new Doctor(hasil.GetInt32(0), plainName, plainMail, hasil.GetString(4), hasil.GetValue(5).ToString(), img, hasil.GetString(7), hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), h);
+                Doctor doc = new Doctor(plainName, plainMail, hasil.GetString(4), hasil.GetValue(5).ToString(), img, hasil.GetString(7), hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), h);
 
                 listDoctor.Add(doc);
             }
