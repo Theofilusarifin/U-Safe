@@ -47,15 +47,47 @@ namespace _160420046_160420082_UTS
                 this.Close();
             }
         }
-
         private void FormLoading_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                // Tampilkan element pada form main
+                FormMain.frmMain.panelLeftNavbar.Show();
+                FormMain.frmMain.panelLeft.Show();
+                FormMain.frmMain.panelHeader.Show();
+                FormMain.frmMain.panelActiveForm.Show();
+                FormMain.frmMain.panelLeftNavbar.BringToFront();
+
+                if (FormMain.role == "admin") // Admin
+                {
+                    FormMain.frmMain.panelAdmin.Show(); // Tampilkan panel admin
+                }
+                else if(FormMain.role == "doctor" || FormMain.role == "patient")
+                {
+                    // Tampilkan element balance
+                    FormMain.frmMain.pictureBoxSaldo.Show();
+                    FormMain.frmMain.labelSaldoHeader.Show();
+                    FormMain.frmMain.labelSaldo.Show();
+                    FormMain.frmMain.labelSaldoHeader.BringToFront();
+                    FormMain.frmMain.labelSaldo.BringToFront();
+
+                    if (FormMain.role == "doctor")
+                    {
+                        FormMain.frmMain.panelDoctor.Show(); // Tampilkan panel doctor
+                        FormMain.frmMain.labelSaldo.Text = FormMain.active_doctor.Balance.ToString(); // Tampilkan nilai balance doctor
+                    }
+                    else if (FormMain.role == "patient")
+                    {
+                        FormMain.frmMain.panelPasien.Show(); // Tampilkan panel patient
+                        FormMain.frmMain.labelSaldo.Text = FormMain.active_patient.Balance.ToString(); // Tampilkan nilai balance doctor
+                    }
+
+                }
+                else MessageBox.Show("Error Occured!\n role not found");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Error, Pesan kesalahan : " + ex.Message, "Error");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
     }

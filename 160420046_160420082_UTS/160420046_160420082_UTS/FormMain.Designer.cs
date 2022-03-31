@@ -524,9 +524,9 @@ namespace _160420046_160420082_UTS
             this.labelSaldo.ForeColor = System.Drawing.Color.Black;
             this.labelSaldo.Location = new System.Drawing.Point(729, 41);
             this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(59, 22);
+            this.labelSaldo.Size = new System.Drawing.Size(81, 22);
             this.labelSaldo.TabIndex = 7;
-            this.labelSaldo.Text = "Saldo";
+            this.labelSaldo.Text = "Balance";
             this.labelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelSaldoHeader
@@ -538,9 +538,9 @@ namespace _160420046_160420082_UTS
             this.labelSaldoHeader.ForeColor = System.Drawing.Color.Gray;
             this.labelSaldoHeader.Location = new System.Drawing.Point(729, 18);
             this.labelSaldoHeader.Name = "labelSaldoHeader";
-            this.labelSaldoHeader.Size = new System.Drawing.Size(56, 21);
+            this.labelSaldoHeader.Size = new System.Drawing.Size(77, 21);
             this.labelSaldoHeader.TabIndex = 6;
-            this.labelSaldoHeader.Text = "Saldo";
+            this.labelSaldoHeader.Text = "Balance";
             // 
             // pictureBoxSaldo
             // 
