@@ -78,9 +78,9 @@ namespace _160420046_160420082_UTS
                             FormMain.frmMain.labelNama.Text = a.Username;
 
                             FormLoading form = new FormLoading(); //Create Object
-                            form.Owner = this;
+                            form.Owner = this.Owner;
                             form.Show();
-                            this.Hide();
+                            this.Close();
                         }
                         else // Apabila gagal
                         {
@@ -195,7 +195,7 @@ namespace _160420046_160420082_UTS
         private void labelRegistrasi_Click(object sender, EventArgs e)
         {
             FormChooseRegister frm = new FormChooseRegister(); //Create Object
-            frm.Owner = this.Owner;
+            frm.Owner = this;
             frm.Show();
             this.Owner.Hide();
             this.Hide();

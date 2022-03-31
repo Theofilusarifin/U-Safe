@@ -62,7 +62,7 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.Location = new System.Drawing.Point(243, 555);
             this.labelRegistrasi.Name = "labelRegistrasi";
             this.labelRegistrasi.Size = new System.Drawing.Size(152, 18);
-            this.labelRegistrasi.TabIndex = 12;
+            this.labelRegistrasi.TabIndex = 4;
             this.labelRegistrasi.Text = "&Lakukan Registrasi";
             this.labelRegistrasi.Click += new System.EventHandler(this.labelRegistrasi_Click);
             // 
@@ -75,7 +75,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '⚉';
             this.textBoxPassword.Size = new System.Drawing.Size(290, 17);
-            this.textBoxPassword.TabIndex = 10;
+            this.textBoxPassword.TabIndex = 1;
             // 
             // textBoxUsername
             // 
@@ -85,7 +85,7 @@ namespace _160420046_160420082_UTS
             this.textBoxUsername.Location = new System.Drawing.Point(48, 307);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(339, 20);
-            this.textBoxUsername.TabIndex = 9;
+            this.textBoxUsername.TabIndex = 0;
             // 
             // buttonLogin
             // 
@@ -101,7 +101,7 @@ namespace _160420046_160420082_UTS
             this.buttonLogin.Location = new System.Drawing.Point(37, 490);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(379, 44);
-            this.buttonLogin.TabIndex = 11;
+            this.buttonLogin.TabIndex = 3;
             this.buttonLogin.Text = "Login";
             this.buttonLogin.UseVisualStyleBackColor = false;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
@@ -117,7 +117,7 @@ namespace _160420046_160420082_UTS
             this.checkBoxDoctor.Location = new System.Drawing.Point(41, 448);
             this.checkBoxDoctor.Name = "checkBoxDoctor";
             this.checkBoxDoctor.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxDoctor.TabIndex = 14;
+            this.checkBoxDoctor.TabIndex = 2;
             this.checkBoxDoctor.UseVisualStyleBackColor = false;
             // 
             // FormLogin
@@ -134,7 +134,7 @@ namespace _160420046_160420082_UTS
             this.Controls.Add(this.textBoxUsername);
             this.Controls.Add(this.buttonLogin);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.Name = "FormLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

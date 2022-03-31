@@ -61,7 +61,7 @@ namespace _160420046_160420082_UTS
 
                         Customer.TambahData(c);
 
-                        MessageBox.Show("Admin data has been added!", "Update Info");
+                        MessageBox.Show("Patient data has been added!", "Update Info");
 
                         this.Close();
                     }
@@ -89,6 +89,17 @@ namespace _160420046_160420082_UTS
         private void FormRegisterPatient_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Owner.Show();
+        }
+
+        private void pictureBoxFoto_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opf = new OpenFileDialog();
+            opf.Filter = "Choose Image(*.png)|*.png";
+
+            if (opf.ShowDialog() == DialogResult.OK)
+            {
+                pictureBoxFoto.Image = Image.FromFile(opf.FileName);
+            }
         }
     }
 }

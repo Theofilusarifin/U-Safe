@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 
 // Tambahkan ini untuk dapat memanggil private data member
 using MySql.Data.MySqlClient;
@@ -17,39 +18,37 @@ namespace Library
         #region Constructors
         public Koneksi(string pServer, string pDatabase, string pUsername, string pPassword)
         {
-            string strCon = "server=" + pServer + ";database=" + pDatabase + ";uid=" + pUsername + ";password=" + pPassword + ";SSL Mode=None" + // Tambahkan SSL Mode supaya tidak error SSL
-                            ";MultipleActiveResultSets=true";
+            string strConnectionString = "";
+            if (pPassword != "")
+            {
+                strConnectionString = "Server=" + pServer + ";Database=" +
+                pDatabase + ";Uid=" + pUsername + ";Pwd=" + pPassword + ";";
+            }
+            else
+            {
+                strConnectionString = "Server=" + pServer + ";Database=" +
+                pDatabase + ";Uid=" + pUsername + ";";
+            }
+            this.KoneksiDB = koneksiDB;
+            strConnectionString += "Minimumpoolsize=10;Maximumpoolsize=1000;charset=utf8";
 
-            KoneksiDB = new MySqlConnection();
-            KoneksiDB.ConnectionString = strCon;
+            this.KoneksiDB = new MySqlConnection();
+            this.KoneksiDB.ConnectionString = strConnectionString;
 
-            // KoneksiDB yang dipakai adalah KoneksiDB yang sudah di set di construstor (atas)
-            Connect();
+            this.Connect();
+
+            UpdateAppConfig(strConnectionString);
 
         }
 
         public Koneksi()
         {
-            //Buka konfigurasi App.Config
-            Configuration myConf = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-
-            // Ambil section userSettings yang otomatis dibuat berdasarkan file .settings
-            ConfigurationSectionGroup userSettings = myConf.SectionGroups["userSettings"];
-
-            //Ambil bagian setting SIJualBeli.db
-            var settingSection = userSettings.Sections["OnlineMart_Trivial.db"] as ClientSettingsSection;
-
-            //Ambil tiap variabel setting
-            string DbServer = settingSection.Settings.Get("DbServer").Value.ValueXml.InnerText;
-            string DbName = settingSection.Settings.Get("DbName").Value.ValueXml.InnerText;
-            string DbUsername = settingSection.Settings.Get("DbUsername").Value.ValueXml.InnerText;
-            string DbPassword = settingSection.Settings.Get("DbPassword").Value.ValueXml.InnerText;
-
-            string strCon = "server=" + DbServer + ";database=" + DbName + ";uid=" + DbUsername + ";password=" + DbPassword + ";SSL Mode=None"; // Tambahkan SSL Mode supaya tidak error SSL
             KoneksiDB = new MySqlConnection();
 
-            KoneksiDB.ConnectionString = strCon;
+            //set connection string sesuai yang ada di App.Config
+            KoneksiDB.ConnectionString = ConfigurationManager.ConnectionStrings["namakoneksi"].ConnectionString;
 
+            //panggil method Connect
             Connect();
         }
         #endregion
@@ -63,6 +62,21 @@ namespace Library
         #endregion
 
         #region Methods
+
+        public void UpdateAppConfig(string con)
+        {
+            //Buka konfigurasi App.Config
+            Configuration config = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+
+            //Set App.Config pada section nama koneksi yang telah dibuat sebelumnya sesuai paramaeter
+            config.ConnectionStrings.ConnectionStrings["namakoneksi"].ConnectionString = con;
+
+            //simpan App.Config yang telah di update
+            config.Save(ConfigurationSaveMode.Modified, true);
+
+            //Reload App.Config dengan pengaturan yang baru
+            ConfigurationManager.RefreshSection("connectionStrings");
+        }
         public void Connect()
         {
             //Jika connection sedang terbuka maka tutup dahulu
@@ -73,26 +87,29 @@ namespace Library
             KoneksiDB.Open();
         }
 
-        public static MySqlDataReader JalankanPerintahQuery(string sql)
+        public static DataTableReader JalankanPerintahQuery(string pSql)
         {
-            Koneksi koneksi = new Koneksi();
-            MySqlCommand sqlCommand = new MySqlCommand(sql, koneksi.KoneksiDB);
+            Koneksi k = new Koneksi();
 
-            MySqlDataReader hasil = sqlCommand.ExecuteReader();
+            MySqlCommand c = new MySqlCommand(pSql, k.KoneksiDB);
 
-            return hasil;
+            var dataReader = c.ExecuteReader();
+            var dataTable = new DataTable();
+            dataTable.Load(dataReader);
+
+            k.KoneksiDB.Close();
+            return dataTable.CreateDataReader();
         }
 
-        public static int JalankanPerintahDML(string sql)
+        public static void JalankanPerintahDML(string sql)
         {
             Koneksi koneksi = new Koneksi();
             MySqlCommand sqlCommand = new MySqlCommand(sql, koneksi.KoneksiDB);
 
             //Gunakan ExecuteNonQuerry untuk menjalankan perintah DML (Insert/Update/Delete)
-            int hasil = 0;
-            hasil = sqlCommand.ExecuteNonQuery();
+            sqlCommand.ExecuteNonQuery();
 
-            return hasil;
+            koneksi.KoneksiDB.Close();
         }
 
         public static void JalankanPerintahDMLFoto(string pSql, byte[] img)
@@ -113,7 +130,7 @@ namespace Library
 
         public static void JalankanPerintahDMLFotoCreateUser(string pSql, byte[] img)
         {
-            Koneksi koneksi = new Koneksi("localhost", "prunn", "root", "mysql");
+            Koneksi koneksi = new Koneksi("localhost", "u-safe", "root", "");
             koneksi.Connect(); //bisa di skip karena di cons sudah connect
 
             //buat mysqlcommand

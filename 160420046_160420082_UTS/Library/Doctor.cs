@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Library
 {
@@ -110,7 +111,7 @@ namespace Library
         #endregion
 
         #region Methods
-        public static Boolean TambahData(Doctor d)
+        public static void TambahData(Doctor d)
         {
             Random random = new Random();
             var rString = "";
@@ -144,12 +145,10 @@ namespace Library
                          "'" + d.Bank_account + "', " + d.Hospital.Id + ")";
 
             //menjalankan perintah sql
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, bitmapData);
         }
 
-        public static Boolean UbahData(Doctor d)
+        public static void UbahData(Doctor d)
         {
             Random random = new Random();
             var rString = "";
@@ -182,9 +181,7 @@ namespace Library
                          "availability = '" + d.Availability + "', bank_account = '" + d.Bank_account + "', " +
                          "hospital_id = " + d.Hospital.Id + " where username = " + d.username;
 
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDMLFoto(sql, bitmapData);
         }
 
         public static List<Doctor> BacaData(string kriteria, string nilaiKriteria)
@@ -193,7 +190,7 @@ namespace Library
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Doctor> listDoctor = new List<Doctor>();
 
@@ -216,28 +213,20 @@ namespace Library
 
                 listDoctor.Add(doc);
             }
-            //hasil.Dispose();
-            //hasil.Close();
-
             return listDoctor;
         }
 
-        public static Boolean HapusData(int id)
+        public static void HapusData(int id)
         {
             string sql = "delete from doctors where id = " + id;
 
-            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
-            //Dicek apakah ada data yang berubah atau tidak
-            if (jumlahDihapus == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Boolean WithdrawBalance(int nominal, Doctor d)
+        public static void WithdrawBalance(int nominal, Doctor d)
         {
             string sql = "update doctors set balance = balance - " + nominal + " where username = " + d.Username;
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         public static Image ConvertByte(byte[] img)

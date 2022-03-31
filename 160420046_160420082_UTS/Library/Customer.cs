@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Library
 {
@@ -86,7 +87,7 @@ namespace Library
         #endregion
 
         #region Methods
-        public static Boolean TambahData(Customer c)
+        public static void TambahData(Customer c)
         {
             Random random = new Random();
             var rString = "";
@@ -118,12 +119,10 @@ namespace Library
                          "'" + encPass + "', " + c.Balance + ", @img, '" + c.KtpNum + "')";
 
             //menjalankan perintah sql
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, bitmapData);
         }
 
-        public static Boolean UbahData(Customer c)
+        public static void UbahData(Customer c)
         {
             Random random = new Random();
             var rString = "";
@@ -154,9 +153,7 @@ namespace Library
                          "phone_number = '" + c.Phone_number + "', password = '" + encPass + "', " +
                          "balance = " + c.Balance + "profile_photo = @img, KTPnum = '" + c.KtpNum + "' where username = " + c.Username;
 
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDMLFoto(sql, bitmapData);
         }
 
         public static List<Customer> BacaData(string kriteria, string nilaiKriteria)
@@ -165,7 +162,7 @@ namespace Library
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Customer> listCustomer = new List<Customer>();
 
@@ -186,28 +183,21 @@ namespace Library
 
                 listCustomer.Add(cus);
             }
-            //hasil.Dispose();
-            //hasil.Close();
 
             return listCustomer;
         }
 
-        public static Boolean HapusData(string username)
+        public static void HapusData(string username)
         {
             string sql = "delete from customers where username = " + username;
 
-            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
-            //Dicek apakah ada data yang berubah atau tidak
-            if (jumlahDihapus == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Boolean TopUpBalance(int nominal, Customer c)
+        public static void TopUpBalance(int nominal, Customer c)
         {
             string sql = "update customers set balance = balance + " + nominal + " where username = " + c.Username;
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         public static Image ConvertByte(byte[] img)

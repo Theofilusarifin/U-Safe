@@ -18,11 +18,6 @@ namespace _160420046_160420082_UTS
 {
     public partial class FormMain : Form
     {
-        public FormMain()
-        {
-            InitializeComponent();
-            HideSubMenuFirst();
-        }
         public static FormMain frmMain = null;
 
         public static Koneksi koneksi = null;
@@ -31,6 +26,13 @@ namespace _160420046_160420082_UTS
         public static Admin active_admin;
         public static Doctor active_doctor;
         public static Customer active_patient;
+
+        public FormMain()
+        {
+            InitializeComponent();
+            HideSubMenuFirst();
+            frmMain = this;
+        }
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)
@@ -340,21 +342,40 @@ namespace _160420046_160420082_UTS
         }
         #endregion
 
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                //Ambil nilai di db setting
+                koneksi = new Koneksi("localhost", "u-safe", "root", "");
+                //MessageBox.Show("Koneksi Berhasil");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Koneksi Gagal. Pesan Kesalahan : " + ex.Message);
+            }
+        }
+
+        #region FormLogin
+        int opening = 0;
+        private void timerLoading_Tick(object sender, EventArgs e)
+        {
+            opening++;
+            if (opening == 1)
+            {
+                FormLogin form = new FormLogin(); //Create Object
+                form.Owner = this;
+                form.Show();
+                this.Hide();
+                timerLoading.Stop();
+                opening = 0;
+            }
+        }
+        #endregion
+
         private void buttonLogout_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void FormMain_Load(object sender, EventArgs e)
-        {
-            //Ubah FormUtama menjadi MdiParent (MdiContainer)
-            this.IsMdiContainer = true;
-
-            panelLeftNavbar.Show();
-            panelLeft.Show();
-            panelHeader.Show();
-            panelActiveForm.Show();
-            panelLeftNavbar.BringToFront();
         }
     }
 }

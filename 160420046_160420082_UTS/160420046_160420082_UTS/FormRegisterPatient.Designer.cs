@@ -50,7 +50,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '⚉';
             this.textBoxPassword.Size = new System.Drawing.Size(275, 17);
-            this.textBoxPassword.TabIndex = 12;
+            this.textBoxPassword.TabIndex = 4;
             // 
             // textBoxUsername
             // 
@@ -60,7 +60,7 @@ namespace _160420046_160420082_UTS
             this.textBoxUsername.Location = new System.Drawing.Point(48, 319);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(275, 20);
-            this.textBoxUsername.TabIndex = 11;
+            this.textBoxUsername.TabIndex = 0;
             // 
             // textBoxPasswordKonfirmasi
             // 
@@ -71,7 +71,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPasswordKonfirmasi.Name = "textBoxPasswordKonfirmasi";
             this.textBoxPasswordKonfirmasi.PasswordChar = '⚉';
             this.textBoxPasswordKonfirmasi.Size = new System.Drawing.Size(275, 17);
-            this.textBoxPasswordKonfirmasi.TabIndex = 13;
+            this.textBoxPasswordKonfirmasi.TabIndex = 5;
             // 
             // textBoxEmail
             // 
@@ -81,7 +81,7 @@ namespace _160420046_160420082_UTS
             this.textBoxEmail.Location = new System.Drawing.Point(50, 401);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(275, 20);
-            this.textBoxEmail.TabIndex = 14;
+            this.textBoxEmail.TabIndex = 2;
             // 
             // textBoxNomorKTP
             // 
@@ -91,7 +91,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorKTP.Location = new System.Drawing.Point(380, 401);
             this.textBoxNomorKTP.Name = "textBoxNomorKTP";
             this.textBoxNomorKTP.Size = new System.Drawing.Size(275, 20);
-            this.textBoxNomorKTP.TabIndex = 15;
+            this.textBoxNomorKTP.TabIndex = 3;
             // 
             // textBoxNomorTelepon
             // 
@@ -101,7 +101,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorTelepon.Location = new System.Drawing.Point(380, 319);
             this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
             this.textBoxNomorTelepon.Size = new System.Drawing.Size(275, 20);
-            this.textBoxNomorTelepon.TabIndex = 16;
+            this.textBoxNomorTelepon.TabIndex = 1;
             // 
             // labelRegistrasi
             // 
@@ -114,7 +114,7 @@ namespace _160420046_160420082_UTS
             this.labelRegistrasi.Location = new System.Drawing.Point(362, 757);
             this.labelRegistrasi.Name = "labelRegistrasi";
             this.labelRegistrasi.Size = new System.Drawing.Size(165, 18);
-            this.labelRegistrasi.TabIndex = 18;
+            this.labelRegistrasi.TabIndex = 7;
             this.labelRegistrasi.Text = "&Silahkan Login Disini";
             this.labelRegistrasi.Click += new System.EventHandler(this.labelRegistrasi_Click);
             // 
@@ -132,7 +132,7 @@ namespace _160420046_160420082_UTS
             this.buttonRegister.Location = new System.Drawing.Point(37, 696);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(632, 44);
-            this.buttonRegister.TabIndex = 17;
+            this.buttonRegister.TabIndex = 6;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = false;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
@@ -141,11 +141,14 @@ namespace _160420046_160420082_UTS
             // 
             // pictureBoxFoto
             // 
+            this.pictureBoxFoto.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Image_Placeholder;
+            this.pictureBoxFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxFoto.Location = new System.Drawing.Point(37, 564);
             this.pictureBoxFoto.Name = "pictureBoxFoto";
             this.pictureBoxFoto.Size = new System.Drawing.Size(107, 107);
             this.pictureBoxFoto.TabIndex = 19;
             this.pictureBoxFoto.TabStop = false;
+            this.pictureBoxFoto.Click += new System.EventHandler(this.pictureBoxFoto_Click);
             // 
             // FormRegisterPatient
             // 
@@ -164,6 +167,7 @@ namespace _160420046_160420082_UTS
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormRegisterPatient";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormRegisterPatient";

@@ -9,7 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MySql.Data.MySqlClient;
-
+using System.Data;
 
 namespace Library
 {
@@ -70,7 +70,7 @@ namespace Library
         #endregion
 
         #region Methods
-        public static Boolean TambahData(Admin a)
+        public static void TambahData(Admin a)
         {
             Random random = new Random();
             var rString = "";
@@ -102,12 +102,10 @@ namespace Library
                          "'" + encPass + "', @img, '" + a.KTPNum + "')";
 
             //menjalankan perintah sql
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, bitmapData);
         }
 
-        public static Boolean UbahData(Admin a)
+        public static void UbahData(Admin a)
         {
             Random random = new Random();
             var rString = "";
@@ -138,9 +136,7 @@ namespace Library
                          "phone_number = '" + a.Phone_number + "', password = '" + encPass + "', " +
                          "profile_photo = @img, KTPnum = '" + a.KTPNum + "' where username = " + a.username;
 
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDMLFoto(sql, bitmapData);
         }
 
         public static List<Admin> BacaData(string kriteria, string nilaiKriteria)
@@ -149,7 +145,7 @@ namespace Library
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Admin> listAdmin = new List<Admin>();
 
@@ -176,14 +172,11 @@ namespace Library
             return listAdmin;
         }
 
-        public static Boolean HapusData(string username)
+        public static void HapusData(string username)
         {
             string sql = "delete from admins where username = " + username;
 
-            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
-            //Dicek apakah ada data yang berubah atau tidak
-            if (jumlahDihapus == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         public static Image ConvertByte(byte[] img)

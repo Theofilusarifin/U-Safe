@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Library
 {
@@ -63,25 +64,21 @@ namespace Library
 
         #region Methods
 
-        public static Boolean TambahData(Medicine m)
+        public static void TambahData(Medicine m)
         {
             //string yang menampung sql query insert into
             string sql = "insert into medicines (name, price, stock) " +
                          "values ('" + m.Name + "', " + m.Price + ", " + m.Stock + ")";
 
             //menjalankan perintah sql
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Boolean UbahData(Medicine m)
+        public static void UbahData(Medicine m)
         {
             // Querry Insert
             string sql = "update medicines set name = " + m.Name + ", price = " + m.Price + ", stock = " + m.Stock + " where id = " + m.Id;
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         public static List<Medicine> BacaData(string kriteria, string nilaiKriteria)
@@ -90,7 +87,7 @@ namespace Library
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Medicine> listMedicine = new List<Medicine>();
 
@@ -107,14 +104,11 @@ namespace Library
             return listMedicine;
         }
 
-        public static Boolean HapusData(int id)
+        public static void HapusData(int id)
         {
             string sql = "delete from medicines where id = " + id;
 
-            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
-            //Dicek apakah ada data yang berubah atau tidak
-            if (jumlahDihapus == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         #endregion

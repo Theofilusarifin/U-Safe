@@ -44,14 +44,14 @@ namespace _160420046_160420082_UTS
         private void pictureBoxDoctor_Click(object sender, EventArgs e)
         {
             FormRegisterDoctor frm = new FormRegisterDoctor(); //Create Object
-            frm.Owner = this;
+            frm.Owner = this.Owner;
             frm.Show();
             this.Close();
         }
         private void pictureBoxDoctorClick_Click(object sender, EventArgs e)
         {
             FormRegisterDoctor frm = new FormRegisterDoctor(); //Create Object
-            frm.Owner = this;
+            frm.Owner = this.Owner;
             frm.Show();
             this.Close();
         }

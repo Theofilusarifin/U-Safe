@@ -54,7 +54,7 @@ namespace _160420046_160420082_UTS
             this.buttonRegister.Location = new System.Drawing.Point(35, 732);
             this.buttonRegister.Name = "buttonRegister";
             this.buttonRegister.Size = new System.Drawing.Size(632, 44);
-            this.buttonRegister.TabIndex = 25;
+            this.buttonRegister.TabIndex = 6;
             this.buttonRegister.Text = "Register";
             this.buttonRegister.UseVisualStyleBackColor = false;
             this.buttonRegister.Click += new System.EventHandler(this.buttonRegister_Click);
@@ -69,7 +69,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorTelepon.Location = new System.Drawing.Point(381, 335);
             this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
             this.textBoxNomorTelepon.Size = new System.Drawing.Size(275, 20);
-            this.textBoxNomorTelepon.TabIndex = 24;
+            this.textBoxNomorTelepon.TabIndex = 1;
             // 
             // textBoxNomorKTP
             // 
@@ -79,7 +79,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorKTP.Location = new System.Drawing.Point(381, 419);
             this.textBoxNomorKTP.Name = "textBoxNomorKTP";
             this.textBoxNomorKTP.Size = new System.Drawing.Size(275, 20);
-            this.textBoxNomorKTP.TabIndex = 23;
+            this.textBoxNomorKTP.TabIndex = 3;
             // 
             // textBoxEmail
             // 
@@ -89,7 +89,7 @@ namespace _160420046_160420082_UTS
             this.textBoxEmail.Location = new System.Drawing.Point(48, 419);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(275, 20);
-            this.textBoxEmail.TabIndex = 22;
+            this.textBoxEmail.TabIndex = 2;
             // 
             // textBoxPasswordKonfirmasi
             // 
@@ -100,7 +100,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPasswordKonfirmasi.Name = "textBoxPasswordKonfirmasi";
             this.textBoxPasswordKonfirmasi.PasswordChar = '⚉';
             this.textBoxPasswordKonfirmasi.Size = new System.Drawing.Size(275, 17);
-            this.textBoxPasswordKonfirmasi.TabIndex = 21;
+            this.textBoxPasswordKonfirmasi.TabIndex = 5;
             // 
             // textBoxPassword
             // 
@@ -111,7 +111,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '⚉';
             this.textBoxPassword.Size = new System.Drawing.Size(275, 17);
-            this.textBoxPassword.TabIndex = 20;
+            this.textBoxPassword.TabIndex = 4;
             // 
             // textBoxUsername
             // 
@@ -121,15 +121,18 @@ namespace _160420046_160420082_UTS
             this.textBoxUsername.Location = new System.Drawing.Point(47, 334);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(275, 20);
-            this.textBoxUsername.TabIndex = 19;
+            this.textBoxUsername.TabIndex = 0;
             // 
             // pictureBoxFoto
             // 
+            this.pictureBoxFoto.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Image_Placeholder;
+            this.pictureBoxFoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBoxFoto.Location = new System.Drawing.Point(35, 587);
             this.pictureBoxFoto.Name = "pictureBoxFoto";
             this.pictureBoxFoto.Size = new System.Drawing.Size(107, 107);
             this.pictureBoxFoto.TabIndex = 26;
             this.pictureBoxFoto.TabStop = false;
+            this.pictureBoxFoto.Click += new System.EventHandler(this.pictureBoxFoto_Click);
             // 
             // FormRegisterAdmin
             // 

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Library
 {
@@ -90,7 +91,7 @@ namespace Library
         #endregion
 
         #region Methods
-        public static Boolean TambahData(Checkup c)
+        public static void TambahData(Checkup c)
         {
             //string yang menampung sql query insert into
             string sql = "insert into checkups (price, total_price, finished, start_date, finish_date, customer_username, doctor_username) " +
@@ -98,21 +99,17 @@ namespace Library
                          "" + c.Finish_date + ", " + c.Customer.Username + ", " + c.Doctor.Username + ")";
 
             //menjalankan perintah sql
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Boolean UbahData(Checkup c)
+        public static void UbahData(Checkup c)
         {
             // Querry Insert
             string sql = "update checkups set price = " + c.Price + ", total_price = " + c.TotalPrice + ", " +
                          "finished = " + c.Finished + ", start_date = '" + c.Start_date + "', " +
                          "finish_date = " + c.Finish_date + ", customer_username = " + c.Customer.Username + ", " +
                          "doctor_username = " + c.Doctor.Username + " where id = " + c.Id;
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         public static List<Checkup> BacaData(string kriteria, string nilaiKriteria)
@@ -124,7 +121,7 @@ namespace Library
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Checkup> listCheckup = new List<Checkup>();
 
@@ -171,14 +168,11 @@ namespace Library
             return listCheckup;
         }
 
-        public static Boolean HapusData(int id)
+        public static void HapusData(int id)
         {
             string sql = "delete from checkups where id = " + id;
 
-            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
-            //Dicek apakah ada data yang berubah atau tidak
-            if (jumlahDihapus == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         #endregion

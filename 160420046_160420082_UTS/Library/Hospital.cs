@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Library
 {
@@ -57,25 +58,21 @@ namespace Library
 
         #region Methods
 
-        public static Boolean TambahData(Hospital h)
+        public static void TambahData(Hospital h)
         {
             //string yang menampung sql query insert into
             string sql = "insert into hospitals (name, address) " +
                          "values ('" + h.Name + "', '" + h.Address + "')";
 
             //menjalankan perintah sql
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Boolean UbahData(Hospital h)
+        public static void UbahData(Hospital h)
         {
             // Querry Insert
             string sql = "update hospitals set name = " + h.Name + ", address = " + h.Address + " where id = " + h.Id;
-            int jumlahDitambah = Koneksi.JalankanPerintahDML(sql);
-            if (jumlahDitambah == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         public static List<Hospital> BacaData(string kriteria, string nilaiKriteria)
@@ -84,7 +81,7 @@ namespace Library
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Hospital> listHospital = new List<Hospital>();
 
@@ -94,16 +91,14 @@ namespace Library
                 Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(3));
                 listHospital.Add(hos);
             }
-            //hasil.Dispose();
-            //hasil.Close();
-
             return listHospital;
         }
 
         public static Hospital AmbilData()
         {
             string sql = "select * from hospitals where id = 1";
-            MySqlDataReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             List<Hospital> listHospital = new List<Hospital>();
 
@@ -117,14 +112,11 @@ namespace Library
         }
 
 
-        public static Boolean HapusData(int id)
+        public static void HapusData(int id)
         {
             string sql = "delete from hospitals where id = " + id;
 
-            int jumlahDihapus = Koneksi.JalankanPerintahDML(sql);
-            //Dicek apakah ada data yang berubah atau tidak
-            if (jumlahDihapus == 0) return false;
-            else return true;
+            Koneksi.JalankanPerintahDML(sql);
         }
 
         #endregion
