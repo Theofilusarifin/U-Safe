@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2022 at 07:46 PM
+-- Generation Time: Mar 31, 2022 at 04:05 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -28,8 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `admins` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `username` mediumtext DEFAULT NULL,
+  `username` varchar(30) NOT NULL,
   `email` mediumtext DEFAULT NULL,
   `phone_number` mediumtext DEFAULT NULL,
   `password` mediumtext DEFAULT NULL,
@@ -50,8 +49,8 @@ CREATE TABLE `checkups` (
   `finished` tinyint(4) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `finish_date` datetime DEFAULT NULL,
-  `customer_id` int(10) UNSIGNED NOT NULL,
-  `doctor_id` int(10) UNSIGNED NOT NULL
+  `customer_username` varchar(30) NOT NULL,
+  `doctor_username` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -72,12 +71,11 @@ CREATE TABLE `checkup_medicine` (
 --
 
 CREATE TABLE `customers` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `username` mediumtext DEFAULT NULL,
+  `username` varchar(30) NOT NULL,
   `email` mediumtext DEFAULT NULL,
   `phone_number` mediumtext DEFAULT NULL,
   `password` mediumtext DEFAULT NULL,
-  `balance` int(11) DEFAULT NULL,
+  `balance` int(11) DEFAULT 0,
   `profile_photo` longblob DEFAULT NULL,
   `KTPnum` mediumtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -89,17 +87,28 @@ CREATE TABLE `customers` (
 --
 
 CREATE TABLE `doctors` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `username` mediumtext DEFAULT NULL,
+  `username` varchar(30) NOT NULL,
   `email` mediumtext DEFAULT NULL,
   `phone_number` mediumtext DEFAULT NULL,
   `password` mediumtext DEFAULT NULL,
   `profile_photo` longblob DEFAULT NULL,
   `KTPnum` mediumtext DEFAULT NULL,
-  `balance` int(11) DEFAULT NULL,
+  `balance` int(11) DEFAULT 0,
   `availability` varchar(45) DEFAULT NULL,
   `bank_account` mediumtext DEFAULT NULL,
-  `hospital_id` int(11) NOT NULL
+  `hospital_id` int(10) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hospitals`
+--
+
+CREATE TABLE `hospitals` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(45) DEFAULT NULL,
+  `address` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -123,36 +132,42 @@ CREATE TABLE `medicines` (
 -- Indexes for table `admins`
 --
 ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `checkups`
 --
 ALTER TABLE `checkups`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_checkup_customers1_idx` (`customer_id`),
-  ADD KEY `fk_checkup_doctors1_idx` (`doctor_id`);
+  ADD KEY `fk_checkups_customers1_idx` (`customer_username`),
+  ADD KEY `fk_checkups_doctors1_idx` (`doctor_username`);
 
 --
 -- Indexes for table `checkup_medicine`
 --
 ALTER TABLE `checkup_medicine`
   ADD PRIMARY KEY (`checkup_id`,`medicine_id`),
-  ADD KEY `fk_checkup_has_medicines_medicines1_idx` (`medicine_id`),
-  ADD KEY `fk_checkup_has_medicines_checkup1_idx` (`checkup_id`);
+  ADD KEY `fk_checkups_has_medicines_medicines1_idx` (`medicine_id`),
+  ADD KEY `fk_checkups_has_medicines_checkups1_idx` (`checkup_id`);
 
 --
 -- Indexes for table `customers`
 --
 ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`username`);
 
 --
 -- Indexes for table `doctors`
 --
 ALTER TABLE `doctors`
-  ADD PRIMARY KEY (`id`,`hospital_id`),
-  ADD KEY `fk_doctors_hospitals_idx` (`hospital_id`);
+  ADD PRIMARY KEY (`username`),
+  ADD KEY `fk_doctors_hospitals1_idx` (`hospital_id`);
+
+--
+-- Indexes for table `hospitals`
+--
+ALTER TABLE `hospitals`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `medicines`
@@ -165,27 +180,15 @@ ALTER TABLE `medicines`
 --
 
 --
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `checkups`
 --
 ALTER TABLE `checkups`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT for table `hospitals`
 --
-ALTER TABLE `customers`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `doctors`
---
-ALTER TABLE `doctors`
+ALTER TABLE `hospitals`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
@@ -202,21 +205,21 @@ ALTER TABLE `medicines`
 -- Constraints for table `checkups`
 --
 ALTER TABLE `checkups`
-  ADD CONSTRAINT `fk_checkup_customers1` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_checkup_doctors1` FOREIGN KEY (`doctor_id`) REFERENCES `doctors` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_checkups_customers1` FOREIGN KEY (`customer_username`) REFERENCES `customers` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_checkups_doctors1` FOREIGN KEY (`doctor_username`) REFERENCES `doctors` (`username`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `checkup_medicine`
 --
 ALTER TABLE `checkup_medicine`
-  ADD CONSTRAINT `fk_checkup_has_medicines_checkup1` FOREIGN KEY (`checkup_id`) REFERENCES `checkups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_checkup_has_medicines_medicines1` FOREIGN KEY (`medicine_id`) REFERENCES `medicines` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_checkups_has_medicines_checkups1` FOREIGN KEY (`checkup_id`) REFERENCES `checkups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_checkups_has_medicines_medicines1` FOREIGN KEY (`medicine_id`) REFERENCES `medicines` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `doctors`
 --
 ALTER TABLE `doctors`
-  ADD CONSTRAINT `fk_doctors_hospitals` FOREIGN KEY (`hospital_id`) REFERENCES `hospitals` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_doctors_hospitals1` FOREIGN KEY (`hospital_id`) REFERENCES `hospitals` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
