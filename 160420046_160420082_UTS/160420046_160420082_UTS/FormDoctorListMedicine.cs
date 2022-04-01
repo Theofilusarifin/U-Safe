@@ -57,7 +57,6 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns.Add("name", "Name");
             dataGridView.Columns.Add("price", "Price");
             dataGridView.Columns.Add("stock", "Stock");
-            dataGridView.Columns.Add("stock", "Stock");
 
             dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 142, 123);
             dataGridView.EnableHeadersVisualStyles = false;

@@ -111,6 +111,20 @@ namespace Library
             Koneksi.JalankanPerintahDML(sql);
         }
 
+        public static Medicine AmbilData(int id)
+        {
+            string sql = "select * from medicines m  where b.id = " + id;
+
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            Medicine b = null;
+
+            while (hasil.Read())
+            {
+                b = new Medicine(hasil.GetInt32(0), hasil.GetString(1), hasil.GetInt32(2), hasil.GetInt32(3));
+            }
+            return b;
+        }
         #endregion
     }
 }
