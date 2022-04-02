@@ -40,6 +40,18 @@ namespace Library
             Doctor = doctor;
             ListCheckupMedicine = new List<Checkup_Medicine>();
         }
+
+        public Checkup(DateTime start_date, Customer customer, Doctor doctor)
+        {
+            Price = 0;
+            TotalPrice = 0;
+            Finished = 0;
+            Start_date = start_date;
+            Finish_date = DateTime.MinValue;
+            Customer = customer;
+            Doctor = doctor;
+            ListCheckupMedicine = new List<Checkup_Medicine>();
+        }
         #endregion
 
         #region Properties
@@ -170,6 +182,54 @@ namespace Library
             string sql = "delete from checkups where id = " + id;
 
             Koneksi.JalankanPerintahDML(sql);
+        }
+
+        public static Checkup AmbilData(string name)
+        {
+            string sql = "select * from checkups ch " +
+                         "inner join customers cu on ch.customer_username=cu.username " +
+                         "inner join doctors d on ch.doctor_username=d.username " +
+                         "inner join hospitals h on d.hospital_id=h.id " +
+                         "where cu.username = " + name;
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            Checkup ch = null;
+
+            while (hasil.Read())
+            {
+                #region Decrypt
+                // Decrypt customer
+                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetString(11));
+                byte[] cusSalt = new byte[16];
+                Array.Copy(cusHashedBytes, 0, cusSalt, 0, 16);
+                string cusSaltString = Convert.ToBase64String(cusSalt).Replace("=", "");
+
+                string cusPlainName = HashAes.Decrypt(cusSaltString, hasil.GetString(8));
+                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetString(9));
+
+                byte[] cusImg = ((byte[])hasil.GetValue(13));
+
+                // Decrypt doctor
+                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetString(18));
+                byte[] docSalt = new byte[16];
+                Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
+                string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
+
+                string docPlainName = HashAes.Decrypt(docSaltString, hasil.GetString(15));
+                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetString(16));
+
+                byte[] docImg = ((byte[])hasil.GetValue(19));
+                #endregion Decrypt
+
+                Hospital h = new Hospital(hasil.GetInt32(25), hasil.GetString(26), hasil.GetString(27));
+
+                Doctor d = new Doctor(docPlainName, docPlainMail, hasil.GetString(17), hasil.GetString(18), docImg, hasil.GetString(20), hasil.GetInt32(21), hasil.GetString(22), hasil.GetString(23), h);
+
+                Customer c = new Customer(cusPlainName, cusPlainMail, hasil.GetString(10), hasil.GetString(11), hasil.GetInt32(12), cusImg, hasil.GetString(14));
+
+                ch = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
+            }
+            return ch;
         }
 
         #endregion

@@ -22,6 +22,7 @@ namespace _160420046_160420082_UTS
         }
 
         List<Checkup> HistoryPatient = new List<Checkup>();
+        public static Checkup detailCheckup;
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)
@@ -98,6 +99,18 @@ namespace _160420046_160420082_UTS
             {
                 dataGridView.DataSource = null;
             }
+
+            if (!dataGridView.Columns.Contains("btnCheckupDetail"))
+            {
+                //Button tambah ke keranjang
+                DataGridViewButtonColumn bcolCheckupDetail = new DataGridViewButtonColumn();
+
+                bcolCheckupDetail.Text = "Lihat Detail";
+                bcolCheckupDetail.Name = "btnCheckupDetail";
+                bcolCheckupDetail.UseColumnTextForButtonValue = true;
+                bcolCheckupDetail.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView.Columns.Add(bcolCheckupDetail);
+            }
         }
         #endregion Methods
 
@@ -118,6 +131,25 @@ namespace _160420046_160420082_UTS
             catch (Exception ex)
             {
                 MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Error");
+            }
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string patientName = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
+
+                //Kalau button Add diklik
+                if (e.ColumnIndex == dataGridView.Columns["btnCheckupDetail"].Index && e.RowIndex >= 0)
+                {
+                    detailCheckup = Checkup.AmbilData(patientName);
+                    // masuk ke detail checkup
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Kesalahan");
             }
         }
     }

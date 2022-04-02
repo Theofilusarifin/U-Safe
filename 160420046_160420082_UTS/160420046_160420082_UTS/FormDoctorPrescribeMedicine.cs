@@ -89,14 +89,13 @@ namespace _160420046_160420082_UTS
                 if (!dataGridViewMed.Columns.Contains("btnAddMed"))
                 {
                     //Button tambah ke keranjang
-                    DataGridViewButtonColumn bcolTambahKeranjang = new DataGridViewButtonColumn();
+                    DataGridViewButtonColumn bcolAddMed = new DataGridViewButtonColumn();
 
-                    bcolTambahKeranjang.HeaderText = "Add to Med Prescript";
-                    bcolTambahKeranjang.Text = "Add";
-                    bcolTambahKeranjang.Name = "btnAddMed";
-                    bcolTambahKeranjang.UseColumnTextForButtonValue = true;
-                    bcolTambahKeranjang.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridViewMed.Columns.Add(bcolTambahKeranjang);
+                    bcolAddMed.Text = "Add to Med Prescript";
+                    bcolAddMed.Name = "btnAddMed";
+                    bcolAddMed.UseColumnTextForButtonValue = true;
+                    bcolAddMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridViewMed.Columns.Add(bcolAddMed);
                 }
             }
             catch(Exception ex)
@@ -185,7 +184,6 @@ namespace _160420046_160420082_UTS
                 }
                 #endregion MedPrescribe to MedPrescript
 
-
                 // kalau list tidak kosong
                 if (MedPrescript.Count > 0)
                 {
@@ -203,14 +201,13 @@ namespace _160420046_160420082_UTS
                 if (!dataGridViewPrescript.Columns.Contains("btnRemoveMed"))
                 {
                     //Button tambah ke keranjang
-                    DataGridViewButtonColumn bcolTambahKeranjang = new DataGridViewButtonColumn();
+                    DataGridViewButtonColumn bcolRemoveMed = new DataGridViewButtonColumn();
 
-                    bcolTambahKeranjang.HeaderText = "Remove from Med Prescript";
-                    bcolTambahKeranjang.Text = "Remove";
-                    bcolTambahKeranjang.Name = "btnRemoveMed";
-                    bcolTambahKeranjang.UseColumnTextForButtonValue = true;
-                    bcolTambahKeranjang.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridViewMed.Columns.Add(bcolTambahKeranjang);
+                    bcolRemoveMed.Text = "Remove";
+                    bcolRemoveMed.Name = "btnRemoveMed";
+                    bcolRemoveMed.UseColumnTextForButtonValue = true;
+                    bcolRemoveMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridViewPrescript.Columns.Add(bcolRemoveMed);
                 }
             }
             catch(Exception ex)
@@ -220,6 +217,7 @@ namespace _160420046_160420082_UTS
         }
         #endregion Methods
 
+        #region Load
         private void FormDoctorPrescribeMedicine_Load(object sender, EventArgs e)
         {
             ListMed = Medicine.BacaData("name", txtMedName.Text);
@@ -230,29 +228,35 @@ namespace _160420046_160420082_UTS
             FormatDataGridPrescript();
             TampilDataGridPrescript();
         }
+        #endregion Load
 
+        #region btnClose
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+        #endregion btnClose
 
+        #region DataGridView
         private void dataGridViewMed_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                int name = int.Parse(dataGridViewPrescript.CurrentRow.Cells["name"].Value.ToString());
+                string name1 = dataGridViewMed.CurrentRow.Cells["name"].Value.ToString();
                 
                 //Kalau button Add diklik
-                if (e.ColumnIndex == dataGridViewPrescript.Columns["btnAddMed"].Index && e.RowIndex >= 0)
+                if (e.ColumnIndex == dataGridViewMed.Columns["btnAddMed"].Index && e.RowIndex >= 0)
                 {
-                    Medicine m = Medicine.AmbilData(name);
+                    Medicine m = Medicine.AmbilData(name1);
                     MedPrescribe.Add(m);
+                    FormDoctorPrescribeMedicine_Load(sender, e);
                 }
 
+                string name2 = dataGridViewPrescript.CurrentRow.Cells["name"].Value.ToString();
                 //Kalau button Remove diklik
                 if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemoveMed"].Index && e.RowIndex >= 0)
                 {
-                    Medicine m = Medicine.AmbilData(name);
+                    Medicine m = Medicine.AmbilData(name2);
                     for (int i = 0; i < MedPrescribe.Count; i++)
                     {
                         if (MedPrescribe[i].Id == m.Id && MedPrescribe[i].Name == m.Name)
@@ -261,6 +265,7 @@ namespace _160420046_160420082_UTS
                             break;
                         }
                     }
+                    FormDoctorPrescribeMedicine_Load(sender, e);
                 }
             }
             catch (Exception ex)
@@ -268,5 +273,6 @@ namespace _160420046_160420082_UTS
                 MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Kesalahan");
             }
         }
+        #endregion DataGridView
     }
 }

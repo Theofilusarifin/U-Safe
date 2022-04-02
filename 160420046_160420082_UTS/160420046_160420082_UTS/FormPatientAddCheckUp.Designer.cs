@@ -70,8 +70,10 @@ namespace _160420046_160420082_UTS
             this.dateTimePickerWaktuMulai.CalendarFont = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerWaktuMulai.CustomFormat = "";
             this.dateTimePickerWaktuMulai.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerWaktuMulai.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dateTimePickerWaktuMulai.Location = new System.Drawing.Point(306, 268);
             this.dateTimePickerWaktuMulai.Name = "dateTimePickerWaktuMulai";
+            this.dateTimePickerWaktuMulai.ShowUpDown = true;
             this.dateTimePickerWaktuMulai.Size = new System.Drawing.Size(110, 26);
             this.dateTimePickerWaktuMulai.TabIndex = 20;
             // 
@@ -91,6 +93,7 @@ namespace _160420046_160420082_UTS
             this.Name = "FormPatientAddCheckUp";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPatientAddCheckUp";
+            this.Load += new System.EventHandler(this.FormPatientAddCheckUp_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

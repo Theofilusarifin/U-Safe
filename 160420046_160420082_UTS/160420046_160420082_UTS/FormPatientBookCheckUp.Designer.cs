@@ -159,6 +159,7 @@ namespace _160420046_160420082_UTS
             this.Controls.Add(this.buttonClose);
             this.Name = "FormPatientBookCheckUp";
             this.Text = "FormAddCheckUp";
+            this.Load += new System.EventHandler(this.FormPatientBookCheckUp_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

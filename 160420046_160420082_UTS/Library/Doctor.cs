@@ -204,6 +204,42 @@ namespace Library
             string sql = "update doctors set balance = balance - " + nominal + " where username = '" + d.Username + "'";
             Koneksi.JalankanPerintahDML(sql);
         }
+
+        public static List<Doctor> SearchAvailableDoctor(DateTime upperLimit, DateTime lowerLimit)
+        {
+            string sql = "select distinct(d.username) from checkups ch " +
+                         "inner join customers cu on ch.customer_username = cu.username " +
+                         "inner join doctors d on ch.doctor_username = d.username " +
+                         "inner join hospitals h on d.hospital_id = h.id " +
+                         "where ch.start_date < " + lowerLimit + " and ch.finish_date > " + upperLimit;
+
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<Doctor> listDoctor = new List<Doctor>();
+
+            //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
+            while (hasil.Read() == true)
+            {
+                byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(3).ToString());
+                byte[] salt = new byte[16];
+                Array.Copy(hashedBytes, 0, salt, 0, 16);
+                string saltString = Convert.ToBase64String(salt).Replace("=", "");
+
+                string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
+                string plainPhone = HashAes.Decrypt(saltString, hasil.GetString(2).ToString());
+                string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(5).ToString());
+
+
+                byte[] img = ((byte[])hasil.GetValue(4));
+
+                Hospital h = Hospital.AmbilData();
+
+                Doctor doc = new Doctor(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetValue(3).ToString(), img, plainKTPnum, hasil.GetInt32(6), hasil.GetString(7), hasil.GetString(8), h);
+
+                listDoctor.Add(doc);
+            }
+            return listDoctor;
+        }
         #endregion
     }
 }

@@ -28,6 +28,8 @@ namespace _160420046_160420082_UTS
             //dateTimePickerWaktuMulai.Value = myDate.TimeOfDay;
         }
 
+        List<Doctor> availableDoctor = new List<Doctor>();
+
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -54,7 +56,31 @@ namespace _160420046_160420082_UTS
 
         private void buttonBook_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DateTime Now = dateTimePickerTanggalMulai.Value.Date + dateTimePickerWaktuMulai.Value.TimeOfDay;
 
+                DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
+                DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
+
+                availableDoctor = Doctor.SearchAvailableDoctor();
+
+                Checkup c = new Checkup(Now, FormMain.active_patient, );
+                Checkup.TambahData(c);
+
+                MessageBox.Show("Anda berhasil menambahkan checkup pada " + c.Start_date);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Maaf, penambahan checkup Anda pada " + c.Start_date + " gagal");
+            }
+
+        }
+
+        private void FormPatientAddCheckUp_Load(object sender, EventArgs e)
+        {
+            dateTimePickerTanggalMulai.Value = DateTime.Now;
+            dateTimePickerWaktuMulai.Value = Convert.ToDateTime(DateTime.Now.TimeOfDay.ToString());
         }
     }
 }
