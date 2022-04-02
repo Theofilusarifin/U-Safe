@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 01, 2022 at 01:53 AM
+-- Generation Time: Apr 02, 2022 at 03:35 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -61,7 +61,9 @@ CREATE TABLE `checkups` (
 
 CREATE TABLE `checkup_medicine` (
   `checkup_id` int(10) UNSIGNED NOT NULL,
-  `medicine_id` int(10) UNSIGNED NOT NULL
+  `medicine_id` int(10) UNSIGNED NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------

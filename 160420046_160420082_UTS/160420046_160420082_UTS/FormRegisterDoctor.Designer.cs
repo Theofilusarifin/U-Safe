@@ -86,6 +86,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorTelepon.Name = "textBoxNomorTelepon";
             this.textBoxNomorTelepon.Size = new System.Drawing.Size(275, 20);
             this.textBoxNomorTelepon.TabIndex = 1;
+            this.textBoxNomorTelepon.Text = "081934407669";
             // 
             // textBoxNomorKTP
             // 
@@ -96,6 +97,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNomorKTP.Name = "textBoxNomorKTP";
             this.textBoxNomorKTP.Size = new System.Drawing.Size(275, 20);
             this.textBoxNomorKTP.TabIndex = 3;
+            this.textBoxNomorKTP.Text = "2134123213132";
             // 
             // textBoxEmail
             // 
@@ -106,6 +108,7 @@ namespace _160420046_160420082_UTS
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(275, 20);
             this.textBoxEmail.TabIndex = 2;
+            this.textBoxEmail.Text = "Theo@gmail.com";
             // 
             // textBoxPasswordKonfirmasi
             // 
@@ -117,6 +120,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPasswordKonfirmasi.PasswordChar = '⚉';
             this.textBoxPasswordKonfirmasi.Size = new System.Drawing.Size(275, 17);
             this.textBoxPasswordKonfirmasi.TabIndex = 5;
+            this.textBoxPasswordKonfirmasi.Text = "password";
             // 
             // textBoxPassword
             // 
@@ -128,6 +132,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPassword.PasswordChar = '⚉';
             this.textBoxPassword.Size = new System.Drawing.Size(275, 17);
             this.textBoxPassword.TabIndex = 4;
+            this.textBoxPassword.Text = "password";
             // 
             // textBoxUsername
             // 
@@ -138,6 +143,7 @@ namespace _160420046_160420082_UTS
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(275, 20);
             this.textBoxUsername.TabIndex = 0;
+            this.textBoxUsername.Text = "Theo";
             // 
             // pictureBoxFoto
             // 

@@ -171,14 +171,14 @@ namespace _160420046_160420082_UTS
                             // kalau tidak ada id yang sama
                             if (helper == false)
                             {
-                                checkup_Medicine = new Checkup_Medicine(thisCheckup, m, 1, m.Price);
+                                //checkup_Medicine = new Checkup_Medicine(thisCheckup, m, 1, m.Price);
                                 MedPrescript.Add(checkup_Medicine);
                             }
                         }
                         // kalau list barang order kosong
                         else
                         {
-                            checkup_Medicine = new Checkup_Medicine(thisCheckup, m, 1, m.Price);
+                            //checkup_Medicine = new Checkup_Medicine(thisCheckup, m, 1, m.Price);
                             MedPrescript.Add(checkup_Medicine);
                         }
                     }

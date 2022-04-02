@@ -56,7 +56,8 @@ namespace _160420046_160420082_UTS
                 if (textBoxUsername.Text[0] == '#')
                 {
                     // Cari data apakah ada admin dengan username yang dimasukkan
-                    Admin a = Admin.BacaData("username", textBoxUsername.Text.Remove(0, 1))[0];
+                    string username = textBoxUsername.Text.Remove(0, 1);
+                    Admin a = Admin.BacaData("username", username)[0];
 
                     // Jika ada
                     if (a != null)

@@ -89,78 +89,52 @@ namespace Library
         #region Methods
         public static void TambahData(Customer c)
         {
-            Random random = new Random();
-            var rString = "";
-            for (var i = 0; i < 8; i++)
-                rString += ((char)(random.Next(1, 26) + 64)).ToString().ToLower();
-
-            string encPass = HashSalt.Encrypt(rString);
+            string encPass = HashSalt.Encrypt(c.Password);
 
             byte[] hashedBytes = Convert.FromBase64String(encPass);
             byte[] salt = new byte[16];
             Array.Copy(hashedBytes, 0, salt, 0, 16);
             string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-            string encName = HashAes.Encrypt(saltString, c.Username.Replace("'", "\\'"));
             string encMail = HashAes.Encrypt(saltString, c.Email);
-
-            string passAsli = HashSalt.Encrypt(c.Password);
-
-            Bitmap originalImage = Steganography.CreateNonIndexedImage(ConvertByte(c.Profile_photo));
-            var imageWithHiddenData = Steganography.MergeText(passAsli, originalImage);
-
-            MemoryStream ms = new MemoryStream();
-            imageWithHiddenData.Save(ms, ImageFormat.Bmp);
-            byte[] bitmapData = ms.ToArray();
+            string encPhone = HashAes.Encrypt(saltString, c.Phone_number);
+            string encKTPnum = HashAes.Encrypt(saltString, c.KtpNum);
 
             //string yang menampung sql query insert into
             string sql = "insert into customers (username, email, phone_number, password, balance, profile_photo, KTPNum) " +
-                         "values ('" + encName + "', '" + encMail + "', '" + c.Phone_number + "', " +
-                         "'" + encPass + "', " + c.Balance + ", @img, '" + c.KtpNum + "')";
+                         "values ('" + c.username + "', '" + encMail + "', '" + encPhone + "', " +
+                         "'" + encPass + "', " + c.Balance + ", @img, '" + encKTPnum + "')";
 
             //menjalankan perintah sql
-            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, bitmapData);
+            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, c.Profile_photo);
         }
 
         public static void UbahData(Customer c)
         {
-            Random random = new Random();
-            var rString = "";
-            for (var i = 0; i < 8; i++)
-                rString += ((char)(random.Next(1, 26) + 64)).ToString().ToLower();
-
-            string encPass = HashSalt.Encrypt(rString);
+            string encPass = HashSalt.Encrypt(c.Password);
 
             byte[] hashedBytes = Convert.FromBase64String(encPass);
             byte[] salt = new byte[16];
             Array.Copy(hashedBytes, 0, salt, 0, 16);
             string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-            string encName = HashAes.Encrypt(saltString, c.Username.Replace("'", "\\'"));
             string encMail = HashAes.Encrypt(saltString, c.Email);
+            string encPhone = HashAes.Encrypt(saltString, c.Phone_number);
+            string encKTPnum = HashAes.Encrypt(saltString, c.KtpNum);
 
-            string passAsli = HashSalt.Encrypt(c.Password);
+            // Querry Update
+            string sql = "update customers set email = '" + encMail + "', " +
+                         "phone_number = '" + encPhone + "', password = '" + encPass + "', " +
+                         "balance = " + c.Balance + "profile_photo = @img, KTPnum = '" + encKTPnum + "' where username = '" + c.Username +"'";
 
-            Bitmap originalImage = Steganography.CreateNonIndexedImage(ConvertByte(c.Profile_photo));
-            var imageWithHiddenData = Steganography.MergeText(passAsli, originalImage);
-
-            MemoryStream ms = new MemoryStream();
-            imageWithHiddenData.Save(ms, ImageFormat.Bmp);
-            byte[] bitmapData = ms.ToArray();
-
-            // Querry Insert
-            string sql = "update customers set username = '" + encName + "', email = '" + encMail + "', " +
-                         "phone_number = '" + c.Phone_number + "', password = '" + encPass + "', " +
-                         "balance = " + c.Balance + "profile_photo = @img, KTPnum = '" + c.KtpNum + "' where username = " + c.Username;
-
-            Koneksi.JalankanPerintahDMLFoto(sql, bitmapData);
+            Koneksi.JalankanPerintahDMLFoto(sql, c.Profile_photo);
         }
 
         public static List<Customer> BacaData(string kriteria, string nilaiKriteria)
         {
             string sql = "select * from customers";
             //apabila kriteria tidak kosong
-            if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
+            if (kriteria != "") sql += " where " + kriteria + " = '" + nilaiKriteria + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -174,12 +148,13 @@ namespace Library
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(0).ToString());
                 string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
+                string plainPhone = HashAes.Encrypt(saltString, hasil.GetString(2));
+                string plainKTPnum = HashAes.Encrypt(saltString, hasil.GetString(6));
 
                 byte[] img = ((byte[])hasil.GetValue(5));
 
-                Customer cus = new Customer(plainName, plainMail, hasil.GetString(2), hasil.GetString(3), hasil.GetInt32(4), img, hasil.GetString(6));
+                Customer cus = new Customer(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetString(3), hasil.GetInt32(4), img, plainKTPnum);
 
                 listCustomer.Add(cus);
             }
@@ -196,16 +171,8 @@ namespace Library
 
         public static void TopUpBalance(int nominal, Customer c)
         {
-            string sql = "update customers set balance = balance + " + nominal + " where username = " + c.Username;
+            string sql = "update customers set balance = balance + " + nominal + " where username = '" + c.Username + "'";
             Koneksi.JalankanPerintahDML(sql);
-        }
-
-        public static Image ConvertByte(byte[] img)
-        {
-            MemoryStream stream = new MemoryStream(img);
-            Image result = Image.FromStream(stream);
-
-            return result;
         }
         #endregion
     }

@@ -113,82 +113,56 @@ namespace Library
         #region Methods
         public static void TambahData(Doctor d)
         {
-            Random random = new Random();
-            var rString = "";
-            for (var i = 0; i < 8; i++)
-                rString += ((char)(random.Next(1, 26) + 64)).ToString().ToLower();
-
-            string encPass = HashSalt.Encrypt(rString);
+            string encPass = HashSalt.Encrypt(d.Password);
 
             byte[] hashedBytes = Convert.FromBase64String(encPass);
             byte[] salt = new byte[16];
             Array.Copy(hashedBytes, 0, salt, 0, 16);
             string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-            string encName = HashAes.Encrypt(saltString, d.Username.Replace("'", "\\'"));
             string encMail = HashAes.Encrypt(saltString, d.Email);
-
-            string passAsli = HashSalt.Encrypt(d.Password);
-
-            Bitmap originalImage = Steganography.CreateNonIndexedImage(ConvertByte(d.Profile_photo));
-            var imageWithHiddenData = Steganography.MergeText(passAsli, originalImage);
-
-            MemoryStream ms = new MemoryStream();
-            imageWithHiddenData.Save(ms, ImageFormat.Bmp);
-            byte[] bitmapData = ms.ToArray();
+            string encPhone = HashAes.Encrypt(saltString, d.Phone_number);
+            string encKTPnum = HashAes.Encrypt(saltString, d.KtpNum);
 
             //string yang menampung sql query insert into
-            string sql = "insert into customers (username, email, phone_number, password, profile_photo," +
+            string sql = "insert into doctors (username, email, phone_number, password, profile_photo," +
                          "KTPNum, balance, availability, bank_account, hospital_id) " +
-                         "values ('" + encName + "', '" + encMail + "', '" + d.Phone_number + "', '" + encPass + "', @img, " +
-                         "'" + d.KtpNum + "', " + d.Balance + ", '" + d.Availability + "', " +
+                         "values ('" + d.username + "', '" + encMail + "', '" + encPhone + "', '" + encPass + "', @img, " +
+                         "'" + encKTPnum + "', " + d.Balance + ", '" + d.Availability + "', " +
                          "'" + d.Bank_account + "', " + d.Hospital.Id + ")";
 
             //menjalankan perintah sql
-            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, bitmapData);
+            Koneksi.JalankanPerintahDMLFotoCreateUser(sql, d.Profile_photo);
         }
 
         public static void UbahData(Doctor d)
         {
-            Random random = new Random();
-            var rString = "";
-            for (var i = 0; i < 8; i++)
-                rString += ((char)(random.Next(1, 26) + 64)).ToString().ToLower();
-
-            string encPass = HashSalt.Encrypt(rString);
+            string encPass = HashSalt.Encrypt(d.Password);
 
             byte[] hashedBytes = Convert.FromBase64String(encPass);
             byte[] salt = new byte[16];
             Array.Copy(hashedBytes, 0, salt, 0, 16);
             string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-            string encName = HashAes.Encrypt(saltString, d.Username.Replace("'", "\\'"));
             string encMail = HashAes.Encrypt(saltString, d.Email);
-
-            string passAsli = HashSalt.Encrypt(d.Password);
-
-            Bitmap originalImage = Steganography.CreateNonIndexedImage(ConvertByte(d.Profile_photo));
-            var imageWithHiddenData = Steganography.MergeText(passAsli, originalImage);
-
-            MemoryStream ms = new MemoryStream();
-            imageWithHiddenData.Save(ms, ImageFormat.Bmp);
-            byte[] bitmapData = ms.ToArray();
+            string encPhone = HashAes.Encrypt(saltString, d.Phone_number);
+            string encKTPnum = HashAes.Encrypt(saltString, d.KtpNum);
 
             // Querry Insert
-            string sql = "update customers set username = '" + encName + "', email = '" + encMail + "', " +
-                         "phone_number = '" + d.Phone_number + "', password = '" + encPass + "', " +
-                         "profile_photo = @img, KTPnum = '" + d.KtpNum + "', balance = " + d.Balance + ", " +
+            string sql = "update doctors set email = '" + encMail + "', " +
+                         "phone_number = '" + encPhone + "', password = '" + encPass + "', " +
+                         "profile_photo = @img, KTPnum = '" + encKTPnum + "', balance = " + d.Balance + ", " +
                          "availability = '" + d.Availability + "', bank_account = '" + d.Bank_account + "', " +
-                         "hospital_id = " + d.Hospital.Id + " where username = " + d.username;
+                         "hospital_id = " + d.Hospital.Id + " where username = '" + d.username + "'";
 
-            Koneksi.JalankanPerintahDMLFoto(sql, bitmapData);
+            Koneksi.JalankanPerintahDMLFoto(sql, d.Profile_photo);
         }
 
         public static List<Doctor> BacaData(string kriteria, string nilaiKriteria)
         {
-            string sql = "select * from doctors d inner join hospitals h on c.hospital_id=d.id";
+            string sql = "select * from doctors ";
             //apabila kriteria tidak kosong
-            if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
+            if (kriteria != "") sql += " where " + kriteria + " = '" + nilaiKriteria + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -202,39 +176,33 @@ namespace Library
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(0).ToString());
                 string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
+                string plainPhone = HashAes.Decrypt(saltString, hasil.GetString(2).ToString());
+                string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(5).ToString());
+
 
                 byte[] img = ((byte[])hasil.GetValue(6));
 
-                Hospital h = new Hospital(hasil.GetInt32(11), hasil.GetString(12), hasil.GetString(13));
+                Hospital h = Hospital.AmbilData();
 
-                Doctor doc = new Doctor(plainName, plainMail, hasil.GetString(3), hasil.GetValue(5).ToString(), img, hasil.GetString(7), hasil.GetInt32(8), hasil.GetString(9), hasil.GetString(10), h);
+                Doctor doc = new Doctor(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetValue(3).ToString(), img, plainKTPnum, hasil.GetInt32(6), hasil.GetString(7), hasil.GetString(8), h);
 
                 listDoctor.Add(doc);
             }
             return listDoctor;
         }
 
-        public static void HapusData(int id)
+        public static void HapusData(string username)
         {
-            string sql = "delete from doctors where id = " + id;
+            string sql = "delete from doctors where username = '" + username + "'";
 
             Koneksi.JalankanPerintahDML(sql);
         }
 
         public static void WithdrawBalance(int nominal, Doctor d)
         {
-            string sql = "update doctors set balance = balance - " + nominal + " where username = " + d.Username;
+            string sql = "update doctors set balance = balance - " + nominal + " where username = '" + d.Username + "'";
             Koneksi.JalankanPerintahDML(sql);
-        }
-
-        public static Image ConvertByte(byte[] img)
-        {
-            MemoryStream stream = new MemoryStream(img);
-            Image result = Image.FromStream(stream);
-
-            return result;
         }
         #endregion
     }

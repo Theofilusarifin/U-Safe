@@ -88,7 +88,7 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(3));
+                Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(2));
                 listHospital.Add(hos);
             }
             return listHospital;
@@ -105,12 +105,11 @@ namespace Library
             //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
             while (hasil.Read() == true)
             {
-                Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(3));
+                Hospital hos = new Hospital(hasil.GetInt32(0), hasil.GetString(1), hasil.GetString(2));
                 listHospital.Add(hos);
             }
             return listHospital[0];
         }
-
 
         public static void HapusData(int id)
         {

@@ -162,9 +162,6 @@ namespace Library
 
                 listCheckup.Add(chk);
             }
-            //hasil.Dispose();
-            //hasil.Close();
-
             return listCheckup;
         }
 

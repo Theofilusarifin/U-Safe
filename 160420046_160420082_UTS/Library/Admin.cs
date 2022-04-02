@@ -84,8 +84,9 @@ namespace Library
             Array.Copy(hashedBytes, 0, salt, 0, 16);
             string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-            string encName = HashAes.Encrypt(saltString, a.Username.Replace("'", "\\'"));
             string encMail = HashAes.Encrypt(saltString, a.Email);
+            string encPhone = HashAes.Encrypt(saltString, a.Phone_number);
+            string encKTPnum = HashAes.Encrypt(saltString, a.KTPNum);
 
             string passAsli = HashSalt.Encrypt(a.Password);
 
@@ -98,8 +99,8 @@ namespace Library
 
             //string yang menampung sql query insert into
             string sql = "insert into admins (username, email, phone_number, password, profile_photo, KTPNum) " +
-                         "values ('" + encName + "', '" + encMail + "', '" + a.Phone_number + "', " +
-                         "'" + encPass + "', @img, '" + a.KTPNum + "')";
+                         "values ('" + a.username + "', '" + encMail + "', '" + encPhone + "', " +
+                         "'" + encPass + "', @img, '" + encKTPnum + "')";
 
             //menjalankan perintah sql
             Koneksi.JalankanPerintahDMLFotoCreateUser(sql, bitmapData);
@@ -119,8 +120,9 @@ namespace Library
             Array.Copy(hashedBytes, 0, salt, 0, 16);
             string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-            string encName = HashAes.Encrypt(saltString, a.Username.Replace("'", "\\'"));
             string encMail = HashAes.Encrypt(saltString, a.Email);
+            string encPhone = HashAes.Encrypt(saltString, a.Phone_number);
+            string encKTPnum = HashAes.Encrypt(saltString, a.KTPNum);
 
             string passAsli = HashSalt.Encrypt(a.Password);
 
@@ -132,9 +134,9 @@ namespace Library
             byte[] bitmapData = ms.ToArray();
 
             // Querry Insert
-            string sql = "update admins set username = '" + encName + "', email = '" + encMail + "', " +
-                         "phone_number = '" + a.Phone_number + "', password = '" + encPass + "', " +
-                         "profile_photo = @img, KTPnum = '" + a.KTPNum + "' where username = " + a.username;
+            string sql = "update admins set email = '" + encMail + "', " +
+                         "phone_number = '" + encPhone + "', password = '" + encPass + "', " +
+                         "profile_photo = @img, KTPnum = '" + encKTPnum + "' where username = '" + a.username + "'";
 
             Koneksi.JalankanPerintahDMLFoto(sql, bitmapData);
         }
@@ -143,7 +145,7 @@ namespace Library
         {
             string sql = "select * from admins";
             //apabila kriteria tidak kosong
-            if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
+            if (kriteria != "") sql += " where " + kriteria + " = '" + nilaiKriteria + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -157,24 +159,23 @@ namespace Library
                 Array.Copy(hashedBytes, 0, salt, 0, 16);
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
-                string plainName = HashAes.Decrypt(saltString, hasil.GetValue(0).ToString());
                 string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
+                string plainPhone = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
+                string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
+
 
                 byte[] img = ((byte[])hasil.GetValue(4));
 
-                Admin adm = new Admin(plainName, plainMail, hasil.GetString(2), hasil.GetString(3), img, hasil.GetString(5));
+                Admin adm = new Admin(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetString(3), img, plainKTPnum);
 
                 listAdmin.Add(adm);
             }
-            //hasil.Dispose();
-            //hasil.Close();
-
             return listAdmin;
         }
 
         public static void HapusData(string username)
         {
-            string sql = "delete from admins where username = " + username;
+            string sql = "delete from admins where username = '" + username +"'";
 
             Koneksi.JalankanPerintahDML(sql);
         }

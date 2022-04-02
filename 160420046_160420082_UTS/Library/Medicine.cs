@@ -98,9 +98,6 @@ namespace Library
 
                 listMedicine.Add(med);
             }
-            //hasil.Dispose();
-            //hasil.Close();
-
             return listMedicine;
         }
 
@@ -113,7 +110,7 @@ namespace Library
 
         public static Medicine AmbilData(int id)
         {
-            string sql = "select * from medicines m  where b.id = " + id;
+            string sql = "select * from medicines where id = " + id;
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
