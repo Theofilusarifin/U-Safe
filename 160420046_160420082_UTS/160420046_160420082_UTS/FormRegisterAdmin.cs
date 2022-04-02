@@ -64,6 +64,8 @@ namespace _160420046_160420082_UTS
                             Admin.TambahData(a);
 
                             MessageBox.Show("Admin data has been added!", "Update Info");
+
+                            this.Close();
                         }
                         else
                         {

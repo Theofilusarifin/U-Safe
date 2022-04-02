@@ -125,6 +125,7 @@ namespace _160420046_160420082_UTS
             this.panelDoctor.Name = "panelDoctor";
             this.panelDoctor.Size = new System.Drawing.Size(233, 247);
             this.panelDoctor.TabIndex = 2;
+            this.panelDoctor.Visible = false;
             // 
             // buttonDoctorEditProfile
             // 
@@ -297,6 +298,7 @@ namespace _160420046_160420082_UTS
             this.labelSaldo.TabIndex = 7;
             this.labelSaldo.Text = "Balance";
             this.labelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSaldo.Visible = false;
             // 
             // labelSaldoHeader
             // 
@@ -310,6 +312,7 @@ namespace _160420046_160420082_UTS
             this.labelSaldoHeader.Size = new System.Drawing.Size(77, 21);
             this.labelSaldoHeader.TabIndex = 6;
             this.labelSaldoHeader.Text = "Balance";
+            this.labelSaldoHeader.Visible = false;
             // 
             // pictureBoxSaldo
             // 
@@ -320,6 +323,7 @@ namespace _160420046_160420082_UTS
             this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
             this.pictureBoxSaldo.TabIndex = 3;
             this.pictureBoxSaldo.TabStop = false;
+            this.pictureBoxSaldo.Visible = false;
             // 
             // pictureBox2
             // 
@@ -440,6 +444,7 @@ namespace _160420046_160420082_UTS
             this.panelAdmin.Name = "panelAdmin";
             this.panelAdmin.Size = new System.Drawing.Size(233, 367);
             this.panelAdmin.TabIndex = 3;
+            this.panelAdmin.Visible = false;
             // 
             // buttonAdminEditProfile
             // 
@@ -579,6 +584,7 @@ namespace _160420046_160420082_UTS
             this.panelPasien.Name = "panelPasien";
             this.panelPasien.Size = new System.Drawing.Size(233, 210);
             this.panelPasien.TabIndex = 1;
+            this.panelPasien.Visible = false;
             // 
             // ButtonPatientEditProfile
             // 

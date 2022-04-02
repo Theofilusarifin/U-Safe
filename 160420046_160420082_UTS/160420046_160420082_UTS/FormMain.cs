@@ -373,9 +373,41 @@ namespace _160420046_160420082_UTS
         }
         #endregion
 
+        #region Logout
         private void buttonLogout_Click(object sender, EventArgs e)
         {
+            // Set semua ke null
+            role = null;
+            active_admin = null;
+            active_doctor = null;
+            active_patient = null;
 
+            panelLeftNavbar.Hide();
+            panelLeft.Hide();
+            panelHeader.Hide();
+            panelActiveForm.Hide();
+
+            panelAdmin.Hide(); // Hide panel admin
+            panelDoctor.Hide(); // Hide panel doctor
+            panelPasien.Hide(); // Hide panel patient
+
+            labelUsername.Text = "";
+            labelSaldo.Text = "";
+
+            // Hide element balance
+            pictureBoxSaldo.Hide();
+            labelSaldoHeader.Hide();
+            labelSaldo.Hide();
+
+            // Hide form ini
+            HideSubMenu();
+
+            // Tampilkan form login
+            FormLogin form = new FormLogin(); //Create Object
+            form.Owner = this;
+            form.Show();
+            this.Hide();
         }
+        #endregion
     }
 }

@@ -51,6 +51,7 @@ namespace _160420046_160420082_UTS
         {
             try
             {
+                this.Owner.Show();
                 // Tampilkan element pada form main
                 FormMain.frmMain.panelLeftNavbar.Show();
                 FormMain.frmMain.panelLeft.Show();
@@ -61,8 +62,9 @@ namespace _160420046_160420082_UTS
                 if (FormMain.role == "admin") // Admin
                 {
                     FormMain.frmMain.panelAdmin.Show(); // Tampilkan panel admin
+                    FormMain.frmMain.labelUsername.Text = FormMain.active_admin.Username;
                 }
-                else if(FormMain.role == "doctor" || FormMain.role == "patient")
+                else if(FormMain.role == "doctor" | FormMain.role == "patient")
                 {
                     // Tampilkan element balance
                     FormMain.frmMain.pictureBoxSaldo.Show();
@@ -75,11 +77,13 @@ namespace _160420046_160420082_UTS
                     {
                         FormMain.frmMain.panelDoctor.Show(); // Tampilkan panel doctor
                         FormMain.frmMain.labelSaldo.Text = FormMain.active_doctor.Balance.ToString(); // Tampilkan nilai balance doctor
+                        FormMain.frmMain.labelUsername.Text = FormMain.active_doctor.Username;
                     }
                     else if (FormMain.role == "patient")
                     {
-                        FormMain.frmMain.panelPasien.Show(); // Tampilkan panel patient
+
                         FormMain.frmMain.labelSaldo.Text = FormMain.active_patient.Balance.ToString(); // Tampilkan nilai balance doctor
+                        FormMain.frmMain.labelUsername.Text = FormMain.active_patient.Username;
                     }
 
                 }

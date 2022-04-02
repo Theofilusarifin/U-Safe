@@ -63,16 +63,16 @@ namespace _160420046_160420082_UTS
                 DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
                 DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
 
-                availableDoctor = Doctor.SearchAvailableDoctor();
+                //availableDoctor = Doctor.SearchAvailableDoctor();
 
-                Checkup c = new Checkup(Now, FormMain.active_patient, );
-                Checkup.TambahData(c);
+                //Checkup c = new Checkup(Now, FormMain.active_patient, );
+                //Checkup.TambahData(c);
 
-                MessageBox.Show("Anda berhasil menambahkan checkup pada " + c.Start_date);
+                //MessageBox.Show("Anda berhasil menambahkan checkup pada " + c.Start_date);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Maaf, penambahan checkup Anda pada " + c.Start_date + " gagal");
+                //MessageBox.Show("Maaf, penambahan checkup Anda pada " + c.Start_date + " gagal");
             }
 
         }

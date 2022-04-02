@@ -121,9 +121,9 @@ namespace _160420046_160420082_UTS
                                 FormMain.frmMain.labelNama.Text = c.Username;
 
                                 FormLoading form = new FormLoading(); //Create Object
-                                form.Owner = this;
+                                form.Owner = this.Owner;
                                 form.Show();
-                                this.Hide();
+                                this.Close();
                             }
                             else
                             {
@@ -159,11 +159,11 @@ namespace _160420046_160420082_UTS
                                 FormMain.role = "doctor";
                                 FormMain.active_doctor = d;
                                 FormMain.frmMain.labelNama.Text = d.Username;
-
+                                
                                 FormLoading form = new FormLoading(); //Create Object
-                                form.Owner = this;
+                                form.Owner = this.Owner;
                                 form.Show();
-                                this.Hide();
+                                this.Close();
                             }
                             else // Apabila gagal
                             {

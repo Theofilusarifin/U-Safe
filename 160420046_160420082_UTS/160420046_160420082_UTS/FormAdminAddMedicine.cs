@@ -47,7 +47,23 @@ namespace _160420046_160420082_UTS
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Medicine m = new Medicine(textBoxNama.Text, int.Parse(textBoxHarga.Text), int.Parse(textBoxStock.Text));
 
+                Medicine.TambahData(m);
+
+                MessageBox.Show("Data Gift berhasil ditambahkan", "Informasi");
+
+                // Update Data Di Form Daftar
+                FormAdminListMedicine frm = (FormAdminListMedicine)this.Owner;
+                frm.FormAdminListMedicine_Load(sender, e);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
         }
     }
 }

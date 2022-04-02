@@ -32,6 +32,14 @@ namespace Library
             Stock = stock;
             Checkup_medicine = new List<Checkup_Medicine>();
         }
+
+        public Medicine(string name, int price, int stock)
+        {
+            Name = name;
+            Price = price;
+            Stock = stock;
+        }
+
         #endregion
 
         #region Properties
