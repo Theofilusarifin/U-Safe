@@ -1,0 +1,12 @@
+[ADMIN]
+Username : Theo
+Password : password
+
+[DOCTOR]
+Username : Arifin
+Password : password
+
+
+[PATIENT]
+Username : henri
+Password : password
