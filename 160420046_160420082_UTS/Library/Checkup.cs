@@ -232,6 +232,28 @@ namespace Library
             return ch;
         }
 
+        public void CetakCheckup(string namaFile)
+        {
+            StreamWriter file = new StreamWriter(namaFile);
+            char pemisah = '-';
+            file.WriteLine(""); //Cetak 1 baris kosong
+            file.WriteLine("U-Safe");
+            file.WriteLine("No Checkup = " + Id);
+            file.WriteLine("Patient = " + Customer.Username);
+            file.WriteLine("Doctor = " + Doctor.Username);
+            file.WriteLine("Start Date = " + Start_date);
+            file.WriteLine("Finish Date = " + Finish_date);
+            file.WriteLine("Total Price = " + TotalPrice.ToString("#,###"));
+
+            file.WriteLine("-".PadRight(50, pemisah));
+            file.WriteLine("Terima kasih!");
+            file.WriteLine("=".PadRight(50, '='));
+            file.Close();
+
+            Cetak c = new Cetak(namaFile, 10, 9, 9, 9);
+            c.CetakKePrinter();
+        }
+
         #endregion
     }
 }

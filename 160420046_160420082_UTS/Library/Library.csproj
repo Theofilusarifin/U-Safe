@@ -45,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Admin.cs" />
+    <Compile Include="Cetak.cs" />
     <Compile Include="Checkup.cs" />
     <Compile Include="Checkup_Medicine.cs" />
     <Compile Include="Customer.cs" />

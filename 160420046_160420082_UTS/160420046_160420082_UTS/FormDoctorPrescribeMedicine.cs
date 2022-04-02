@@ -270,7 +270,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         #endregion DataGridView

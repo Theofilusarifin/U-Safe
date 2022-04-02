@@ -122,10 +122,17 @@ namespace _160420046_160420082_UTS
 
         private void FormPatientBookCheckUp_Load(object sender, EventArgs e)
         {
-            ListCheckup = Checkup.BacaData("customer_username", FormMain.active_patient.Username);
+            try
+            {
+                ListCheckup = Checkup.BacaData("customer_username", FormMain.active_patient.Username);
 
-            FormatDataGrid();
-            TampilDataGrid();
+                FormatDataGrid();
+                TampilDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
         }
     }
 }

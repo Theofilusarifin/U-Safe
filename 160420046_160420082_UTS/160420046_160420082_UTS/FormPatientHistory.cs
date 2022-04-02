@@ -130,7 +130,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Error");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
 
@@ -144,12 +144,16 @@ namespace _160420046_160420082_UTS
                 if (e.ColumnIndex == dataGridView.Columns["btnCheckupDetail"].Index && e.RowIndex >= 0)
                 {
                     detailCheckup = Checkup.AmbilData(patientName);
+
                     // masuk ke detail checkup
+                    FormLihatDetailCheckup formLihatDetailCheckup = new FormLihatDetailCheckup();
+                    formLihatDetailCheckup.Owner = this;
+                    formLihatDetailCheckup.ShowDialog();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
     }

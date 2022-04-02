@@ -115,7 +115,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Terjadi Error. Pesan kesalahan : " + ex.Message, "Error");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
     }

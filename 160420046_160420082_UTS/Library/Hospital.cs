@@ -94,7 +94,7 @@ namespace Library
             return listHospital;
         }
 
-        public static Hospital AmbilData()
+        public static Hospital AmbilDataPertama()
         {
             string sql = "select * from hospitals where id = 1";
 

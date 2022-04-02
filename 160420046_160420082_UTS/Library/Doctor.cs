@@ -180,10 +180,9 @@ namespace Library
                 string plainPhone = HashAes.Decrypt(saltString, hasil.GetString(2).ToString());
                 string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(5).ToString());
 
-
                 byte[] img = ((byte[])hasil.GetValue(4));
 
-                Hospital h = Hospital.AmbilData();
+                Hospital h = Hospital.AmbilDataPertama();
 
                 Doctor doc = new Doctor(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetValue(3).ToString(), img, plainKTPnum, hasil.GetInt32(6), hasil.GetString(7), hasil.GetString(8), h);
 
@@ -199,26 +198,15 @@ namespace Library
             Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static void WithdrawBalance(int nominal, Doctor d)
+        public static Doctor AmbilData(string name)
         {
-            string sql = "update doctors set balance = balance - " + nominal + " where username = '" + d.Username + "'";
-            Koneksi.JalankanPerintahDML(sql);
-        }
-
-        public static List<Doctor> SearchAvailableDoctor(DateTime upperLimit, DateTime lowerLimit)
-        {
-            string sql = "select distinct(d.username) from checkups ch " +
-                         "inner join customers cu on ch.customer_username = cu.username " +
-                         "inner join doctors d on ch.doctor_username = d.username " +
-                         "inner join hospitals h on d.hospital_id = h.id " +
-                         "where ch.start_date < " + lowerLimit + " and ch.finish_date > " + upperLimit;
+            string sql = "select * from doctors where username = " + name;
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
-            List<Doctor> listDoctor = new List<Doctor>();
+            Doctor d = null;
 
-            //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
-            while (hasil.Read() == true)
+            while (hasil.Read())
             {
                 byte[] hashedBytes = Convert.FromBase64String(hasil.GetValue(3).ToString());
                 byte[] salt = new byte[16];
@@ -229,13 +217,38 @@ namespace Library
                 string plainPhone = HashAes.Decrypt(saltString, hasil.GetString(2).ToString());
                 string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(5).ToString());
 
-
                 byte[] img = ((byte[])hasil.GetValue(4));
 
-                Hospital h = Hospital.AmbilData();
+                Hospital h = Hospital.AmbilDataPertama();
 
-                Doctor doc = new Doctor(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetValue(3).ToString(), img, plainKTPnum, hasil.GetInt32(6), hasil.GetString(7), hasil.GetString(8), h);
+                d = new Doctor(hasil.GetValue(0).ToString(), plainMail, plainPhone, hasil.GetValue(3).ToString(), img, plainKTPnum, hasil.GetInt32(6), hasil.GetString(7), hasil.GetString(8), h);
+            }
+            return d;
+        }
 
+        public static void WithdrawBalance(int nominal, Doctor d)
+        {
+            string sql = "update doctors set balance = balance - " + nominal + " where username = '" + d.Username + "'";
+            Koneksi.JalankanPerintahDML(sql);
+        }
+
+        public static List<string> SearchAvailableDoctor(DateTime upperLimit, DateTime lowerLimit)
+        {
+            string sql = "select distinct(d.username) from checkups ch " +
+                         "inner join customers cu on ch.customer_username = cu.username " +
+                         "inner join doctors d on ch.doctor_username = d.username " +
+                         "inner join hospitals h on d.hospital_id = h.id " +
+                         "where ch.start_date < " + lowerLimit + " and ch.finish_date > " + upperLimit;
+
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<string> listDoctor = new List<string>();
+
+            //kalau bisa/berhasil dibaca maka dimasukkin ke list pake constructors
+            while (hasil.Read() == true)
+            {
+                string doc = hasil.GetValue(0).ToString();
+                
                 listDoctor.Add(doc);
             }
             return listDoctor;

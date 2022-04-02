@@ -215,7 +215,7 @@ namespace _160420046_160420082_UTS
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLeft.Location = new System.Drawing.Point(250, 0);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(934, 761);
+            this.panelLeft.Size = new System.Drawing.Size(934, 749);
             this.panelLeft.TabIndex = 3;
             this.panelLeft.Visible = false;
             // 
@@ -225,7 +225,7 @@ namespace _160420046_160420082_UTS
             this.panelActiveForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelActiveForm.Location = new System.Drawing.Point(0, 87);
             this.panelActiveForm.Name = "panelActiveForm";
-            this.panelActiveForm.Size = new System.Drawing.Size(934, 674);
+            this.panelActiveForm.Size = new System.Drawing.Size(934, 662);
             this.panelActiveForm.TabIndex = 1;
             this.panelActiveForm.Visible = false;
             // 
@@ -269,7 +269,7 @@ namespace _160420046_160420082_UTS
             this.labelUsername.ForeColor = System.Drawing.Color.White;
             this.labelUsername.Location = new System.Drawing.Point(282, 29);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(73, 26);
+            this.labelUsername.Size = new System.Drawing.Size(71, 26);
             this.labelUsername.TabIndex = 9;
             this.labelUsername.Text = "Nama";
             // 
@@ -281,7 +281,7 @@ namespace _160420046_160420082_UTS
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(114, 29);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 26);
+            this.label2.Size = new System.Drawing.Size(167, 26);
             this.label2.TabIndex = 8;
             this.label2.Text = "Welcome Back,";
             // 
@@ -294,7 +294,7 @@ namespace _160420046_160420082_UTS
             this.labelSaldo.ForeColor = System.Drawing.Color.Black;
             this.labelSaldo.Location = new System.Drawing.Point(729, 41);
             this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(81, 22);
+            this.labelSaldo.Size = new System.Drawing.Size(77, 22);
             this.labelSaldo.TabIndex = 7;
             this.labelSaldo.Text = "Balance";
             this.labelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -309,7 +309,7 @@ namespace _160420046_160420082_UTS
             this.labelSaldoHeader.ForeColor = System.Drawing.Color.Gray;
             this.labelSaldoHeader.Location = new System.Drawing.Point(729, 18);
             this.labelSaldoHeader.Name = "labelSaldoHeader";
-            this.labelSaldoHeader.Size = new System.Drawing.Size(77, 21);
+            this.labelSaldoHeader.Size = new System.Drawing.Size(72, 21);
             this.labelSaldoHeader.TabIndex = 6;
             this.labelSaldoHeader.Text = "Balance";
             this.labelSaldoHeader.Visible = false;
@@ -342,7 +342,7 @@ namespace _160420046_160420082_UTS
             this.labelNama.ForeColor = System.Drawing.Color.White;
             this.labelNama.Location = new System.Drawing.Point(-303, 32);
             this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(73, 26);
+            this.labelNama.Size = new System.Drawing.Size(71, 26);
             this.labelNama.TabIndex = 1;
             this.labelNama.Text = "Nama";
             // 
@@ -354,7 +354,7 @@ namespace _160420046_160420082_UTS
             this.labelwelcome.ForeColor = System.Drawing.Color.White;
             this.labelwelcome.Location = new System.Drawing.Point(-471, 32);
             this.labelwelcome.Name = "labelwelcome";
-            this.labelwelcome.Size = new System.Drawing.Size(171, 26);
+            this.labelwelcome.Size = new System.Drawing.Size(167, 26);
             this.labelwelcome.TabIndex = 0;
             this.labelwelcome.Text = "Welcome Back,";
             // 
@@ -428,7 +428,7 @@ namespace _160420046_160420082_UTS
             this.panelLeftNavbar.ForeColor = System.Drawing.Color.White;
             this.panelLeftNavbar.Location = new System.Drawing.Point(0, 0);
             this.panelLeftNavbar.Name = "panelLeftNavbar";
-            this.panelLeftNavbar.Size = new System.Drawing.Size(250, 761);
+            this.panelLeftNavbar.Size = new System.Drawing.Size(250, 749);
             this.panelLeftNavbar.TabIndex = 2;
             this.panelLeftNavbar.Visible = false;
             // 
@@ -607,7 +607,7 @@ namespace _160420046_160420082_UTS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1184, 761);
+            this.ClientSize = new System.Drawing.Size(1184, 749);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelLeftNavbar);
             this.IsMdiContainer = true;

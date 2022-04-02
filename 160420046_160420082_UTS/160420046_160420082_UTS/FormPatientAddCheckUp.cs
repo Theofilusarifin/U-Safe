@@ -28,7 +28,8 @@ namespace _160420046_160420082_UTS
             //dateTimePickerWaktuMulai.Value = myDate.TimeOfDay;
         }
 
-        List<Doctor> availableDoctor = new List<Doctor>();
+        List<string> availableDoctorName = new List<string>();
+        Doctor availableDoctor;
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)
@@ -56,6 +57,7 @@ namespace _160420046_160420082_UTS
 
         private void buttonBook_Click(object sender, EventArgs e)
         {
+
             try
             {
                 DateTime Now = dateTimePickerTanggalMulai.Value.Date + dateTimePickerWaktuMulai.Value.TimeOfDay;
@@ -63,16 +65,35 @@ namespace _160420046_160420082_UTS
                 DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
                 DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
 
-                //availableDoctor = Doctor.SearchAvailableDoctor();
+                availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
 
-                //Checkup c = new Checkup(Now, FormMain.active_patient, );
-                //Checkup.TambahData(c);
+                Random random = new Random();
+                int randNum = random.Next(availableDoctorName.Count());
 
-                //MessageBox.Show("Anda berhasil menambahkan checkup pada " + c.Start_date);
+                availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
+
+                Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
+                Checkup.TambahData(c);
+
+                MessageBox.Show("You have successfully added a checkup on " + c.Start_date);
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Maaf, penambahan checkup Anda pada " + c.Start_date + " gagal");
+                DateTime Now = dateTimePickerTanggalMulai.Value.Date + dateTimePickerWaktuMulai.Value.TimeOfDay;
+
+                DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
+                DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
+
+                availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
+
+                Random random = new Random();
+                int randNum = random.Next(availableDoctorName.Count());
+
+                availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
+
+                Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
+
+                MessageBox.Show("Sorry, adding your checkup on " + c.Start_date + " was failed");
             }
 
         }
