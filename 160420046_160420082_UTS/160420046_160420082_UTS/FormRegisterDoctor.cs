@@ -54,18 +54,24 @@ namespace _160420046_160420082_UTS
                 {
                     if (textBoxPassword.Text == textBoxPasswordKonfirmasi.Text) // Password dan Password konfimasi sudah sama
                     {
-                        // Foto admin
-                        PictureBox pb = pictureBoxFoto;
-                        // Ambil default hospital
-                        Hospital h = Hospital.AmbilData();
-                        MessageBox.Show("Ambil Data Hospital");
-                        Doctor d = new Doctor(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text, h);
+                        if (pictureBoxFoto.Image != null)
+                        {
+                            // Foto admin
+                            PictureBox pb = pictureBoxFoto;
+                            // Ambil default hospital
+                            Hospital h = Hospital.AmbilData();
+                            Doctor d = new Doctor(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text, h);
 
-                        Doctor.TambahData(d);
+                            Doctor.TambahData(d);
 
-                        MessageBox.Show("Doctor data has been added!", "Update Info");
+                            MessageBox.Show("Doctor data has been added!", "Update Info");
 
-                        this.Close();
+                            this.Close();
+                        }
+                        else
+                        {
+                            throw new Exception("Please select a photo!");
+                        }
                     }
                     else
                     {

@@ -181,7 +181,7 @@ namespace Library
                 string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(5).ToString());
 
 
-                byte[] img = ((byte[])hasil.GetValue(6));
+                byte[] img = ((byte[])hasil.GetValue(4));
 
                 Hospital h = Hospital.AmbilData();
 

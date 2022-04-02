@@ -54,16 +54,23 @@ namespace _160420046_160420082_UTS
                 {
                     if (textBoxPassword.Text == textBoxPasswordKonfirmasi.Text) // Password dan Password konfimasi sudah sama
                     {
-                        // Foto admin
-                        PictureBox pb = pictureBoxFoto;
+                        if (pictureBoxFoto.Image != null)
+                        {
+                            // Foto admin
+                            PictureBox pb = pictureBoxFoto;
 
-                        Customer c = new Customer(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text);
+                            Customer c = new Customer(textBoxUsername.Text, textBoxEmail.Text, textBoxNomorTelepon.Text, textBoxPassword.Text, FormMain.ConvertImage(pb.Image), textBoxNomorKTP.Text);
 
-                        Customer.TambahData(c);
+                            Customer.TambahData(c);
 
-                        MessageBox.Show("Patient data has been added!", "Update Info");
+                            MessageBox.Show("Patient data has been added!", "Update Info");
 
-                        this.Close();
+                            this.Close();
+                        }
+                        else
+                        {
+                            throw new Exception("Please select a photo!");
+                        }
                     }
                     else
                     {
