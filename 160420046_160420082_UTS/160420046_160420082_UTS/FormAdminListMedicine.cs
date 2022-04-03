@@ -75,6 +75,8 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns["price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["stock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+            dataGridView.Columns["name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;

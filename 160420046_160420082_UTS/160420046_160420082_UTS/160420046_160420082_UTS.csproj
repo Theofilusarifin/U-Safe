@@ -399,5 +399,11 @@
   <ItemGroup>
     <None Include="Resources\Image Placeholder.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Edit Profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Form Edit Profile1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

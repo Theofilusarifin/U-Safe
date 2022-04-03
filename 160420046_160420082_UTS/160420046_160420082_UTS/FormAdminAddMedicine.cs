@@ -53,7 +53,7 @@ namespace _160420046_160420082_UTS
 
                 Medicine.TambahData(m);
 
-                MessageBox.Show("Data Gift berhasil ditambahkan", "Informasi");
+                MessageBox.Show("Medicine data has been added!", "Update Info");
 
                 // Update Data Di Form Daftar
                 FormAdminListMedicine frm = (FormAdminListMedicine)this.Owner;

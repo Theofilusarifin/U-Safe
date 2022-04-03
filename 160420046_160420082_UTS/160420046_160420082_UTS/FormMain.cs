@@ -143,7 +143,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void buttonDoctorMedicines_Click(object sender, EventArgs e)
@@ -155,7 +155,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void buttonDoctorHistory_Click(object sender, EventArgs e)
@@ -167,7 +167,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void buttonDoctorWithdraw_Click(object sender, EventArgs e)
@@ -179,7 +179,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void buttonDoctorEditProfile_Click(object sender, EventArgs e)
@@ -191,7 +191,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
 
         }
@@ -207,7 +207,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
 
@@ -220,7 +220,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
 
@@ -233,7 +233,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void ButtonPatientEditProfile_Click(object sender, EventArgs e)
@@ -245,7 +245,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         #endregion
@@ -255,28 +255,16 @@ namespace _160420046_160420082_UTS
         {
             ShowSubMenu(panelShowData);
         }
-        private void buttonAdminDataDoctor_Click(object sender, EventArgs e)
+        private void buttonAdminDataAdmin_Click(object sender, EventArgs e)
         {
             try
             {
                 HideSubMenu();
-                openChildForm(new FormAdminListDoctor());
+                openChildForm(new FormAdminListAdmin());
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
-            }
-        }
-        private void buttonAdminDataPatient_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                HideSubMenu();
-                openChildForm(new FormAdminListPatient());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void buttonAdminDataMedicine_Click(object sender, EventArgs e)
@@ -288,7 +276,43 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
+        private void buttonAdminDataDoctor_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HideSubMenu();
+                openChildForm(new FormAdminListDoctor());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
+        private void buttonAdminDataPatient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                HideSubMenu();
+                openChildForm(new FormAdminListPatient());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
+        private void buttonAdminDataMedicine_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                HideSubMenu();
+                openChildForm(new FormAdminListMedicine());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         private void buttonAdminCheckUp_Click(object sender, EventArgs e)
@@ -300,19 +324,19 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
-        private void buttonAdminRegisterAdmin_Click(object sender, EventArgs e)
+        private void buttonAdminEditProfile_Click(object sender, EventArgs e)
         {
             try
             {
                 //Buka Form
-                Form form = Application.OpenForms["FormIsiSaldo"];
+                Form form = Application.OpenForms["FormAdminEditProfile"];
 
                 if (form == null) //Jika Form ini belum di-create sebelumnya
                 {
-                    FormRegisterAdmin frm = new FormRegisterAdmin(); //Create Object
+                    FormAdminEditProfile frm = new FormAdminEditProfile(); //Create Object
                     frm.Owner = this;
                     frm.Show();
                     frm.BringToFront(); //Agar form tampil di depan
@@ -325,19 +349,7 @@ namespace _160420046_160420082_UTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
-            }
-        }
-        private void buttonAdminEditProfile_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                HideSubMenu();
-                openChildForm(new FormAdminEditProfile());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Gagal membuka halaman. Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         #endregion

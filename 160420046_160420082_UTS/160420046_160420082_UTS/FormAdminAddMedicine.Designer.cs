@@ -43,7 +43,7 @@ namespace _160420046_160420082_UTS
             this.textBoxNama.Location = new System.Drawing.Point(56, 262);
             this.textBoxNama.Name = "textBoxNama";
             this.textBoxNama.Size = new System.Drawing.Size(339, 20);
-            this.textBoxNama.TabIndex = 12;
+            this.textBoxNama.TabIndex = 0;
             // 
             // buttonAdd
             // 
@@ -59,7 +59,7 @@ namespace _160420046_160420082_UTS
             this.buttonAdd.Location = new System.Drawing.Point(37, 504);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(379, 44);
-            this.buttonAdd.TabIndex = 13;
+            this.buttonAdd.TabIndex = 3;
             this.buttonAdd.Text = "Add";
             this.buttonAdd.UseVisualStyleBackColor = false;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
@@ -74,7 +74,7 @@ namespace _160420046_160420082_UTS
             this.textBoxHarga.Location = new System.Drawing.Point(56, 341);
             this.textBoxHarga.Name = "textBoxHarga";
             this.textBoxHarga.Size = new System.Drawing.Size(339, 20);
-            this.textBoxHarga.TabIndex = 14;
+            this.textBoxHarga.TabIndex = 1;
             // 
             // textBoxStock
             // 
@@ -84,7 +84,7 @@ namespace _160420046_160420082_UTS
             this.textBoxStock.Location = new System.Drawing.Point(56, 421);
             this.textBoxStock.Name = "textBoxStock";
             this.textBoxStock.Size = new System.Drawing.Size(339, 20);
-            this.textBoxStock.TabIndex = 15;
+            this.textBoxStock.TabIndex = 2;
             // 
             // FormAdminAddMedicine
             // 

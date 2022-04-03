@@ -40,6 +40,22 @@ namespace _160420046_160420082_UTS
             this.buttonDoctorCheckUp = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelActiveForm = new System.Windows.Forms.Panel();
+            this.buttonLogout = new System.Windows.Forms.Button();
+            this.panelLogo = new System.Windows.Forms.Panel();
+            this.ButtonPatientHistory = new System.Windows.Forms.Button();
+            this.timerLoading = new System.Windows.Forms.Timer(this.components);
+            this.panelLeftNavbar = new System.Windows.Forms.Panel();
+            this.panelAdmin = new System.Windows.Forms.Panel();
+            this.buttonAdminEditProfile = new System.Windows.Forms.Button();
+            this.buttonAdminCheckUp = new System.Windows.Forms.Button();
+            this.panelShowData = new System.Windows.Forms.Panel();
+            this.buttonAdminDataMedicine = new System.Windows.Forms.Button();
+            this.buttonAdminDataPatient = new System.Windows.Forms.Button();
+            this.buttonAdminDataDoctor = new System.Windows.Forms.Button();
+            this.buttonAdminDataAdmin = new System.Windows.Forms.Button();
+            this.buttonAdminShowData = new System.Windows.Forms.Button();
+            this.panelPasien = new System.Windows.Forms.Panel();
+            this.ButtonPatientEditProfile = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.labelUsername = new System.Windows.Forms.Label();
@@ -50,35 +66,19 @@ namespace _160420046_160420082_UTS
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.labelNama = new System.Windows.Forms.Label();
             this.labelwelcome = new System.Windows.Forms.Label();
-            this.buttonLogout = new System.Windows.Forms.Button();
-            this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.ButtonPatientHistory = new System.Windows.Forms.Button();
-            this.timerLoading = new System.Windows.Forms.Timer(this.components);
-            this.panelLeftNavbar = new System.Windows.Forms.Panel();
-            this.panelAdmin = new System.Windows.Forms.Panel();
-            this.buttonAdminEditProfile = new System.Windows.Forms.Button();
-            this.buttonAdminRegisterAdmin = new System.Windows.Forms.Button();
-            this.buttonAdminCheckUp = new System.Windows.Forms.Button();
-            this.panelShowData = new System.Windows.Forms.Panel();
-            this.buttonAdminDataMedicine = new System.Windows.Forms.Button();
-            this.buttonAdminDataPatient = new System.Windows.Forms.Button();
-            this.buttonAdminDataDoctor = new System.Windows.Forms.Button();
-            this.buttonAdminShowData = new System.Windows.Forms.Button();
-            this.panelPasien = new System.Windows.Forms.Panel();
-            this.ButtonPatientEditProfile = new System.Windows.Forms.Button();
             this.panelDoctor.SuspendLayout();
             this.panelLeft.SuspendLayout();
-            this.panelHeader.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelLogo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLeftNavbar.SuspendLayout();
             this.panelAdmin.SuspendLayout();
             this.panelShowData.SuspendLayout();
             this.panelPasien.SuspendLayout();
+            this.panelHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // ButtonPatientTopUp
@@ -229,142 +229,13 @@ namespace _160420046_160420082_UTS
             this.panelActiveForm.TabIndex = 1;
             this.panelActiveForm.Visible = false;
             // 
-            // panelHeader
-            // 
-            this.panelHeader.BackColor = System.Drawing.Color.Transparent;
-            this.panelHeader.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Navbar_atas;
-            this.panelHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panelHeader.Controls.Add(this.pictureBox3);
-            this.panelHeader.Controls.Add(this.labelUsername);
-            this.panelHeader.Controls.Add(this.label2);
-            this.panelHeader.Controls.Add(this.labelSaldo);
-            this.panelHeader.Controls.Add(this.labelSaldoHeader);
-            this.panelHeader.Controls.Add(this.pictureBoxSaldo);
-            this.panelHeader.Controls.Add(this.pictureBox2);
-            this.panelHeader.Controls.Add(this.labelNama);
-            this.panelHeader.Controls.Add(this.labelwelcome);
-            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelHeader.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panelHeader.Location = new System.Drawing.Point(0, 0);
-            this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(934, 87);
-            this.panelHeader.TabIndex = 0;
-            this.panelHeader.Visible = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox3.Image = global::_160420046_160420082_UTS.Properties.Resources.User;
-            this.pictureBox3.Location = new System.Drawing.Point(39, 15);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 60);
-            this.pictureBox3.TabIndex = 10;
-            this.pictureBox3.TabStop = false;
-            // 
-            // labelUsername
-            // 
-            this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelUsername.AutoSize = true;
-            this.labelUsername.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.ForeColor = System.Drawing.Color.White;
-            this.labelUsername.Location = new System.Drawing.Point(282, 29);
-            this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(71, 26);
-            this.labelUsername.TabIndex = 9;
-            this.labelUsername.Text = "Nama";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(114, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(167, 26);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Welcome Back,";
-            // 
-            // labelSaldo
-            // 
-            this.labelSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSaldo.AutoSize = true;
-            this.labelSaldo.BackColor = System.Drawing.Color.White;
-            this.labelSaldo.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldo.ForeColor = System.Drawing.Color.Black;
-            this.labelSaldo.Location = new System.Drawing.Point(729, 41);
-            this.labelSaldo.Name = "labelSaldo";
-            this.labelSaldo.Size = new System.Drawing.Size(77, 22);
-            this.labelSaldo.TabIndex = 7;
-            this.labelSaldo.Text = "Balance";
-            this.labelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.labelSaldo.Visible = false;
-            // 
-            // labelSaldoHeader
-            // 
-            this.labelSaldoHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelSaldoHeader.AutoSize = true;
-            this.labelSaldoHeader.BackColor = System.Drawing.Color.White;
-            this.labelSaldoHeader.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSaldoHeader.ForeColor = System.Drawing.Color.Gray;
-            this.labelSaldoHeader.Location = new System.Drawing.Point(729, 18);
-            this.labelSaldoHeader.Name = "labelSaldoHeader";
-            this.labelSaldoHeader.Size = new System.Drawing.Size(72, 21);
-            this.labelSaldoHeader.TabIndex = 6;
-            this.labelSaldoHeader.Text = "Balance";
-            this.labelSaldoHeader.Visible = false;
-            // 
-            // pictureBoxSaldo
-            // 
-            this.pictureBoxSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBoxSaldo.Image = global::_160420046_160420082_UTS.Properties.Resources.saldo_panel;
-            this.pictureBoxSaldo.Location = new System.Drawing.Point(658, 15);
-            this.pictureBoxSaldo.Name = "pictureBoxSaldo";
-            this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
-            this.pictureBoxSaldo.TabIndex = 3;
-            this.pictureBoxSaldo.TabStop = false;
-            this.pictureBoxSaldo.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Location = new System.Drawing.Point(-546, 18);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 60);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // labelNama
-            // 
-            this.labelNama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelNama.AutoSize = true;
-            this.labelNama.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNama.ForeColor = System.Drawing.Color.White;
-            this.labelNama.Location = new System.Drawing.Point(-303, 32);
-            this.labelNama.Name = "labelNama";
-            this.labelNama.Size = new System.Drawing.Size(71, 26);
-            this.labelNama.TabIndex = 1;
-            this.labelNama.Text = "Nama";
-            // 
-            // labelwelcome
-            // 
-            this.labelwelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelwelcome.AutoSize = true;
-            this.labelwelcome.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelwelcome.ForeColor = System.Drawing.Color.White;
-            this.labelwelcome.Location = new System.Drawing.Point(-471, 32);
-            this.labelwelcome.Name = "labelwelcome";
-            this.labelwelcome.Size = new System.Drawing.Size(167, 26);
-            this.labelwelcome.TabIndex = 0;
-            this.labelwelcome.Text = "Welcome Back,";
-            // 
             // buttonLogout
             // 
             this.buttonLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonLogout.FlatAppearance.BorderSize = 0;
             this.buttonLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonLogout.Location = new System.Drawing.Point(0, 1008);
+            this.buttonLogout.Location = new System.Drawing.Point(0, 1031);
             this.buttonLogout.Name = "buttonLogout";
             this.buttonLogout.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonLogout.Size = new System.Drawing.Size(233, 45);
@@ -382,16 +253,6 @@ namespace _160420046_160420082_UTS
             this.panelLogo.Name = "panelLogo";
             this.panelLogo.Size = new System.Drawing.Size(233, 184);
             this.panelLogo.TabIndex = 0;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::_160420046_160420082_UTS.Properties.Resources.Logo_White_2;
-            this.pictureBox1.Location = new System.Drawing.Point(29, 60);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(160, 59);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // ButtonPatientHistory
             // 
@@ -435,14 +296,13 @@ namespace _160420046_160420082_UTS
             // panelAdmin
             // 
             this.panelAdmin.Controls.Add(this.buttonAdminEditProfile);
-            this.panelAdmin.Controls.Add(this.buttonAdminRegisterAdmin);
             this.panelAdmin.Controls.Add(this.buttonAdminCheckUp);
             this.panelAdmin.Controls.Add(this.panelShowData);
             this.panelAdmin.Controls.Add(this.buttonAdminShowData);
             this.panelAdmin.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelAdmin.Location = new System.Drawing.Point(0, 641);
             this.panelAdmin.Name = "panelAdmin";
-            this.panelAdmin.Size = new System.Drawing.Size(233, 367);
+            this.panelAdmin.Size = new System.Drawing.Size(233, 390);
             this.panelAdmin.TabIndex = 3;
             this.panelAdmin.Visible = false;
             // 
@@ -452,7 +312,7 @@ namespace _160420046_160420082_UTS
             this.buttonAdminEditProfile.FlatAppearance.BorderSize = 0;
             this.buttonAdminEditProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdminEditProfile.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdminEditProfile.Location = new System.Drawing.Point(0, 278);
+            this.buttonAdminEditProfile.Location = new System.Drawing.Point(0, 282);
             this.buttonAdminEditProfile.Name = "buttonAdminEditProfile";
             this.buttonAdminEditProfile.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdminEditProfile.Size = new System.Drawing.Size(233, 45);
@@ -462,29 +322,13 @@ namespace _160420046_160420082_UTS
             this.buttonAdminEditProfile.UseVisualStyleBackColor = true;
             this.buttonAdminEditProfile.Click += new System.EventHandler(this.buttonAdminEditProfile_Click);
             // 
-            // buttonAdminRegisterAdmin
-            // 
-            this.buttonAdminRegisterAdmin.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonAdminRegisterAdmin.FlatAppearance.BorderSize = 0;
-            this.buttonAdminRegisterAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAdminRegisterAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdminRegisterAdmin.Location = new System.Drawing.Point(0, 233);
-            this.buttonAdminRegisterAdmin.Name = "buttonAdminRegisterAdmin";
-            this.buttonAdminRegisterAdmin.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.buttonAdminRegisterAdmin.Size = new System.Drawing.Size(233, 45);
-            this.buttonAdminRegisterAdmin.TabIndex = 16;
-            this.buttonAdminRegisterAdmin.Text = "REGISTER ADMIN";
-            this.buttonAdminRegisterAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAdminRegisterAdmin.UseVisualStyleBackColor = true;
-            this.buttonAdminRegisterAdmin.Click += new System.EventHandler(this.buttonAdminRegisterAdmin_Click);
-            // 
             // buttonAdminCheckUp
             // 
             this.buttonAdminCheckUp.Dock = System.Windows.Forms.DockStyle.Top;
             this.buttonAdminCheckUp.FlatAppearance.BorderSize = 0;
             this.buttonAdminCheckUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdminCheckUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAdminCheckUp.Location = new System.Drawing.Point(0, 188);
+            this.buttonAdminCheckUp.Location = new System.Drawing.Point(0, 237);
             this.buttonAdminCheckUp.Name = "buttonAdminCheckUp";
             this.buttonAdminCheckUp.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.buttonAdminCheckUp.Size = new System.Drawing.Size(233, 45);
@@ -500,10 +344,11 @@ namespace _160420046_160420082_UTS
             this.panelShowData.Controls.Add(this.buttonAdminDataMedicine);
             this.panelShowData.Controls.Add(this.buttonAdminDataPatient);
             this.panelShowData.Controls.Add(this.buttonAdminDataDoctor);
+            this.panelShowData.Controls.Add(this.buttonAdminDataAdmin);
             this.panelShowData.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelShowData.Location = new System.Drawing.Point(0, 45);
             this.panelShowData.Name = "panelShowData";
-            this.panelShowData.Size = new System.Drawing.Size(233, 143);
+            this.panelShowData.Size = new System.Drawing.Size(233, 192);
             this.panelShowData.TabIndex = 1;
             // 
             // buttonAdminDataMedicine
@@ -513,15 +358,15 @@ namespace _160420046_160420082_UTS
             this.buttonAdminDataMedicine.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdminDataMedicine.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdminDataMedicine.ForeColor = System.Drawing.Color.White;
-            this.buttonAdminDataMedicine.Location = new System.Drawing.Point(0, 90);
+            this.buttonAdminDataMedicine.Location = new System.Drawing.Point(0, 135);
             this.buttonAdminDataMedicine.Name = "buttonAdminDataMedicine";
             this.buttonAdminDataMedicine.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.buttonAdminDataMedicine.Size = new System.Drawing.Size(233, 45);
-            this.buttonAdminDataMedicine.TabIndex = 2;
+            this.buttonAdminDataMedicine.TabIndex = 3;
             this.buttonAdminDataMedicine.Text = "MEDICINE";
             this.buttonAdminDataMedicine.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdminDataMedicine.UseVisualStyleBackColor = true;
-            this.buttonAdminDataMedicine.Click += new System.EventHandler(this.buttonAdminDataMedicine_Click);
+            this.buttonAdminDataMedicine.Click += new System.EventHandler(this.buttonAdminDataMedicine_Click_1);
             // 
             // buttonAdminDataPatient
             // 
@@ -530,7 +375,7 @@ namespace _160420046_160420082_UTS
             this.buttonAdminDataPatient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdminDataPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdminDataPatient.ForeColor = System.Drawing.Color.White;
-            this.buttonAdminDataPatient.Location = new System.Drawing.Point(0, 45);
+            this.buttonAdminDataPatient.Location = new System.Drawing.Point(0, 90);
             this.buttonAdminDataPatient.Name = "buttonAdminDataPatient";
             this.buttonAdminDataPatient.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.buttonAdminDataPatient.Size = new System.Drawing.Size(233, 45);
@@ -547,7 +392,7 @@ namespace _160420046_160420082_UTS
             this.buttonAdminDataDoctor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAdminDataDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAdminDataDoctor.ForeColor = System.Drawing.Color.White;
-            this.buttonAdminDataDoctor.Location = new System.Drawing.Point(0, 0);
+            this.buttonAdminDataDoctor.Location = new System.Drawing.Point(0, 45);
             this.buttonAdminDataDoctor.Name = "buttonAdminDataDoctor";
             this.buttonAdminDataDoctor.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.buttonAdminDataDoctor.Size = new System.Drawing.Size(233, 45);
@@ -556,6 +401,23 @@ namespace _160420046_160420082_UTS
             this.buttonAdminDataDoctor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAdminDataDoctor.UseVisualStyleBackColor = true;
             this.buttonAdminDataDoctor.Click += new System.EventHandler(this.buttonAdminDataDoctor_Click);
+            // 
+            // buttonAdminDataAdmin
+            // 
+            this.buttonAdminDataAdmin.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonAdminDataAdmin.FlatAppearance.BorderSize = 0;
+            this.buttonAdminDataAdmin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAdminDataAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAdminDataAdmin.ForeColor = System.Drawing.Color.White;
+            this.buttonAdminDataAdmin.Location = new System.Drawing.Point(0, 0);
+            this.buttonAdminDataAdmin.Name = "buttonAdminDataAdmin";
+            this.buttonAdminDataAdmin.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.buttonAdminDataAdmin.Size = new System.Drawing.Size(233, 45);
+            this.buttonAdminDataAdmin.TabIndex = 4;
+            this.buttonAdminDataAdmin.Text = "ADMIN";
+            this.buttonAdminDataAdmin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAdminDataAdmin.UseVisualStyleBackColor = true;
+            this.buttonAdminDataAdmin.Click += new System.EventHandler(this.buttonAdminDataAdmin_Click);
             // 
             // buttonAdminShowData
             // 
@@ -602,6 +464,145 @@ namespace _160420046_160420082_UTS
             this.ButtonPatientEditProfile.UseVisualStyleBackColor = true;
             this.ButtonPatientEditProfile.Click += new System.EventHandler(this.ButtonPatientEditProfile_Click);
             // 
+            // panelHeader
+            // 
+            this.panelHeader.BackColor = System.Drawing.Color.Transparent;
+            this.panelHeader.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Navbar_atas;
+            this.panelHeader.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panelHeader.Controls.Add(this.pictureBox3);
+            this.panelHeader.Controls.Add(this.labelUsername);
+            this.panelHeader.Controls.Add(this.label2);
+            this.panelHeader.Controls.Add(this.labelSaldo);
+            this.panelHeader.Controls.Add(this.labelSaldoHeader);
+            this.panelHeader.Controls.Add(this.pictureBoxSaldo);
+            this.panelHeader.Controls.Add(this.pictureBox2);
+            this.panelHeader.Controls.Add(this.labelNama);
+            this.panelHeader.Controls.Add(this.labelwelcome);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(934, 87);
+            this.panelHeader.TabIndex = 0;
+            this.panelHeader.Visible = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox3.Image = global::_160420046_160420082_UTS.Properties.Resources.User;
+            this.pictureBox3.Location = new System.Drawing.Point(39, 15);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(57, 60);
+            this.pictureBox3.TabIndex = 10;
+            this.pictureBox3.TabStop = false;
+            // 
+            // labelUsername
+            // 
+            this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelUsername.AutoSize = true;
+            this.labelUsername.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsername.ForeColor = System.Drawing.Color.White;
+            this.labelUsername.Location = new System.Drawing.Point(282, 29);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(73, 26);
+            this.labelUsername.TabIndex = 9;
+            this.labelUsername.Text = "Nama";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(114, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 26);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Welcome Back,";
+            // 
+            // labelSaldo
+            // 
+            this.labelSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSaldo.AutoSize = true;
+            this.labelSaldo.BackColor = System.Drawing.Color.White;
+            this.labelSaldo.Font = new System.Drawing.Font("Montserrat", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldo.ForeColor = System.Drawing.Color.Black;
+            this.labelSaldo.Location = new System.Drawing.Point(729, 41);
+            this.labelSaldo.Name = "labelSaldo";
+            this.labelSaldo.Size = new System.Drawing.Size(81, 22);
+            this.labelSaldo.TabIndex = 7;
+            this.labelSaldo.Text = "Balance";
+            this.labelSaldo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSaldo.Visible = false;
+            // 
+            // labelSaldoHeader
+            // 
+            this.labelSaldoHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelSaldoHeader.AutoSize = true;
+            this.labelSaldoHeader.BackColor = System.Drawing.Color.White;
+            this.labelSaldoHeader.Font = new System.Drawing.Font("Montserrat", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSaldoHeader.ForeColor = System.Drawing.Color.Gray;
+            this.labelSaldoHeader.Location = new System.Drawing.Point(729, 18);
+            this.labelSaldoHeader.Name = "labelSaldoHeader";
+            this.labelSaldoHeader.Size = new System.Drawing.Size(77, 21);
+            this.labelSaldoHeader.TabIndex = 6;
+            this.labelSaldoHeader.Text = "Balance";
+            this.labelSaldoHeader.Visible = false;
+            // 
+            // pictureBoxSaldo
+            // 
+            this.pictureBoxSaldo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBoxSaldo.Image = global::_160420046_160420082_UTS.Properties.Resources.saldo_panel;
+            this.pictureBoxSaldo.Location = new System.Drawing.Point(658, 15);
+            this.pictureBoxSaldo.Name = "pictureBoxSaldo";
+            this.pictureBoxSaldo.Size = new System.Drawing.Size(237, 63);
+            this.pictureBoxSaldo.TabIndex = 3;
+            this.pictureBoxSaldo.TabStop = false;
+            this.pictureBoxSaldo.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox2.Location = new System.Drawing.Point(-546, 18);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(57, 60);
+            this.pictureBox2.TabIndex = 2;
+            this.pictureBox2.TabStop = false;
+            // 
+            // labelNama
+            // 
+            this.labelNama.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelNama.AutoSize = true;
+            this.labelNama.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNama.ForeColor = System.Drawing.Color.White;
+            this.labelNama.Location = new System.Drawing.Point(-303, 32);
+            this.labelNama.Name = "labelNama";
+            this.labelNama.Size = new System.Drawing.Size(73, 26);
+            this.labelNama.TabIndex = 1;
+            this.labelNama.Text = "Nama";
+            // 
+            // labelwelcome
+            // 
+            this.labelwelcome.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelwelcome.AutoSize = true;
+            this.labelwelcome.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelwelcome.ForeColor = System.Drawing.Color.White;
+            this.labelwelcome.Location = new System.Drawing.Point(-471, 32);
+            this.labelwelcome.Name = "labelwelcome";
+            this.labelwelcome.Size = new System.Drawing.Size(171, 26);
+            this.labelwelcome.TabIndex = 0;
+            this.labelwelcome.Text = "Welcome Back,";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::_160420046_160420082_UTS.Properties.Resources.Logo_White_2;
+            this.pictureBox1.Location = new System.Drawing.Point(29, 60);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(160, 59);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -617,17 +618,17 @@ namespace _160420046_160420082_UTS
             this.Load += new System.EventHandler(this.FormMain_Load);
             this.panelDoctor.ResumeLayout(false);
             this.panelLeft.ResumeLayout(false);
+            this.panelLogo.ResumeLayout(false);
+            this.panelLeftNavbar.ResumeLayout(false);
+            this.panelAdmin.ResumeLayout(false);
+            this.panelShowData.ResumeLayout(false);
+            this.panelPasien.ResumeLayout(false);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSaldo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panelLeftNavbar.ResumeLayout(false);
-            this.panelAdmin.ResumeLayout(false);
-            this.panelShowData.ResumeLayout(false);
-            this.panelPasien.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -656,7 +657,6 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.Timer timerLoading;
         public System.Windows.Forms.Panel panelLeftNavbar;
         public System.Windows.Forms.Panel panelAdmin;
-        private System.Windows.Forms.Button buttonAdminRegisterAdmin;
         private System.Windows.Forms.Button buttonAdminCheckUp;
         private System.Windows.Forms.Panel panelShowData;
         private System.Windows.Forms.Button buttonAdminDataDoctor;
@@ -664,12 +664,13 @@ namespace _160420046_160420082_UTS
         public System.Windows.Forms.Panel panelPasien;
         private System.Windows.Forms.Button buttonDoctorWithdraw;
         private System.Windows.Forms.Button buttonDoctorEditProfile;
-        private System.Windows.Forms.Button buttonAdminDataMedicine;
         private System.Windows.Forms.Button buttonAdminDataPatient;
         private System.Windows.Forms.Button buttonAdminEditProfile;
         private System.Windows.Forms.Button ButtonPatientEditProfile;
         private System.Windows.Forms.PictureBox pictureBox3;
         public System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button buttonAdminDataMedicine;
+        private System.Windows.Forms.Button buttonAdminDataAdmin;
     }
 }

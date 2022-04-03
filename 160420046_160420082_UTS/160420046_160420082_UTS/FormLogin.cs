@@ -77,6 +77,7 @@ namespace _160420046_160420082_UTS
                             FormMain.role = "admin";
                             FormMain.active_admin = a;
                             FormMain.frmMain.labelNama.Text = a.Username;
+                            a.Password = textBoxPassword.Text;
 
                             FormLoading form = new FormLoading(); //Create Object
                             form.Owner = this.Owner;
@@ -119,6 +120,7 @@ namespace _160420046_160420082_UTS
                                 FormMain.role = "patient";
                                 FormMain.active_patient = c;
                                 FormMain.frmMain.labelNama.Text = c.Username;
+                                c.Password = textBoxPassword.Text;
 
                                 FormLoading form = new FormLoading(); //Create Object
                                 form.Owner = this.Owner;
@@ -159,7 +161,8 @@ namespace _160420046_160420082_UTS
                                 FormMain.role = "doctor";
                                 FormMain.active_doctor = d;
                                 FormMain.frmMain.labelNama.Text = d.Username;
-                                
+                                d.Password = textBoxPassword.Text;
+
                                 FormLoading form = new FormLoading(); //Create Object
                                 form.Owner = this.Owner;
                                 form.Show();

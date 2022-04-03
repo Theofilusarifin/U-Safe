@@ -65,9 +65,6 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns.Add("email", "Email");
             dataGridView.Columns.Add("phone_number", "Phone Number");
             dataGridView.Columns.Add("KTPnum", "KTP Number");
-            dataGridView.Columns.Add("balance", "Balance");
-            dataGridView.Columns.Add("availability", "Availability");
-            dataGridView.Columns.Add("bank_account", "Bank Account");
 
 
             dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 142, 123);
@@ -78,9 +75,6 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns["email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["phone_number"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["KTPnum"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView.Columns["balance"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView.Columns["availability"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView.Columns["bank_account"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
             dataGridView.AllowUserToAddRows = false;

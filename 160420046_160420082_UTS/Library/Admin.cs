@@ -160,9 +160,8 @@ namespace Library
                 string saltString = Convert.ToBase64String(salt).Replace("=", "");
 
                 string plainMail = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
-                string plainPhone = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
-                string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(1).ToString());
-
+                string plainPhone = HashAes.Decrypt(saltString, hasil.GetValue(2).ToString());
+                string plainKTPnum = HashAes.Decrypt(saltString, hasil.GetValue(5).ToString());
 
                 byte[] img = ((byte[])hasil.GetValue(4));
 

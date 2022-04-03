@@ -102,7 +102,7 @@ namespace _160420046_160420082_UTS
         private void pictureBoxFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog opf = new OpenFileDialog();
-            opf.Filter = "Choose Image(*.png)|*.png";
+            opf.Filter = "Choose Image(*.jpg; *.png; *.gif)|*.jpg; *.png; *.gif";
 
             if (opf.ShowDialog() == DialogResult.OK)
             {
