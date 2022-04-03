@@ -1,11 +1,17 @@
 [ADMIN]
-Username : Theo
+
+Saat Login username ditambah "#" di depan
+
+Username : Admin
 Password : password
+
+--------------------------------------------------------------
 
 [DOCTOR]
 Username : Arifin
 Password : password
 
+--------------------------------------------------------------
 
 [PATIENT]
 Username : henri
