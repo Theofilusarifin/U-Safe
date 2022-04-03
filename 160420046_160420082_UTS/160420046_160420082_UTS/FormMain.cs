@@ -199,14 +199,26 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                HideSubMenu();
-                openChildForm(new FormDoctorEditProfile());
+                //Buka Form
+                Form form = Application.OpenForms["FormDoctorEditProfile"];
+
+                if (form == null) //Jika Form ini belum di-create sebelumnya
+                {
+                    FormDoctorEditProfile frm = new FormDoctorEditProfile(); //Create Object
+                    frm.Owner = this;
+                    frm.Show();
+                    frm.BringToFront(); //Agar form tampil di depan
+                }
+                else
+                {
+                    form.Show();
+                    form.BringToFront(); //Agar form tampil di depan
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error Occured!\n" + ex.Message);
             }
-
         }
         #endregion
 
