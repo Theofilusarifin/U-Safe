@@ -51,8 +51,10 @@ namespace _160420046_160420082_UTS
             {
                 // kurangi saldo di database dengan nominal di textbox
                 Doctor.WithdrawBalance(int.Parse(textBoxSaldo.Text), FormMain.active_doctor);
+                MessageBox.Show("Withdraw balance succeded", "Info");
+                this.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error Occured!\n" + ex.Message);
             }

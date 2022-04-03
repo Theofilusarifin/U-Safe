@@ -51,6 +51,8 @@ namespace _160420046_160420082_UTS
             {
                 // tambah saldo di database dengan nominal di textbox
                 Customer.TopUpBalance(int.Parse(textBoxSaldo.Text), FormMain.active_patient);
+                MessageBox.Show("Top up balance succeded", "Info");
+                this.Close();
             }
             catch (Exception ex)
             {
