@@ -37,30 +37,13 @@ namespace _160420046_160420082_UTS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.txtMedName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.dataGridViewMed = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
             this.dataGridViewPrescript = new System.Windows.Forms.DataGridView();
+            this.buttonFinish = new System.Windows.Forms.Button();
+            this.txtMedName = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPrescript)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtMedName
-            // 
-            this.txtMedName.Location = new System.Drawing.Point(293, 44);
-            this.txtMedName.Name = "txtMedName";
-            this.txtMedName.Size = new System.Drawing.Size(235, 20);
-            this.txtMedName.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(206, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Search:";
             // 
             // dataGridViewMed
             // 
@@ -87,7 +70,7 @@ namespace _160420046_160420082_UTS
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewMed.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewMed.GridColor = System.Drawing.Color.Coral;
-            this.dataGridViewMed.Location = new System.Drawing.Point(196, 103);
+            this.dataGridViewMed.Location = new System.Drawing.Point(39, 341);
             this.dataGridViewMed.Name = "dataGridViewMed";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -100,18 +83,9 @@ namespace _160420046_160420082_UTS
             this.dataGridViewMed.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Montserrat", 10F);
             this.dataGridViewMed.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewMed.Size = new System.Drawing.Size(378, 180);
+            this.dataGridViewMed.Size = new System.Drawing.Size(379, 226);
             this.dataGridViewMed.TabIndex = 56;
             this.dataGridViewMed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMed_CellContentClick);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(499, 583);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 58;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
             // 
             // dataGridViewPrescript
             // 
@@ -138,7 +112,7 @@ namespace _160420046_160420082_UTS
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPrescript.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewPrescript.GridColor = System.Drawing.Color.Coral;
-            this.dataGridViewPrescript.Location = new System.Drawing.Point(196, 329);
+            this.dataGridViewPrescript.Location = new System.Drawing.Point(39, 599);
             this.dataGridViewPrescript.Name = "dataGridViewPrescript";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
@@ -151,20 +125,51 @@ namespace _160420046_160420082_UTS
             this.dataGridViewPrescript.RowHeadersWidth = 51;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Montserrat", 10F);
             this.dataGridViewPrescript.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewPrescript.Size = new System.Drawing.Size(378, 216);
+            this.dataGridViewPrescript.Size = new System.Drawing.Size(379, 237);
             this.dataGridViewPrescript.TabIndex = 59;
+            // 
+            // buttonFinish
+            // 
+            this.buttonFinish.AutoSize = true;
+            this.buttonFinish.BackColor = System.Drawing.Color.Transparent;
+            this.buttonFinish.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Leave;
+            this.buttonFinish.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonFinish.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonFinish.FlatAppearance.BorderSize = 0;
+            this.buttonFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.buttonFinish.ForeColor = System.Drawing.Color.White;
+            this.buttonFinish.Location = new System.Drawing.Point(39, 874);
+            this.buttonFinish.Name = "buttonFinish";
+            this.buttonFinish.Size = new System.Drawing.Size(379, 44);
+            this.buttonFinish.TabIndex = 60;
+            this.buttonFinish.Text = "Book";
+            this.buttonFinish.UseVisualStyleBackColor = false;
+            // 
+            // txtMedName
+            // 
+            this.txtMedName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMedName.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.txtMedName.ForeColor = System.Drawing.Color.DimGray;
+            this.txtMedName.Location = new System.Drawing.Point(56, 278);
+            this.txtMedName.Name = "txtMedName";
+            this.txtMedName.Size = new System.Drawing.Size(339, 20);
+            this.txtMedName.TabIndex = 61;
             // 
             // FormDoctorPrescribeMedicine
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 652);
-            this.Controls.Add(this.dataGridViewPrescript);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.dataGridViewMed);
-            this.Controls.Add(this.label1);
+            this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Form_Prescribe;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(452, 970);
             this.Controls.Add(this.txtMedName);
+            this.Controls.Add(this.buttonFinish);
+            this.Controls.Add(this.dataGridViewPrescript);
+            this.Controls.Add(this.dataGridViewMed);
+            this.DoubleBuffered = true;
             this.Name = "FormDoctorPrescribeMedicine";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormPrescribeMedicine";
             this.Load += new System.EventHandler(this.FormDoctorPrescribeMedicine_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMed)).EndInit();
@@ -175,11 +180,9 @@ namespace _160420046_160420082_UTS
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtMedName;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dataGridViewMed;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.DataGridView dataGridViewPrescript;
+        private System.Windows.Forms.Button buttonFinish;
+        private System.Windows.Forms.TextBox txtMedName;
     }
 }

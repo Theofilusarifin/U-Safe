@@ -136,9 +136,6 @@
   <data name="Image Placeholder" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Image Placeholder.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Form Reegistration" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Form Reegistration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Form Choose Register" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Choose Register.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -160,14 +157,14 @@
   <data name="Form Reegistration User" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Reegistration User.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Edit Doctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Edit Doctor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Form Edit Profile1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Edit Profile1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="saldo panel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\saldo panel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Button_Register1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Register1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Form Withdraw Balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Withdraw Balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,23 +175,29 @@
   <data name="Logo Loading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo Loading.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Logo White" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Logo White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Login Form" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login Form.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Login Form1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Login Form1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Form Top Up" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Form Top Up.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Form Edit Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Form Edit Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Logo White" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Logo White.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Button_Register1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Button_Register1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Closed Eye" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Closed Eye.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Form Edit Profile" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Edit Profile.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Navbar atas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Navbar atas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,10 +208,10 @@
   <data name="Button_Register" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Button_Register.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Button_Hover" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Button_Hover.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Form Reegistration" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Reegistration.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Edit Doctor" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Edit Doctor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Form Prescribe" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Form Prescribe.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -193,6 +193,16 @@ namespace _160420046_160420082_UTS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Form_Prescribe {
+            get {
+                object obj = ResourceManager.GetObject("Form Prescribe", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Form_Reegistration {
             get {
                 object obj = ResourceManager.GetObject("Form Reegistration", resourceCulture);

@@ -146,9 +146,9 @@ namespace _160420046_160420082_UTS
                     detailCheckup = Checkup.AmbilData(patientName);
 
                     // masuk ke detail checkup
-                    FormLihatDetailCheckup formLihatDetailCheckup = new FormLihatDetailCheckup();
-                    formLihatDetailCheckup.Owner = this;
-                    formLihatDetailCheckup.ShowDialog();
+                    //FormLihatDetailCheckup formLihatDetailCheckup = new FormLihatDetailCheckup();
+                    //formLihatDetailCheckup.Owner = this;
+                    //formLihatDetailCheckup.ShowDialog();
                 }
             }
             catch (Exception ex)
