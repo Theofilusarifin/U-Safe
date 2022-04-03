@@ -126,13 +126,16 @@ namespace _160420046_160420082_UTS
             // 
             // textBoxUsername
             // 
+            this.textBoxUsername.BackColor = System.Drawing.Color.White;
             this.textBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxUsername.Enabled = false;
             this.textBoxUsername.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.textBoxUsername.ForeColor = System.Drawing.Color.DimGray;
+            this.textBoxUsername.ForeColor = System.Drawing.Color.White;
             this.textBoxUsername.Location = new System.Drawing.Point(40, 316);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(275, 20);
             this.textBoxUsername.TabIndex = 28;
+            this.textBoxUsername.Click += new System.EventHandler(this.textBoxUsername_Click);
             // 
             // FormAdminEditProfile
             // 

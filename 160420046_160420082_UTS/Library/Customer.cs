@@ -125,7 +125,7 @@ namespace Library
             // Querry Update
             string sql = "update customers set email = '" + encMail + "', " +
                          "phone_number = '" + encPhone + "', password = '" + encPass + "', " +
-                         "balance = " + c.Balance + "profile_photo = @img, KTPnum = '" + encKTPnum + "' where username = '" + c.Username +"'";
+                         "profile_photo = @img, KTPnum = '" + encKTPnum + "' where username = '" + c.Username +"'";
 
             Koneksi.JalankanPerintahDMLFoto(sql, c.Profile_photo);
         }

@@ -151,8 +151,8 @@ namespace Library
             // Querry Insert
             string sql = "update doctors set email = '" + encMail + "', " +
                          "phone_number = '" + encPhone + "', password = '" + encPass + "', " +
-                         "profile_photo = @img, KTPnum = '" + encKTPnum + "', balance = " + d.Balance + ", " +
-                         "availability = '" + d.Availability + "', bank_account = '" + d.Bank_account + "', " +
+                         "profile_photo = @img, KTPnum = '" + encKTPnum + "', " +
+                         "bank_account = '" + d.Bank_account + "', " +
                          "hospital_id = " + d.Hospital.Id + " where username = '" + d.username + "'";
 
             Koneksi.JalankanPerintahDMLFoto(sql, d.Profile_photo);

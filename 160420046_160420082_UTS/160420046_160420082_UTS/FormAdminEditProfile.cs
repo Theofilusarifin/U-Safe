@@ -64,7 +64,6 @@ namespace _160420046_160420082_UTS
             catch (Exception ex)
             {
                 MessageBox.Show("Error Occured!\nMessage : '" + ex.Message + "'");
-
             }
         }
 

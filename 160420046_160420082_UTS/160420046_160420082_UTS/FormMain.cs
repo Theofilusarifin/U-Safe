@@ -228,8 +228,21 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                HideSubMenu();
-                openChildForm(new FormPatientTopUp());
+                //Buka Form
+                Form form = Application.OpenForms["FormPatientTopUp"];
+
+                if (form == null) //Jika Form ini belum di-create sebelumnya
+                {
+                    FormPatientTopUp frm = new FormPatientTopUp(); //Create Object
+                    frm.Owner = this;
+                    frm.Show();
+                    frm.BringToFront(); //Agar form tampil di depan
+                }
+                else
+                {
+                    form.Show();
+                    form.BringToFront(); //Agar form tampil di depan
+                }
             }
             catch (Exception ex)
             {
@@ -240,8 +253,21 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                HideSubMenu();
-                openChildForm(new FormPatientEditProfile());
+                //Buka Form
+                Form form = Application.OpenForms["FormPatientEditProfile"];
+
+                if (form == null) //Jika Form ini belum di-create sebelumnya
+                {
+                    FormPatientEditProfile frm = new FormPatientEditProfile(); //Create Object
+                    frm.Owner = this;
+                    frm.Show();
+                    frm.BringToFront(); //Agar form tampil di depan
+                }
+                else
+                {
+                    form.Show();
+                    form.BringToFront(); //Agar form tampil di depan
+                }
             }
             catch (Exception ex)
             {
@@ -331,6 +357,7 @@ namespace _160420046_160420082_UTS
         {
             try
             {
+                HideSubMenu();
                 //Buka Form
                 Form form = Application.OpenForms["FormAdminEditProfile"];
 
