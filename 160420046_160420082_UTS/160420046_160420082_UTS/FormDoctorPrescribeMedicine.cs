@@ -25,8 +25,6 @@ namespace _160420046_160420082_UTS
         List<Medicine> MedPrescribe = new List<Medicine>();
         List<Checkup_Medicine> MedPrescript = new List<Checkup_Medicine>();
 
-        Checkup_Medicine checkup_Medicine;
-
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -50,7 +48,6 @@ namespace _160420046_160420082_UTS
             buttonFinish.BackgroundImage = Properties.Resources.Button_Leave;
         }
         #endregion
-
 
         #region Methods
         private void FormatDataGridMed()
@@ -182,14 +179,14 @@ namespace _160420046_160420082_UTS
                             // kalau tidak ada id yang sama
                             if (helper == false)
                             {
-                                //checkup_Medicine = new Checkup_Medicine(thisCheckup, m, 1, m.Price);
+                                checkup_Medicine = new Checkup_Medicine(FormDoctorCheckUpSchedule.thisCheckup, m, 1, m.Price);
                                 MedPrescript.Add(checkup_Medicine);
                             }
                         }
                         // kalau list barang order kosong
                         else
                         {
-                            //checkup_Medicine = new Checkup_Medicine(thisCheckup, m, 1, m.Price);
+                            checkup_Medicine = new Checkup_Medicine(FormDoctorCheckUpSchedule.thisCheckup, m, 1, m.Price);
                             MedPrescript.Add(checkup_Medicine);
                         }
                     }
@@ -210,16 +207,28 @@ namespace _160420046_160420082_UTS
                     dataGridViewPrescript.DataSource = null;
                 }
 
-                if (!dataGridViewPrescript.Columns.Contains("btnRemoveMed"))
+                if (!dataGridViewPrescript.Columns.Contains("btnRemoveOneMed"))
                 {
                     //Button tambah ke keranjang
-                    DataGridViewButtonColumn bcolRemoveMed = new DataGridViewButtonColumn();
+                    DataGridViewButtonColumn bcolRemoveOneMed = new DataGridViewButtonColumn();
 
-                    bcolRemoveMed.Text = "Remove";
-                    bcolRemoveMed.Name = "btnRemoveMed";
-                    bcolRemoveMed.UseColumnTextForButtonValue = true;
-                    bcolRemoveMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                    dataGridViewPrescript.Columns.Add(bcolRemoveMed);
+                    bcolRemoveOneMed.Text = "-";
+                    bcolRemoveOneMed.Name = "btnRemoveOneMed";
+                    bcolRemoveOneMed.UseColumnTextForButtonValue = true;
+                    bcolRemoveOneMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridViewPrescript.Columns.Add(bcolRemoveOneMed);
+                }
+
+                if (!dataGridViewPrescript.Columns.Contains("btnRemove"))
+                {
+                    //Button tambah ke keranjang
+                    DataGridViewButtonColumn bcolRemove = new DataGridViewButtonColumn();
+
+                    bcolRemove.Text = "Remove";
+                    bcolRemove.Name = "btnRemove";
+                    bcolRemove.UseColumnTextForButtonValue = true;
+                    bcolRemove.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridViewPrescript.Columns.Add(bcolRemove);
                 }
             }
             catch(Exception ex)
@@ -254,21 +263,30 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                string name1 = dataGridViewMed.CurrentRow.Cells["name"].Value.ToString();
-                
-                //Kalau button Add diklik
+                string medName = dataGridViewMed.CurrentRow.Cells["name"].Value.ToString();
+
                 if (e.ColumnIndex == dataGridViewMed.Columns["btnAddMed"].Index && e.RowIndex >= 0)
                 {
-                    Medicine m = Medicine.AmbilData(name1);
+                    Medicine m = Medicine.AmbilData(medName);
                     MedPrescribe.Add(m);
                     FormDoctorPrescribeMedicine_Load(sender, e);
-                }
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
 
-                string name2 = dataGridViewPrescript.CurrentRow.Cells["name"].Value.ToString();
-                //Kalau button Remove diklik
-                if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemoveMed"].Index && e.RowIndex >= 0)
+        private void dataGridViewPrescript_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string medName = dataGridViewPrescript.CurrentRow.Cells["name"].Value.ToString();
+
+                if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemoveOneMed"].Index && e.RowIndex >= 0)
                 {
-                    Medicine m = Medicine.AmbilData(name2);
+                    Medicine m = Medicine.AmbilData(medName);
                     for (int i = 0; i < MedPrescribe.Count; i++)
                     {
                         if (MedPrescribe[i].Id == m.Id && MedPrescribe[i].Name == m.Name)
@@ -278,6 +296,24 @@ namespace _160420046_160420082_UTS
                         }
                     }
                     FormDoctorPrescribeMedicine_Load(sender, e);
+                }
+
+                if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemove"].Index && e.RowIndex >= 0)
+                {
+                    Medicine m = Medicine.AmbilData(medName);
+
+                    //User ditanya sesuai dibawah
+                    DialogResult hasil = MessageBox.Show(this, "Are You sure to remove all medicine with Id " + m.Id + " - " + m.Name + " from Prescription?",
+                                                         "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    //Kalau User klik yes barang akan dihapus
+                    if (hasil == DialogResult.Yes)
+                    {
+                        MedPrescribe.RemoveAll(medicine => medicine.Id == m.Id);
+                        
+                        MessageBox.Show("All med with Id " + m.Id + " - " + m.Name + " has been removed from Prescription");
+                        // refresh halaman
+                        FormDoctorPrescribeMedicine_Load(sender, e);
+                    }
                 }
             }
             catch (Exception ex)
@@ -289,7 +325,15 @@ namespace _160420046_160420082_UTS
 
         private void buttonFinish_Click(object sender, EventArgs e)
         {
+            foreach (Checkup_Medicine cm in MedPrescript)
+            {
+                Checkup_Medicine.TambahData(cm);
+                Medicine.UpdateStockMed(cm);
+            }
+            
             this.Close();
         }
+
+        
     }
 }

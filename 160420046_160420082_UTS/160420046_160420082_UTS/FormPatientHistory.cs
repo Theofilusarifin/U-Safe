@@ -22,7 +22,8 @@ namespace _160420046_160420082_UTS
         }
 
         List<Checkup> HistoryPatient = new List<Checkup>();
-        public static Checkup detailCheckup;
+
+        public static Checkup checkupSeePresctiption;
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)
@@ -100,16 +101,28 @@ namespace _160420046_160420082_UTS
                 dataGridView.DataSource = null;
             }
 
-            if (!dataGridView.Columns.Contains("btnCheckupDetail"))
+            if (!dataGridView.Columns.Contains("btnLihatPrescription"))
             {
                 //Button tambah ke keranjang
-                DataGridViewButtonColumn bcolCheckupDetail = new DataGridViewButtonColumn();
+                DataGridViewButtonColumn bcolSeePrescription = new DataGridViewButtonColumn();
 
-                bcolCheckupDetail.Text = "Lihat Detail";
-                bcolCheckupDetail.Name = "btnCheckupDetail";
-                bcolCheckupDetail.UseColumnTextForButtonValue = true;
-                bcolCheckupDetail.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dataGridView.Columns.Add(bcolCheckupDetail);
+                bcolSeePrescription.Text = "Lihat Resep Obat";
+                bcolSeePrescription.Name = "btnLihatPrescription";
+                bcolSeePrescription.UseColumnTextForButtonValue = true;
+                bcolSeePrescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView.Columns.Add(bcolSeePrescription);
+            }
+
+            if (!dataGridView.Columns.Contains("btnPrint"))
+            {
+                //Button tambah ke keranjang
+                DataGridViewButtonColumn bcolPrint = new DataGridViewButtonColumn();
+
+                bcolPrint.Text = "Print";
+                bcolPrint.Name = "btnPrint";
+                bcolPrint.UseColumnTextForButtonValue = true;
+                bcolPrint.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView.Columns.Add(bcolPrint);
             }
         }
         #endregion Methods
@@ -140,20 +153,39 @@ namespace _160420046_160420082_UTS
             {
                 string patientName = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
 
-                //Kalau button Add diklik
-                if (e.ColumnIndex == dataGridView.Columns["btnCheckupDetail"].Index && e.RowIndex >= 0)
+                if (e.ColumnIndex == dataGridView.Columns["btnLihatPrescription"].Index && e.RowIndex >= 0)
                 {
-                    detailCheckup = Checkup.AmbilData(patientName);
+                    checkupSeePresctiption =  Checkup.AmbilData(patientName);
 
-                    // masuk ke detail checkup
-                    //FormLihatDetailCheckup formLihatDetailCheckup = new FormLihatDetailCheckup();
-                    //formLihatDetailCheckup.Owner = this;
-                    //formLihatDetailCheckup.ShowDialog();
+                    FormPatientPrescription formPatientPrescription = new FormPatientPrescription();
+                    formPatientPrescription.Owner = this;
+                    formPatientPrescription.ShowDialog();
+                }
+
+                if (e.ColumnIndex == dataGridView.Columns["btnPrint"].Index && e.RowIndex >= 0)
+                {
+                    Checkup ch = Checkup.AmbilData(patientName);
+                    ch.CetakCheckup("Checkup " + ch.Id + ".txt");
+                    MessageBox.Show("Checkup printed successfully!");
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
+
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Checkup.CetakDaftarOrder("customer_username", FormMain.active_patient.Username, "daftarCheckup.txt");
+                MessageBox.Show("All Checkup printed successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+
             }
         }
     }

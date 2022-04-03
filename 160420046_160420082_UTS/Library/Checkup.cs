@@ -41,15 +41,34 @@ namespace Library
             ListCheckupMedicine = new List<Checkup_Medicine>();
         }
 
+        public Checkup(int price, int totalPrice, int finished, DateTime start_date, DateTime finish_date, Customer customer, Doctor doctor)
+        {
+            Price = price;
+            TotalPrice = totalPrice;
+            Finished = finished;
+            Start_date = start_date;
+            Finish_date = finish_date;
+            Customer = customer;
+            Doctor = doctor;
+            ListCheckupMedicine = new List<Checkup_Medicine>();
+        }
+
         public Checkup(DateTime start_date, Customer customer, Doctor doctor)
         {
             Price = 0;
             TotalPrice = 0;
             Finished = 0;
             Start_date = start_date;
-            Finish_date = DateTime.MinValue;
             Customer = customer;
             Doctor = doctor;
+            ListCheckupMedicine = new List<Checkup_Medicine>();
+        }
+
+        public Checkup()
+        {
+            Price = 0;
+            TotalPrice = 0;
+            Finished = 0;
             ListCheckupMedicine = new List<Checkup_Medicine>();
         }
         #endregion
@@ -191,6 +210,7 @@ namespace Library
                          "inner join doctors d on ch.doctor_username=d.username " +
                          "inner join hospitals h on d.hospital_id=h.id " +
                          "where cu.username = " + name;
+
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
             Checkup ch = null;
@@ -254,6 +274,31 @@ namespace Library
             c.CetakKePrinter();
         }
 
+        public static void CetakDaftarOrder(string kriteria, string nilai, string namaFile)
+        {
+            List<Checkup> listData = Checkup.BacaData(kriteria, nilai);
+            StreamWriter file = new StreamWriter(namaFile);
+            char pemisah = '-';
+            file.WriteLine(""); //Cetak 1 baris kosong
+            file.WriteLine("Online Mart - Trivial");
+            foreach (Checkup ch in listData)
+            {
+                file.WriteLine("No Checkup = " + ch.Id);
+                file.WriteLine("Patient = " + ch.Customer.Username);
+                file.WriteLine("Doctor = " + ch.Doctor.Username);
+                file.WriteLine("Start Date = " + ch.Start_date);
+                file.WriteLine("Finish Date = " + ch.Finish_date);
+                file.WriteLine("Total Price = " + ch.TotalPrice.ToString("#,###"));
+
+                file.WriteLine("-".PadRight(50, pemisah));
+                file.WriteLine("Terima kasih!");
+                file.WriteLine("=".PadRight(50, '='));
+            }
+            file.Close();
+
+            Cetak c = new Cetak(namaFile, 10, 9, 9, 9);
+            c.CetakKePrinter();
+        }
         #endregion
     }
 }

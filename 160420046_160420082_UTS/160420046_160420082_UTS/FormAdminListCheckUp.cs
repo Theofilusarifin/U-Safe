@@ -83,22 +83,41 @@ namespace _160420046_160420082_UTS
 
         private void TampilDataGrid()
         {
-            //Kosongi isi datagridview
-            dataGridView.Rows.Clear();
-
-            if (listCheckUp.Count > 0)
+            try
             {
-                foreach (Checkup c in listCheckUp)
+                //Kosongi isi datagridview
+                dataGridView.Rows.Clear();
+
+                if (listCheckUp.Count > 0)
                 {
-                    string status = "";
-                    if (c.Finished == 1) status = "Finished"; // Kalau finished = 1, status sudah selesai
-                    else if (c.Finished == 0) status = "Not Finished"; // Kalau finished = 0, status belum selesai
-                    dataGridView.Rows.Add(c.Id, c.TotalPrice, status, c.Start_date, c.Finish_date, c.Customer.Username, c.Doctor.Username);
+                    foreach (Checkup c in listCheckUp)
+                    {
+                        string status = "";
+                        if (c.Finished == 1) status = "Finished"; // Kalau finished = 1, status sudah selesai
+                        else if (c.Finished == 0) status = "Not Finished"; // Kalau finished = 0, status belum selesai
+                        dataGridView.Rows.Add(c.Id, c.TotalPrice, status, c.Start_date, c.Finish_date, c.Customer.Username, c.Doctor.Username);
+                    }
+                }
+                else
+                {
+                    dataGridView.DataSource = null;
+                }
+
+                if (!dataGridView.Columns.Contains("btnPrint"))
+                {
+                    //Button tambah ke keranjang
+                    DataGridViewButtonColumn bcolPrint = new DataGridViewButtonColumn();
+
+                    bcolPrint.Text = "Print";
+                    bcolPrint.Name = "btnPrint";
+                    bcolPrint.UseColumnTextForButtonValue = true;
+                    bcolPrint.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dataGridView.Columns.Add(bcolPrint);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                dataGridView.DataSource = null;
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
         #endregion
@@ -125,6 +144,39 @@ namespace _160420046_160420082_UTS
         private void buttonClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                string name = dataGridView.CurrentRow.Cells["customer_username"].Value.ToString();
+
+                //Kalau button Add diklik
+                if (e.ColumnIndex == dataGridView.Columns["btnPrint"].Index && e.RowIndex >= 0)
+                {
+                    Checkup ch = Checkup.AmbilData(name);
+                    ch.CetakCheckup("Checkup " + ch.Id +".txt");
+                    MessageBox.Show("Checkup printed successfully!");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
+
+        private void btnPrintAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Checkup.CetakDaftarOrder("customer_username", "", "daftarCheckup.txt");
+                MessageBox.Show("Seluruh Order berhasil dicetak!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
         }
     }
 }

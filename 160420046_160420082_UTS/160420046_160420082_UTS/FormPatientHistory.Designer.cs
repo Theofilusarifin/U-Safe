@@ -37,6 +37,7 @@ namespace _160420046_160420082_UTS
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonClose = new System.Windows.Forms.Button();
+            this.btnPrintAll = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -124,12 +125,33 @@ namespace _160420046_160420082_UTS
             this.buttonClose.MouseEnter += new System.EventHandler(this.buttonClose_MouseEnter);
             this.buttonClose.MouseLeave += new System.EventHandler(this.buttonClose_MouseLeave);
             // 
+            // btnPrintAll
+            // 
+            this.btnPrintAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintAll.AutoSize = true;
+            this.btnPrintAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnPrintAll.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Leave;
+            this.btnPrintAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnPrintAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintAll.FlatAppearance.BorderSize = 0;
+            this.btnPrintAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrintAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnPrintAll.ForeColor = System.Drawing.Color.White;
+            this.btnPrintAll.Location = new System.Drawing.Point(316, 294);
+            this.btnPrintAll.Name = "btnPrintAll";
+            this.btnPrintAll.Size = new System.Drawing.Size(128, 39);
+            this.btnPrintAll.TabIndex = 56;
+            this.btnPrintAll.Text = "Print All";
+            this.btnPrintAll.UseVisualStyleBackColor = false;
+            this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
+            // 
             // FormPatientHistoryCheckUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1084, 365);
+            this.Controls.Add(this.btnPrintAll);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -150,5 +172,6 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonClose;
+        private System.Windows.Forms.Button btnPrintAll;
     }
 }

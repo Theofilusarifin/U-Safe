@@ -130,6 +130,13 @@ namespace Library
             }
             return b;
         }
+
+        public static void UpdateStockMed(Checkup_Medicine cm)
+        {
+            string sql = "update medicines set stock = stock - " + cm.Amount + " where id = " + cm.Medicine.Id;
+
+            Koneksi.JalankanPerintahDML(sql);
+        }
         #endregion
     }
 }

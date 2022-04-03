@@ -21,7 +21,11 @@ namespace _160420046_160420082_UTS
             InitializeComponent();
         }
 
+        public static Checkup thisCheckup = new Checkup();
+
         List<Checkup> ListCheckupSchedule = new List<Checkup>();
+
+        public static string patientName;
 
         #region No Tick Constrols
         //Optimized Controls(No Tick)
@@ -54,7 +58,7 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns.Clear();
 
             //Menambah kolom di datagridview
-            dataGridView.Columns.Add("customer", "Customer");
+            dataGridView.Columns.Add("patient", "Patient");
             dataGridView.Columns.Add("doctor", "Doctor");
             dataGridView.Columns.Add("start", "Start");
             dataGridView.Columns.Add("finish", "Finish");
@@ -63,7 +67,7 @@ namespace _160420046_160420082_UTS
             dataGridView.EnableHeadersVisualStyles = false;
 
             //Agar lebar kolom dapat menyesuaikan panjang / isi data
-            dataGridView.Columns["customer"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridView.Columns["patient"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["doctor"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["finish"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -96,6 +100,18 @@ namespace _160420046_160420082_UTS
             {
                 dataGridView.DataSource = null;
             }
+
+            if (!dataGridView.Columns.Contains("btnPrescribeMed"))
+            {
+                //Button tambah ke keranjang
+                DataGridViewButtonColumn bcolPrint = new DataGridViewButtonColumn();
+
+                bcolPrint.Text = "Prescribe Medicine";
+                bcolPrint.Name = "btnPrescribeMed";
+                bcolPrint.UseColumnTextForButtonValue = true;
+                bcolPrint.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView.Columns.Add(bcolPrint);
+            }
         }
         #endregion Methods
 
@@ -116,6 +132,20 @@ namespace _160420046_160420082_UTS
             catch (Exception ex)
             {
                 MessageBox.Show("Error Occured!\n" + ex.Message);
+            }
+        }
+
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string name = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
+
+            if (e.ColumnIndex == dataGridView.Columns["btnPrescribeMed"].Index && e.RowIndex >= 0)
+            {
+                thisCheckup = Checkup.AmbilData(name);
+
+                FormDoctorPrescribeMedicine formDoctorPrescribeMedicine = new FormDoctorPrescribeMedicine();
+                formDoctorPrescribeMedicine.Owner = this;
+                formDoctorPrescribeMedicine.ShowDialog();
             }
         }
     }

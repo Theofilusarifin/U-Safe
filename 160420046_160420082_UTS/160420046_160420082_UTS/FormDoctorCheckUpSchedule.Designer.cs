@@ -81,6 +81,7 @@ namespace _160420046_160420082_UTS
             this.dataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.Size = new System.Drawing.Size(703, 173);
             this.dataGridView.TabIndex = 50;
+            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             // 
             // label1
             // 

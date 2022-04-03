@@ -166,6 +166,12 @@
     <Compile Include="FormPatientEditProfile.Designer.cs">
       <DependentUpon>FormPatientEditProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPatientPrescription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPatientPrescription.Designer.cs">
+      <DependentUpon>FormPatientPrescription.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormPatientTopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormPatientHistory.resx">
       <DependentUpon>FormPatientHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPatientPrescription.resx">
+      <DependentUpon>FormPatientPrescription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormPatientTopUp.resx">
       <DependentUpon>FormPatientTopUp.cs</DependentUpon>
