@@ -50,4 +50,3 @@ C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\160420046_160
 C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\160420046_160420082_UTS\obj\Debug\160420046_160420082_UTS.csproj.CopyComplete
 C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\160420046_160420082_UTS\obj\Debug\_160420046_160420082_UTS.FormAdminAddMedicine.resources
 C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\160420046_160420082_UTS\obj\Debug\_160420046_160420082_UTS.FormPatientAddCheckUp.resources
-C:\Users\asus\Documents\GitHub\Project-ISA\160420046_160420082_UTS\160420046_160420082_UTS\obj\Debug\_160420046_160420082_UTS.FormLihatDetailCheckup.resources

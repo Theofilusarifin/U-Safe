@@ -40,6 +40,18 @@ namespace _160420046_160420082_UTS
         }
         #endregion
 
+        #region Desain Button
+        private void buttonFinish_MouseEnter(object sender, EventArgs e)
+        {
+            buttonFinish.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonFinish_MouseLeave(object sender, EventArgs e)
+        {
+            buttonFinish.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        #endregion
+
+
         #region Methods
         private void FormatDataGridMed()
         {
@@ -274,5 +286,10 @@ namespace _160420046_160420082_UTS
             }
         }
         #endregion DataGridView
+
+        private void buttonFinish_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
