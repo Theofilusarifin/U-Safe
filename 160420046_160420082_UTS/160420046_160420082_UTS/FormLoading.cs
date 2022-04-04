@@ -81,7 +81,7 @@ namespace _160420046_160420082_UTS
                     }
                     else if (FormMain.role == "patient")
                     {
-
+                        FormMain.frmMain.panelPasien.Show(); // Tampilkan panel doctor
                         FormMain.frmMain.labelSaldo.Text = FormMain.active_patient.Balance.ToString(); // Tampilkan nilai balance doctor
                         FormMain.frmMain.labelUsername.Text = FormMain.active_patient.Username;
                     }
