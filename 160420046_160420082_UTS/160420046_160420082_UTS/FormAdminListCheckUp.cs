@@ -150,12 +150,14 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                string name = dataGridView.CurrentRow.Cells["customer_username"].Value.ToString();
+                string patientName = dataGridView.CurrentRow.Cells["customer_username"].Value.ToString();
+                string doctorName = dataGridView.CurrentRow.Cells["doctor_username"].Value.ToString();
+                string start = dataGridView.CurrentRow.Cells["start_date"].Value.ToString();
 
                 //Kalau button Add diklik
                 if (e.ColumnIndex == dataGridView.Columns["btnPrint"].Index && e.RowIndex >= 0)
                 {
-                    Checkup ch = Checkup.AmbilData(name);
+                    Checkup ch = Checkup.AmbilSatuData(patientName, doctorName, start);
                     ch.CetakCheckup("Checkup " + ch.Id +".txt");
                     MessageBox.Show("Checkup printed successfully!");
                 }
@@ -170,7 +172,7 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                Checkup.CetakDaftarOrder("customer_username", "", "daftarCheckup.txt");
+                Checkup.CetakDaftarOrder("", "", "daftarCheckup.txt");
                 MessageBox.Show("Seluruh Order berhasil dicetak!");
             }
             catch (Exception ex)
