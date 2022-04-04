@@ -200,7 +200,7 @@ namespace Library
 
         public static Doctor AmbilData(string name)
         {
-            string sql = "select * from doctors where username = " + name;
+            string sql = "select * from doctors where username = '" + name + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -234,11 +234,10 @@ namespace Library
 
         public static List<string> SearchAvailableDoctor(DateTime upperLimit, DateTime lowerLimit)
         {
-            string sql = "select distinct(d.username) from checkups ch " +
-                         "inner join customers cu on ch.customer_username = cu.username " +
-                         "inner join doctors d on ch.doctor_username = d.username " +
-                         "inner join hospitals h on d.hospital_id = h.id " +
-                         "where ch.start_date < " + lowerLimit + " and ch.finish_date > " + upperLimit;
+            string sql = "select distinct(d.username) from doctors d " +
+                         "left join checkups c on c.doctor_username = d.username " +
+                         "and c.start_date < '" + lowerLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "and c.finish_date > '" + upperLimit.ToString("yyyy-MM-dd HH:mm:ss") + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

@@ -187,8 +187,8 @@ namespace Library
                          "inner join customers cu on ch.customer_username = cu.username " +
                          "inner join doctors d on ch.doctor_username = d.username " +
                          "inner join hospitals h on d.hospital_id = h.id " +
-                         "where ch.start_date < " + lowerLimit + " " +
-                         "and ch.finish_date > " + upperLimit + " " +
+                         "where ch.start_date < '" + lowerLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "and ch.finish_date > '" + upperLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
                          "and ch.customer_username = " + customerUsername;
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);

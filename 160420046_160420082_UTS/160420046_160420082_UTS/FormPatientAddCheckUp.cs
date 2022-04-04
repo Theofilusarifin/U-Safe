@@ -66,7 +66,11 @@ namespace _160420046_160420082_UTS
 
             try
             {
-                clashingSchedule = Customer.SearchClashingSchedule(upperLimit, lowerLimit, FormMain.active_patient.Username);
+                List<Checkup> listCheckup = Checkup.BacaData("customer_username", FormMain.active_patient.Username);
+                if(listCheckup.Count != 0)
+                {
+                    clashingSchedule = Customer.SearchClashingSchedule(upperLimit, lowerLimit, FormMain.active_patient.Username);
+                }
 
                 availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
 
@@ -77,17 +81,17 @@ namespace _160420046_160420082_UTS
 
                 Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
 
-                if (clashingSchedule.Count > 0)
-                {
-                    MessageBox.Show("You have another checkup schedule on " + c.Start_date);
-                }
-                else
+                if (clashingSchedule.Count == 0)
                 {
                     Checkup.TambahData(c);
 
                     Customer.UpdateBalance(c);
 
                     MessageBox.Show("You have successfully added a checkup on " + c.Start_date);
+                }
+                else
+                {
+                    MessageBox.Show("You have another checkup schedule on " + c.Start_date);
                 }
             }
             catch (Exception ex)
