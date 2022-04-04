@@ -38,6 +38,8 @@ namespace _160420046_160420082_UTS
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonClose = new System.Windows.Forms.Button();
             this.btnPrintAll = new System.Windows.Forms.Button();
+            this.cmbDoctorOrPatient = new System.Windows.Forms.ComboBox();
+            this.cmbNama = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -145,12 +147,34 @@ namespace _160420046_160420082_UTS
             this.btnPrintAll.UseVisualStyleBackColor = false;
             this.btnPrintAll.Click += new System.EventHandler(this.btnPrintAll_Click);
             // 
+            // cmbDoctorOrPatient
+            // 
+            this.cmbDoctorOrPatient.FormattingEnabled = true;
+            this.cmbDoctorOrPatient.Items.AddRange(new object[] {
+            "All",
+            "Customer",
+            "Doctor"});
+            this.cmbDoctorOrPatient.Location = new System.Drawing.Point(447, 39);
+            this.cmbDoctorOrPatient.Name = "cmbDoctorOrPatient";
+            this.cmbDoctorOrPatient.Size = new System.Drawing.Size(121, 21);
+            this.cmbDoctorOrPatient.TabIndex = 57;
+            // 
+            // cmbNama
+            // 
+            this.cmbNama.FormattingEnabled = true;
+            this.cmbNama.Location = new System.Drawing.Point(587, 39);
+            this.cmbNama.Name = "cmbNama";
+            this.cmbNama.Size = new System.Drawing.Size(121, 21);
+            this.cmbNama.TabIndex = 58;
+            // 
             // FormAdminListCheckUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1084, 365);
+            this.Controls.Add(this.cmbNama);
+            this.Controls.Add(this.cmbDoctorOrPatient);
             this.Controls.Add(this.btnPrintAll);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.label1);
@@ -173,5 +197,7 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonClose;
         private System.Windows.Forms.Button btnPrintAll;
+        private System.Windows.Forms.ComboBox cmbDoctorOrPatient;
+        private System.Windows.Forms.ComboBox cmbNama;
     }
 }
