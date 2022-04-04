@@ -64,7 +64,7 @@ namespace _160420046_160420082_UTS
                     FormMain.frmMain.panelAdmin.Show(); // Tampilkan panel admin
                     FormMain.frmMain.labelUsername.Text = FormMain.active_admin.Username;
                 }
-                else if(FormMain.role == "doctor" | FormMain.role == "patient")
+                else if(FormMain.role == "doctor" || FormMain.role == "patient")
                 {
                     // Tampilkan element balance
                     FormMain.frmMain.pictureBoxSaldo.Show();
