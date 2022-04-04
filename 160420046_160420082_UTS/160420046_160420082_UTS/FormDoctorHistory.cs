@@ -56,7 +56,7 @@ namespace _160420046_160420082_UTS
             //Menambah kolom di datagridview
             dataGridView.Columns.Add("customer", "Customer");
             dataGridView.Columns.Add("doctor", "Doctor");
-            dataGridView.Columns.Add("price", "Price"); // buat total_price
+            dataGridView.Columns.Add("price", "Price");
             dataGridView.Columns.Add("start", "Start");
             dataGridView.Columns.Add("finish", "Finish");
 
@@ -90,7 +90,7 @@ namespace _160420046_160420082_UTS
                     // kalau selesai
                     if(c.Finished == 1)
                     {
-                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.TotalPrice, c.Start_date, c.Finish_date);
+                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Price, c.Start_date, c.Finish_date);
                     }
                 }
             }

@@ -92,7 +92,7 @@ namespace _160420046_160420082_UTS
                     // kalau selesai
                     if (c.Finished == 1)
                     {
-                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.TotalPrice, c.Start_date, c.Finish_date);
+                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Price, c.Start_date, c.Finish_date);
                     }
                 }
             }
@@ -152,10 +152,12 @@ namespace _160420046_160420082_UTS
             try
             {
                 string patientName = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
+                string doctorName = dataGridView.CurrentRow.Cells["doctor"].Value.ToString();
+                string startDate = dataGridView.CurrentRow.Cells["start"].Value.ToString();
 
                 if (e.ColumnIndex == dataGridView.Columns["btnLihatPrescription"].Index && e.RowIndex >= 0)
                 {
-                    checkupSeePresctiption =  Checkup.AmbilData(patientName);
+                    checkupSeePresctiption =  Checkup.AmbilSatuData(patientName, doctorName, startDate);
 
                     FormPatientPrescription formPatientPrescription = new FormPatientPrescription();
                     formPatientPrescription.Owner = this;
@@ -164,7 +166,7 @@ namespace _160420046_160420082_UTS
 
                 if (e.ColumnIndex == dataGridView.Columns["btnPrint"].Index && e.RowIndex >= 0)
                 {
-                    Checkup ch = Checkup.AmbilData(patientName);
+                    Checkup ch = Checkup.AmbilSatuData(patientName, doctorName, startDate);
                     ch.CetakCheckup("Checkup " + ch.Id + ".txt");
                     MessageBox.Show("Checkup printed successfully!");
                 }

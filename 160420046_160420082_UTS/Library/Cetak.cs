@@ -100,6 +100,7 @@ namespace Library
 				e.HasMorePages = false;
 			}
 		}
+
 		public void CetakKePrinter()
 		{
 			PrintDocument p = new PrintDocument();

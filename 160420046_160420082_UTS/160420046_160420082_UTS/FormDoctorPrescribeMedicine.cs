@@ -25,6 +25,7 @@ namespace _160420046_160420082_UTS
         List<Medicine> MedPrescribe = new List<Medicine>();
         List<Checkup_Medicine> MedPrescript = new List<Checkup_Medicine>();
 
+        Checkup_Medicine checkup_Medicine;
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -283,10 +284,12 @@ namespace _160420046_160420082_UTS
             try
             {
                 string medName = dataGridViewPrescript.CurrentRow.Cells["name"].Value.ToString();
+                Medicine m = Medicine.AmbilData(medName);
 
+                // minus 1 obat
                 if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemoveOneMed"].Index && e.RowIndex >= 0)
                 {
-                    Medicine m = Medicine.AmbilData(medName);
+                    
                     for (int i = 0; i < MedPrescribe.Count; i++)
                     {
                         if (MedPrescribe[i].Id == m.Id && MedPrescribe[i].Name == m.Name)
@@ -298,10 +301,9 @@ namespace _160420046_160420082_UTS
                     FormDoctorPrescribeMedicine_Load(sender, e);
                 }
 
+                // minus semua obat yang dipilih
                 if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemove"].Index && e.RowIndex >= 0)
                 {
-                    Medicine m = Medicine.AmbilData(medName);
-
                     //User ditanya sesuai dibawah
                     DialogResult hasil = MessageBox.Show(this, "Are You sure to remove all medicine with Id " + m.Id + " - " + m.Name + " from Prescription?",
                                                          "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -329,6 +331,7 @@ namespace _160420046_160420082_UTS
             {
                 Checkup_Medicine.TambahData(cm);
                 Medicine.UpdateStockMed(cm);
+                Checkup.FinishCheckup(FormDoctorCheckUpSchedule.thisCheckup);
             }
             
             this.Close();

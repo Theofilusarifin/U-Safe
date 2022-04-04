@@ -64,7 +64,6 @@ namespace _160420046_160420082_UTS
             //Menambah kolom di datagridview
             dataGridView.Columns.Add("patient", "Patient");
             dataGridView.Columns.Add("doctor", "Doctor");
-            //dataGridView.Columns.Add("price", "Price"); // dipakai untuk total_price
             dataGridView.Columns.Add("start", "Start");
             dataGridView.Columns.Add("finish", "Finish");
 
@@ -74,7 +73,6 @@ namespace _160420046_160420082_UTS
             //Agar lebar kolom dapat menyesuaikan panjang / isi data
             dataGridView.Columns["patient"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["doctor"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            //dataGridView.Columns["price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["finish"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
@@ -98,7 +96,7 @@ namespace _160420046_160420082_UTS
                     // kalau belum selesai
                     if (c.Finished == 0)
                     {
-                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username/*, c.TotalPrice*/, c.Start_date, c.Finish_date);
+                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Start_date, c.Finish_date);
                     }
                 }
             }
@@ -111,9 +109,9 @@ namespace _160420046_160420082_UTS
 
         private void buttonTambah_Click(object sender, EventArgs e)
         {
-            FormPatientAddCheckUp frm = new FormPatientAddCheckUp();
-            frm.Owner = this;
-            frm.ShowDialog();
+            FormPatientAddCheckUp formPatientAddCheckUp = new FormPatientAddCheckUp();
+            formPatientAddCheckUp.Owner = this;
+            formPatientAddCheckUp.ShowDialog();
         }
         private void buttonClose_Click(object sender, EventArgs e)
         {

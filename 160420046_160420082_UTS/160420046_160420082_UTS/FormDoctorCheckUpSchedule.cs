@@ -72,7 +72,6 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns["start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["finish"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
             dataGridView.AllowUserToAddRows = false;
             dataGridView.ReadOnly = true;
@@ -92,7 +91,7 @@ namespace _160420046_160420082_UTS
                     // kalau belum selesai
                     if (c.Finished == 0)
                     {
-                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Start_date, c.Finish_date);
+                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Start_date, "-");
                     }
                 }
             }
@@ -124,7 +123,7 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                ListCheckupSchedule = Checkup.BacaData("", "");
+                ListCheckupSchedule = Checkup.BacaData("doctor_username", FormMain.active_doctor.Username);
 
                 FormatDataGrid();
                 TampilDataGrid();
@@ -137,11 +136,13 @@ namespace _160420046_160420082_UTS
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string name = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
+            string patientName = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
+            string doctorName = dataGridView.CurrentRow.Cells["doctor"].Value.ToString();
+            string startDate = dataGridView.CurrentRow.Cells["start"].Value.ToString();
 
             if (e.ColumnIndex == dataGridView.Columns["btnPrescribeMed"].Index && e.RowIndex >= 0)
             {
-                thisCheckup = Checkup.AmbilData(name);
+                thisCheckup = Checkup.AmbilSatuData(patientName, doctorName, startDate);
 
                 FormDoctorPrescribeMedicine formDoctorPrescribeMedicine = new FormDoctorPrescribeMedicine();
                 formDoctorPrescribeMedicine.Owner = this;

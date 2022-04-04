@@ -47,18 +47,20 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                //listBoxMedPrescription.Items.Clear();
-                //Checkup checkup = FormPatientHistoryCheckUp.checkupSeePresctiption;
-                //listBoxMedPrescription.Items.Add("Id: " + );
-                //listBoxMedPrescription.Items.Add("Tanggal: " + o.Tanggal_waktu);
-                //listBoxMedPrescription.Items.Add("Alamat: " + o.Alamat_tujuan);
-                //listBoxMedPrescription.Items.Add("Ongkos Kirim: " + o.Ongkos_kirim);
-                //listBoxMedPrescription.Items.Add("Total Bayar: " + o.Total_bayar);
-                //listBoxMedPrescription.Items.Add("Status: " + o.Status);
+                listBoxMedPrescription.Items.Clear();
+                
+                Checkup checkup = FormPatientHistoryCheckUp.checkupSeePresctiption;
+                List<Checkup_Medicine> listMed = Checkup_Medicine.BacaData("checkup_id", checkup.Id.ToString());
+                
+                listBoxMedPrescription.Items.Add("Medicines:");
+                foreach (Checkup_Medicine cm in listMed)
+                {
+                    listBoxMedPrescription.Items.Add("Name: " + cm.Medicine.Name + " Amount: " + cm.Amount + " Total Price: " + cm.Price);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Pesan kesalahan : " + ex.Message, "Kesalahan");
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
         }
 

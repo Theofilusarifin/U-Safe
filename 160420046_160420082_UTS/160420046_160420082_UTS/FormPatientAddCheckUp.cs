@@ -28,7 +28,9 @@ namespace _160420046_160420082_UTS
             //dateTimePickerWaktuMulai.Value = myDate.TimeOfDay;
         }
 
+        List<Checkup> clashingSchedule = new List<Checkup>();
         List<string> availableDoctorName = new List<string>();
+
         Doctor availableDoctor;
 
         #region No Tick Constrols
@@ -57,13 +59,14 @@ namespace _160420046_160420082_UTS
 
         private void buttonBook_Click(object sender, EventArgs e)
         {
+            DateTime Now = dateTimePickerTanggalMulai.Value.Date + dateTimePickerWaktuMulai.Value.TimeOfDay;
+
+            DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
+            DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
 
             try
             {
-                DateTime Now = dateTimePickerTanggalMulai.Value.Date + dateTimePickerWaktuMulai.Value.TimeOfDay;
-
-                DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
-                DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
+                clashingSchedule = Customer.SearchClashingSchedule(upperLimit, lowerLimit, FormMain.active_patient.Username);
 
                 availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
 
@@ -73,17 +76,22 @@ namespace _160420046_160420082_UTS
                 availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
 
                 Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
-                Checkup.TambahData(c);
 
-                MessageBox.Show("You have successfully added a checkup on " + c.Start_date);
+                if (clashingSchedule.Count > 0)
+                {
+                    MessageBox.Show("You have another checkup schedule on " + c.Start_date);
+                }
+                else
+                {
+                    Checkup.TambahData(c);
+
+                    Customer.UpdateBalance(c);
+
+                    MessageBox.Show("You have successfully added a checkup on " + c.Start_date);
+                }
             }
             catch (Exception ex)
             {
-                DateTime Now = dateTimePickerTanggalMulai.Value.Date + dateTimePickerWaktuMulai.Value.TimeOfDay;
-
-                DateTime upperLimit = Now.Add(new TimeSpan(0, 30, 0));
-                DateTime lowerLimit = Now.Add(new TimeSpan(0, -30, 0));
-
                 availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
 
                 Random random = new Random();
@@ -93,7 +101,8 @@ namespace _160420046_160420082_UTS
 
                 Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
 
-                MessageBox.Show("Sorry, adding your checkup on " + c.Start_date + " was failed");
+                MessageBox.Show("Sorry, there is no doctor available on " + c.Start_date);
+                //MessageBox.Show("Error Occured!\n" + ex.Message);
             }
 
         }
