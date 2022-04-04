@@ -79,19 +79,25 @@ namespace _160420046_160420082_UTS
 
                 availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
 
-                Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
+                Checkup ch = new Checkup(Now, FormMain.active_patient, availableDoctor);
 
                 if (clashingSchedule.Count == 0)
                 {
-                    Checkup.TambahData(c);
+                    Checkup.TambahData(ch);
 
-                    Customer.UpdateBalance(c);
+                    Customer.UpdateBalance(ch);
 
-                    MessageBox.Show("You have successfully added a checkup on " + c.Start_date);
+                    Customer cu = Customer.AmbilData(FormMain.active_patient.Username);
+
+                    FormMain.active_patient = cu;
+
+                    FormMain.frmMain.labelSaldo.Text = cu.Balance.ToString();
+
+                    MessageBox.Show("You have successfully added a checkup on " + ch.Start_date);
                 }
                 else
                 {
-                    MessageBox.Show("You have another checkup schedule on " + c.Start_date);
+                    MessageBox.Show("You have another checkup schedule on " + ch.Start_date);
                 }
             }
             catch (Exception ex)
@@ -103,9 +109,9 @@ namespace _160420046_160420082_UTS
 
                 availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
 
-                Checkup c = new Checkup(Now, FormMain.active_patient, availableDoctor);
+                Checkup ch = new Checkup(Now, FormMain.active_patient, availableDoctor);
 
-                MessageBox.Show("Sorry, there is no doctor available on " + c.Start_date);
+                MessageBox.Show("Sorry, there is no doctor available on " + ch.Start_date);
                 //MessageBox.Show("Error Occured!\n" + ex.Message);
             }
 

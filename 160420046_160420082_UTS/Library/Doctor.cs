@@ -198,9 +198,9 @@ namespace Library
             Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Doctor AmbilData(string name)
+        public static Doctor AmbilData(string username)
         {
-            string sql = "select * from doctors where username = '" + name + "'";
+            string sql = "select * from doctors where username = '" + username + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

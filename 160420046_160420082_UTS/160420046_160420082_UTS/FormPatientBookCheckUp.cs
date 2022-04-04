@@ -65,7 +65,6 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns.Add("patient", "Patient");
             dataGridView.Columns.Add("doctor", "Doctor");
             dataGridView.Columns.Add("start", "Start");
-            dataGridView.Columns.Add("finish", "Finish");
 
             dataGridView.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 142, 123);
             dataGridView.EnableHeadersVisualStyles = false;
@@ -74,7 +73,6 @@ namespace _160420046_160420082_UTS
             dataGridView.Columns["patient"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["doctor"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridView.Columns["start"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView.Columns["finish"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
 
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
@@ -96,7 +94,7 @@ namespace _160420046_160420082_UTS
                     // kalau belum selesai
                     if (c.Finished == 0)
                     {
-                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Start_date, c.Finish_date);
+                        dataGridView.Rows.Add(c.Customer.Username, c.Doctor.Username, c.Start_date);
                     }
                 }
             }

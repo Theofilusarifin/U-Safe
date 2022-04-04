@@ -52,6 +52,13 @@ namespace _160420046_160420082_UTS
                 // tambah saldo di database dengan nominal di textbox
                 Customer.TopUpBalance(int.Parse(textBoxSaldo.Text), FormMain.active_patient);
                 MessageBox.Show("Top up balance succeded", "Info");
+
+                Customer cu = Customer.AmbilData(FormMain.active_patient.Username);
+
+                FormMain.active_patient = cu;
+
+                FormMain.frmMain.labelSaldo.Text = cu.Balance.ToString();
+
                 this.Close();
             }
             catch (Exception ex)

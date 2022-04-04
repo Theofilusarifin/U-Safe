@@ -153,7 +153,7 @@ namespace _160420046_160420082_UTS
             {
                 string patientName = dataGridView.CurrentRow.Cells["patient"].Value.ToString();
                 string doctorName = dataGridView.CurrentRow.Cells["doctor"].Value.ToString();
-                string startDate = dataGridView.CurrentRow.Cells["start"].Value.ToString();
+                DateTime startDate = (DateTime)dataGridView.CurrentRow.Cells["start"].Value;
 
                 if (e.ColumnIndex == dataGridView.Columns["btnLihatPrescription"].Index && e.RowIndex >= 0)
                 {

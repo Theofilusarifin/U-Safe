@@ -85,39 +85,39 @@ namespace Library
             {
                 #region Decrypt
                 // Decrypt customer
-                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(15).ToString());
+                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(14).ToString());
                 byte[] cusSalt = new byte[16];
                 Array.Copy(cusHashedBytes, 0, cusSalt, 0, 16);
                 string cusSaltString = Convert.ToBase64String(cusSalt).Replace("=", "");
 
-                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(13).ToString());
-                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(14));
-                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(18));
+                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(12).ToString());
+                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(13));
+                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(17));
 
-                byte[] cusImg = ((byte[])hasil.GetValue(17));
+                byte[] cusImg = ((byte[])hasil.GetValue(16));
 
                 // Decrypt doctor
-                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(22).ToString());
+                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(21).ToString());
                 byte[] docSalt = new byte[16];
                 Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
                 string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
 
-                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(20).ToString());
-                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(21).ToString());
-                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(24).ToString());
+                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(19).ToString());
+                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(20).ToString());
+                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(23).ToString());
 
-                byte[] docImg = ((byte[])hasil.GetValue(23));
+                byte[] docImg = ((byte[])hasil.GetValue(22));
                 #endregion Decrypt
 
-                Medicine m = new Medicine(hasil.GetInt32(32), hasil.GetString(33), hasil.GetInt32(34), hasil.GetInt32(35));
+                Medicine m = new Medicine(hasil.GetInt32(31), hasil.GetString(32), hasil.GetInt32(33), hasil.GetInt32(34));
 
-                Hospital h = new Hospital(hasil.GetInt32(29), hasil.GetString(30), hasil.GetString(31));
+                Hospital h = new Hospital(hasil.GetInt32(28), hasil.GetString(29), hasil.GetString(30));
 
-                Doctor d = new Doctor(hasil.GetString(19), docPlainMail, docPlainPhone, hasil.GetString(22), docImg, docPlainKTPnum, hasil.GetInt32(25), hasil.GetString(26), hasil.GetString(27), h);
+                Doctor d = new Doctor(hasil.GetString(18), docPlainMail, docPlainPhone, hasil.GetString(21), docImg, docPlainKTPnum, hasil.GetInt32(24), hasil.GetString(25), hasil.GetString(26), h);
 
-                Customer cu = new Customer(hasil.GetString(12), cusPlainMail, cusPlainPhone, hasil.GetString(15), hasil.GetInt32(16), cusImg, cusPlainKTPnum);
+                Customer cu = new Customer(hasil.GetString(11), cusPlainMail, cusPlainPhone, hasil.GetString(14), hasil.GetInt32(15), cusImg, cusPlainKTPnum);
                 
-                Checkup ch = new Checkup(hasil.GetInt32(4), hasil.GetInt32(5), hasil.GetInt32(6), hasil.GetInt32(7), hasil.GetDateTime(8), hasil.GetDateTime(9), cu, d);
+                Checkup ch = new Checkup(hasil.GetInt32(4), hasil.GetInt32(5), int.Parse(hasil.GetValue(6).ToString()), hasil.GetDateTime(7), hasil.GetDateTime(8), cu, d);
 
                 Checkup_Medicine cm = new Checkup_Medicine(ch, m, hasil.GetInt32(2), hasil.GetInt32(3));
 

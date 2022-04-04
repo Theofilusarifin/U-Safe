@@ -18,7 +18,6 @@ namespace Library
         #region Fields
         private int id;
         private int price;
-        private int totalPrice;
         private int finished;
         private DateTime start_date;
         private DateTime finish_date;
@@ -28,11 +27,10 @@ namespace Library
         #endregion
 
         #region Constructors
-        public Checkup(int id, int price, int totalPrice, int finished, DateTime start_date, DateTime finish_date, Customer customer, Doctor doctor)
+        public Checkup(int id, int price, int finished, DateTime start_date, DateTime finish_date, Customer customer, Doctor doctor)
         {
             Id = id;
             Price = price;
-            TotalPrice = totalPrice;
             Finished = finished;
             Start_date = start_date;
             Finish_date = finish_date;
@@ -41,10 +39,9 @@ namespace Library
             ListCheckupMedicine = new List<Checkup_Medicine>();
         }
 
-        public Checkup(int price, int totalPrice, int finished, DateTime start_date, DateTime finish_date, Customer customer, Doctor doctor)
+        public Checkup(int price, int finished, DateTime start_date, DateTime finish_date, Customer customer, Doctor doctor)
         {
             Price = price;
-            TotalPrice = totalPrice;
             Finished = finished;
             Start_date = start_date;
             Finish_date = finish_date;
@@ -56,9 +53,9 @@ namespace Library
         public Checkup(DateTime start_date, Customer customer, Doctor doctor)
         {
             Price = 20000;
-            TotalPrice = 0;
             Finished = 0;
             Start_date = start_date;
+            Finish_date = DateTime.MaxValue;
             Customer = customer;
             Doctor = doctor;
             ListCheckupMedicine = new List<Checkup_Medicine>();
@@ -67,7 +64,6 @@ namespace Library
         public Checkup()
         {
             Price = 20000;
-            TotalPrice = 0;
             Finished = 0;
             ListCheckupMedicine = new List<Checkup_Medicine>();
         }
@@ -83,11 +79,6 @@ namespace Library
         {
             get => price; 
             set => price = value; 
-        }
-        public int TotalPrice 
-        {
-            get => totalPrice;
-            set => totalPrice = value; 
         }
         public int Finished 
         {
@@ -125,9 +116,9 @@ namespace Library
         public static void TambahData(Checkup c)
         {
             //string yang menampung sql query insert into
-            string sql = "insert into checkups (price, total_price, finished, start_date, finish_date, customer_username, doctor_username) " +
-                         "values (" + c.Price + ", " + c.TotalPrice + ", " + c.Finished + ", " + c.Start_date + ", " +
-                         "" + c.Finish_date + ", " + c.Customer.Username + ", " + c.Doctor.Username + ")";
+            string sql = "insert into checkups (price, finished, start_date, finish_date, customer_username, doctor_username) " +
+                         "values (" + c.Price  + ", " + c.Finished + ", '" + c.Start_date.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                         "'" + c.Finish_date.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + c.Customer.Username + "', '" + c.Doctor.Username + "')";
 
             //menjalankan perintah sql
             Koneksi.JalankanPerintahDML(sql);
@@ -136,10 +127,11 @@ namespace Library
         public static void UbahData(Checkup c)
         {
             // Querry Insert
-            string sql = "update checkups set price = " + c.Price + ", total_price = " + c.TotalPrice + ", " +
-                         "finished = " + c.Finished + ", start_date = '" + c.Start_date + "', " +
-                         "finish_date = " + c.Finish_date + ", customer_username = " + c.Customer.Username + ", " +
-                         "doctor_username = " + c.Doctor.Username + " where id = " + c.Id;
+            string sql = "update checkups set price = " + c.Price + ", finished = " + c.Finished + ", " +
+                         "start_date = '" + c.Start_date.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                         "finish_date = '" + c.Finish_date.ToString("yyyy-MM-dd HH:mm:ss") + "', " +
+                         "customer_username = '" + c.Customer.Username + "', " + "doctor_username = '" + c.Doctor.Username + "' " +
+                         "where id = " + c.Id;
             Koneksi.JalankanPerintahDML(sql);
         }
 
@@ -147,8 +139,7 @@ namespace Library
         {
             string sql = "select * from checkups ch " +
                          "inner join customers cu on ch.customer_username=cu.username " +
-                         "inner join doctors d on ch.doctor_username=d.username " +
-                         "inner join hospitals h on d.hospital_id=h.id";
+                         "inner join doctors d on ch.doctor_username=d.username";
             //apabila kriteria tidak kosong
             if (kriteria != "") sql += " where " + kriteria + " like '%" + nilaiKriteria + "%'";
 
@@ -161,37 +152,37 @@ namespace Library
             {
                 #region Decrypt
                 // Decrypt customer
-                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(11).ToString());
+                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(10).ToString());
                 byte[] cusSalt = new byte[16];
                 Array.Copy(cusHashedBytes, 0, cusSalt, 0, 16);
                 string cusSaltString = Convert.ToBase64String(cusSalt).Replace("=", "");
 
-                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(9).ToString());
-                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(10));
-                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(14));
+                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(8).ToString());
+                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(9));
+                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(13));
 
-                byte[] cusImg = ((byte[])hasil.GetValue(13));
+                byte[] cusImg = ((byte[])hasil.GetValue(12));
 
                 // Decrypt doctor
-                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(18).ToString());
+                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(17).ToString());
                 byte[] docSalt = new byte[16];
                 Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
                 string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
 
-                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(16).ToString());
-                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(17).ToString());
-                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(20).ToString());
+                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(15).ToString());
+                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(16).ToString());
+                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(19).ToString());
 
-                byte[] docImg = ((byte[])hasil.GetValue(19));
+                byte[] docImg = ((byte[])hasil.GetValue(18));
                 #endregion Decrypt
 
-                Hospital h = new Hospital(hasil.GetInt32(25), hasil.GetString(26), hasil.GetString(27));
+                Hospital h = Hospital.AmbilDataPertama();
 
-                Doctor d = new Doctor(hasil.GetString(15), docPlainMail, docPlainPhone, hasil.GetString(18), docImg, docPlainKTPnum, hasil.GetInt32(21), hasil.GetString(22), hasil.GetString(23), h);
+                Doctor d = new Doctor(hasil.GetString(14), docPlainMail, docPlainPhone, hasil.GetString(17), docImg, docPlainKTPnum, hasil.GetInt32(20), hasil.GetString(21), hasil.GetString(22), h);
 
-                Customer c = new Customer(hasil.GetString(8), cusPlainMail, cusPlainPhone, hasil.GetString(11), hasil.GetInt32(12), cusImg, cusPlainKTPnum);
-
-                Checkup chk = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
+                Customer c = new Customer(hasil.GetString(7), cusPlainMail, cusPlainPhone, hasil.GetString(10), hasil.GetInt32(11), cusImg, cusPlainKTPnum);
+                
+                Checkup chk = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), int.Parse(hasil.GetValue(2).ToString()), hasil.GetDateTime(3), hasil.GetDateTime(4), c, d);
 
                 listCheckup.Add(chk);
             }
@@ -205,13 +196,13 @@ namespace Library
             Koneksi.JalankanPerintahDML(sql);
         }
 
-        public static Checkup AmbilData(string name)
+        public static Checkup AmbilData(string username)
         {
             string sql = "select * from checkups ch " +
                          "inner join customers cu on ch.customer_username=cu.username " +
                          "inner join doctors d on ch.doctor_username=d.username " +
                          "inner join hospitals h on d.hospital_id=h.id " +
-                         "where cu.username = " + name;
+                         "where cu.username = '" + username + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -221,50 +212,50 @@ namespace Library
             {
                 #region Decrypt
                 // Decrypt customer
-                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(11).ToString());
+                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(10).ToString());
                 byte[] cusSalt = new byte[16];
                 Array.Copy(cusHashedBytes, 0, cusSalt, 0, 16);
                 string cusSaltString = Convert.ToBase64String(cusSalt).Replace("=", "");
 
-                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(9).ToString());
-                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(10));
-                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(14));
+                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(8).ToString());
+                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(9));
+                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(13));
 
-                byte[] cusImg = ((byte[])hasil.GetValue(13));
+                byte[] cusImg = ((byte[])hasil.GetValue(12));
 
                 // Decrypt doctor
-                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(18).ToString());
+                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(17).ToString());
                 byte[] docSalt = new byte[16];
                 Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
                 string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
 
-                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(16).ToString());
-                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(17).ToString());
-                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(20).ToString());
+                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(15).ToString());
+                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(16).ToString());
+                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(19).ToString());
 
-                byte[] docImg = ((byte[])hasil.GetValue(19));
+                byte[] docImg = ((byte[])hasil.GetValue(18));
                 #endregion Decrypt
 
-                Hospital h = new Hospital(hasil.GetInt32(25), hasil.GetString(26), hasil.GetString(27));
+                Hospital h = new Hospital(hasil.GetInt32(24), hasil.GetString(25), hasil.GetString(26));
 
-                Doctor d = new Doctor(hasil.GetString(15), docPlainMail, docPlainPhone, hasil.GetString(18), docImg, docPlainKTPnum, hasil.GetInt32(21), hasil.GetString(22), hasil.GetString(23), h);
+                Doctor d = new Doctor(hasil.GetString(14), docPlainMail, docPlainPhone, hasil.GetString(17), docImg, docPlainKTPnum, hasil.GetInt32(20), hasil.GetString(21), hasil.GetString(22), h);
 
-                Customer c = new Customer(hasil.GetString(8), cusPlainMail, cusPlainPhone, hasil.GetString(11), hasil.GetInt32(12), cusImg, cusPlainKTPnum);
+                Customer c = new Customer(hasil.GetString(7), cusPlainMail, cusPlainPhone, hasil.GetString(10), hasil.GetInt32(11), cusImg, cusPlainKTPnum);
 
-                ch = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
+                ch = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), int.Parse(hasil.GetValue(2).ToString()), hasil.GetDateTime(3), hasil.GetDateTime(4), c, d);
             }
             return ch;
         }
 
-        public static Checkup AmbilSatuData(string patientName, string doctorName, string startDate)
+        public static Checkup AmbilSatuData(string patientName, string doctorName, DateTime startDate)
         {
             string sql = "select * from checkups ch " +
                          "inner join customers cu on ch.customer_username=cu.username " +
                          "inner join doctors d on ch.doctor_username=d.username " +
                          "inner join hospitals h on d.hospital_id=h.id " +
-                         "where cu.username = " + patientName + " " +
-                         "and d.username = " + doctorName + " " +
-                         "and ch.start_date = " + startDate;
+                         "where cu.username = '" + patientName + "' " +
+                         "and d.username = '" + doctorName + "' " +
+                         "and ch.start_date = '" + startDate.ToString("yyyy-MM-dd HH:mm:ss") + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -274,37 +265,37 @@ namespace Library
             {
                 #region Decrypt
                 // Decrypt customer
-                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(11).ToString());
+                byte[] cusHashedBytes = Convert.FromBase64String(hasil.GetValue(10).ToString());
                 byte[] cusSalt = new byte[16];
                 Array.Copy(cusHashedBytes, 0, cusSalt, 0, 16);
                 string cusSaltString = Convert.ToBase64String(cusSalt).Replace("=", "");
 
-                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(9).ToString());
-                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(10));
-                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(14));
+                string cusPlainMail = HashAes.Decrypt(cusSaltString, hasil.GetValue(8).ToString());
+                string cusPlainPhone = HashAes.Decrypt(cusSaltString, hasil.GetString(9));
+                string cusPlainKTPnum = HashAes.Decrypt(cusSaltString, hasil.GetString(13));
 
-                byte[] cusImg = ((byte[])hasil.GetValue(13));
+                byte[] cusImg = ((byte[])hasil.GetValue(12));
 
                 // Decrypt doctor
-                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(18).ToString());
+                byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(17).ToString());
                 byte[] docSalt = new byte[16];
                 Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
                 string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
 
-                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(16).ToString());
-                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(17).ToString());
-                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(20).ToString());
+                string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(15).ToString());
+                string docPlainPhone = HashAes.Decrypt(docSaltString, hasil.GetString(16).ToString());
+                string docPlainKTPnum = HashAes.Decrypt(docSaltString, hasil.GetValue(19).ToString());
 
-                byte[] docImg = ((byte[])hasil.GetValue(19));
+                byte[] docImg = ((byte[])hasil.GetValue(18));
                 #endregion Decrypt
 
-                Hospital h = new Hospital(hasil.GetInt32(25), hasil.GetString(26), hasil.GetString(27));
+                Hospital h = new Hospital(hasil.GetInt32(24), hasil.GetString(25), hasil.GetString(26));
 
-                Doctor d = new Doctor(hasil.GetString(15), docPlainMail, docPlainPhone, hasil.GetString(18), docImg, docPlainKTPnum, hasil.GetInt32(21), hasil.GetString(22), hasil.GetString(23), h);
+                Doctor d = new Doctor(hasil.GetString(14), docPlainMail, docPlainPhone, hasil.GetString(17), docImg, docPlainKTPnum, hasil.GetInt32(20), hasil.GetString(21), hasil.GetString(22), h);
 
-                Customer c = new Customer(hasil.GetString(8), cusPlainMail, cusPlainPhone, hasil.GetString(11), hasil.GetInt32(12), cusImg, cusPlainKTPnum);
+                Customer c = new Customer(hasil.GetString(7), cusPlainMail, cusPlainPhone, hasil.GetString(10), hasil.GetInt32(11), cusImg, cusPlainKTPnum);
 
-                ch = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), hasil.GetInt32(2), hasil.GetInt32(3), hasil.GetDateTime(4), hasil.GetDateTime(5), c, d);
+                ch = new Checkup(hasil.GetInt32(0), hasil.GetInt32(1), int.Parse(hasil.GetValue(2).ToString()), hasil.GetDateTime(3), hasil.GetDateTime(4), c, d);
             }
             return ch;
         }
@@ -312,7 +303,7 @@ namespace Library
         public static void FinishCheckup(Checkup c)
         {
             // Querry Insert
-            string sql = "update checkups set finished = " + 1 + "finish_date = " + DateTime.Now + " where id = " + c.Id;
+            string sql = "update checkups set finished = " + 1 + "finish_date = '" + DateTime.Now + "' where id = " + c.Id;
             Koneksi.JalankanPerintahDML(sql);
         }
 
@@ -352,7 +343,7 @@ namespace Library
                 file.WriteLine("Doctor = " + ch.Doctor.Username);
                 file.WriteLine("Start Date = " + ch.Start_date);
                 file.WriteLine("Finish Date = " + ch.Finish_date);
-                file.WriteLine("Total Price = " + ch.TotalPrice.ToString("#,###"));
+                file.WriteLine("Total Price = " + ch.Price.ToString("#,###"));
 
                 file.WriteLine("-".PadRight(50, pemisah));
                 file.WriteLine("Terima kasih!");

@@ -95,7 +95,7 @@ namespace _160420046_160420082_UTS
                         string status = "";
                         if (c.Finished == 1) status = "Finished"; // Kalau finished = 1, status sudah selesai
                         else if (c.Finished == 0) status = "Not Finished"; // Kalau finished = 0, status belum selesai
-                        dataGridView.Rows.Add(c.Id, c.TotalPrice, status, c.Start_date, c.Finish_date, c.Customer.Username, c.Doctor.Username);
+                        dataGridView.Rows.Add(c.Id, c.Price, status, c.Start_date, c.Finish_date, c.Customer.Username, c.Doctor.Username);
                     }
                 }
                 else
@@ -158,7 +158,7 @@ namespace _160420046_160420082_UTS
             {
                 string patientName = dataGridView.CurrentRow.Cells["customer_username"].Value.ToString();
                 string doctorName = dataGridView.CurrentRow.Cells["doctor_username"].Value.ToString();
-                string start = dataGridView.CurrentRow.Cells["start_date"].Value.ToString();
+                DateTime start = (DateTime)dataGridView.CurrentRow.Cells["start_date"].Value;
 
                 //Kalau button Add diklik
                 if (e.ColumnIndex == dataGridView.Columns["btnPrint"].Index && e.RowIndex >= 0)
