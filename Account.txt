@@ -14,5 +14,11 @@ Password : password
 --------------------------------------------------------------
 
 [PATIENT]
-Username : henri
+Username : Henri
 Password : password
+
+Username : Budi
+Password : budi123
+
+Username : Sasha
+Password : akusukakamu
