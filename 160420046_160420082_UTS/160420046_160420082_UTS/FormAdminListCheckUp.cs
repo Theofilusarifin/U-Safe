@@ -134,6 +134,12 @@ namespace _160420046_160420082_UTS
 
                 //Tampilkan semua isi list di datagridview (Panggil method TampilDataGridView)
                 TampilDataGrid();
+
+                #region ComboBox
+                cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
+                cmbNama.DataSource = listCheckUp;
+                cmbNama.DisplayMember = "customer_username";
+                #endregion
             }
             catch (Exception ex)
             {
@@ -172,7 +178,20 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                Checkup.CetakDaftarOrder("", "", "daftarCheckup.txt");
+                string person = "";
+                switch(cmbDoctorOrPatient.SelectedItem.ToString())
+                {
+                    case "All":
+                        person = "";
+                        break;
+                    case "Customer":
+                        person = "customer_username";
+                        break;
+                    case "Doctor":
+                        person = "doctor_username";
+                        break;
+                }
+                Checkup.CetakDaftarOrder(person, cmbNama.SelectedItem.ToString(), "daftarCheckup.txt");
                 MessageBox.Show("Seluruh Order berhasil dicetak!");
             }
             catch (Exception ex)
