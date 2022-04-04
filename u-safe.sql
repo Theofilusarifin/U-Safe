@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2022 at 12:18 PM
+-- Generation Time: Apr 04, 2022 at 01:48 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 7.4.24
 
@@ -52,7 +52,6 @@ INSERT INTO `admins` (`username`, `email`, `phone_number`, `password`, `profile_
 CREATE TABLE `checkups` (
   `id` int(10) UNSIGNED NOT NULL,
   `price` int(11) DEFAULT NULL,
-  `total_price` int(11) DEFAULT NULL,
   `finished` tinyint(4) DEFAULT NULL,
   `start_date` datetime DEFAULT NULL,
   `finish_date` datetime DEFAULT NULL,
