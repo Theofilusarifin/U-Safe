@@ -38,7 +38,7 @@ namespace _160420046_160420082_UTS
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.comboBoxBank = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,16 +153,18 @@ namespace _160420046_160420082_UTS
             this.comboBoxBank.Size = new System.Drawing.Size(290, 30);
             this.comboBoxBank.TabIndex = 45;
             // 
-            // comboBox2
+            // textBox1
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Enabled = false;
-            this.comboBox2.Font = new System.Drawing.Font("Montserrat", 12F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(363, 486);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(290, 30);
-            this.comboBox2.TabIndex = 46;
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Montserrat", 12F);
+            this.textBox1.ForeColor = System.Drawing.Color.Black;
+            this.textBox1.Location = new System.Drawing.Point(360, 489);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(288, 20);
+            this.textBox1.TabIndex = 47;
+            this.textBox1.Text = "Rs. U-Safe";
             // 
             // FormDoctorEditProfile
             // 
@@ -171,7 +173,7 @@ namespace _160420046_160420082_UTS
             this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Edit_Doctor;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(688, 873);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.comboBoxBank);
             this.Controls.Add(this.pictureBoxFoto);
             this.Controls.Add(this.buttonEditProfile);
@@ -204,6 +206,6 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.ComboBox comboBoxBank;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
