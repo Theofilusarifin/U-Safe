@@ -48,6 +48,14 @@ namespace _160420046_160420082_UTS
         {
             buttonFinish.BackgroundImage = Properties.Resources.Button_Leave;
         }
+        private void buttonSearch_MouseEnter(object sender, EventArgs e)
+        {
+            buttonSearch.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void buttonSearch_MouseLeave(object sender, EventArgs e)
+        {
+            buttonSearch.BackgroundImage = Properties.Resources.Button_Leave;
+        }
         #endregion
 
         #region Methods
