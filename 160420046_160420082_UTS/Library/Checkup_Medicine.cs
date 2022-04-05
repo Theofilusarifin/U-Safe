@@ -109,9 +109,9 @@ namespace Library
                 byte[] docImg = ((byte[])hasil.GetValue(22));
                 #endregion Decrypt
 
-                Medicine m = new Medicine(hasil.GetInt32(31), hasil.GetString(32), hasil.GetInt32(33), hasil.GetInt32(34));
+                Medicine m = new Medicine(hasil.GetInt32(28), hasil.GetString(29), hasil.GetInt32(30), hasil.GetInt32(31));
 
-                Hospital h = new Hospital(hasil.GetInt32(28), hasil.GetString(29), hasil.GetString(30));
+                Hospital h = Hospital.AmbilDataPertama();
 
                 Doctor d = new Doctor(hasil.GetString(18), docPlainMail, docPlainPhone, hasil.GetString(21), docImg, docPlainKTPnum, hasil.GetInt32(24), hasil.GetString(25), hasil.GetString(26), h);
 

@@ -55,8 +55,13 @@ namespace _160420046_160420082_UTS
                 listBoxMedPrescription.Items.Add("Medicines:");
                 foreach (Checkup_Medicine cm in listMed)
                 {
-                    listBoxMedPrescription.Items.Add("Name: " + cm.Medicine.Name + " Amount: " + cm.Amount + " Total Price: " + cm.Price);
+                    listBoxMedPrescription.Items.Add("-".PadRight(50,'-'));
+                    listBoxMedPrescription.Items.Add("Name: " + cm.Medicine.Name);
+                    listBoxMedPrescription.Items.Add("Amount: " + cm.Amount);
+                    listBoxMedPrescription.Items.Add("Total Price: " + cm.Price.ToString("#,###"));
                 }
+                listBoxMedPrescription.Items.Add("=".PadRight(50, '='));
+
             }
             catch (Exception ex)
             {
@@ -64,13 +69,9 @@ namespace _160420046_160420082_UTS
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void buttonClose_Click(object sender, EventArgs e)
         {
+            this.Close();
 
         }
     }

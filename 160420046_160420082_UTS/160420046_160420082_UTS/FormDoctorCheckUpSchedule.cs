@@ -103,13 +103,14 @@ namespace _160420046_160420082_UTS
             if (!dataGridView.Columns.Contains("btnPrescribeMed"))
             {
                 //Button tambah ke keranjang
-                DataGridViewButtonColumn bcolPrint = new DataGridViewButtonColumn();
+                DataGridViewButtonColumn bcolPrescribeMed = new DataGridViewButtonColumn();
 
-                bcolPrint.Text = "Prescribe Medicine";
-                bcolPrint.Name = "btnPrescribeMed";
-                bcolPrint.UseColumnTextForButtonValue = true;
-                bcolPrint.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
-                dataGridView.Columns.Add(bcolPrint);
+                bcolPrescribeMed.HeaderText = "";
+                bcolPrescribeMed.Text = "Prescribe Medicine";
+                bcolPrescribeMed.Name = "btnPrescribeMed";
+                bcolPrescribeMed.UseColumnTextForButtonValue = true;
+                bcolPrescribeMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dataGridView.Columns.Add(bcolPrescribeMed);
             }
         }
         #endregion Methods

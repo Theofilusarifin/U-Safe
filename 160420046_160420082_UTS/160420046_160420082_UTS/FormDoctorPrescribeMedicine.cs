@@ -73,6 +73,7 @@ namespace _160420046_160420082_UTS
             //Agar lebar kolom dapat menyesuaikan panjang / isi data
             dataGridViewMed.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+            dataGridViewMed.Columns["name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
             dataGridViewMed.AllowUserToAddRows = false;
@@ -137,6 +138,7 @@ namespace _160420046_160420082_UTS
             dataGridViewPrescript.Columns["price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewPrescript.Columns["amount"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
+            dataGridViewPrescript.Columns["name"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
 
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
             dataGridViewPrescript.AllowUserToAddRows = false;
@@ -313,16 +315,17 @@ namespace _160420046_160420082_UTS
                 if (e.ColumnIndex == dataGridViewPrescript.Columns["btnRemove"].Index && e.RowIndex >= 0)
                 {
                     //User ditanya sesuai dibawah
-                    DialogResult hasil = MessageBox.Show(this, "Are You sure to remove all medicine with Id " + m.Id + " - " + m.Name + " from Prescription?",
+                    DialogResult hasil = MessageBox.Show(this, "Are You sure to remove all " + m.Name + " from Prescription?",
                                                          "Remove", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     //Kalau User klik yes barang akan dihapus
                     if (hasil == DialogResult.Yes)
                     {
                         MedPrescribe.RemoveAll(medicine => medicine.Id == m.Id);
                         
-                        MessageBox.Show("All med with Id " + m.Id + " - " + m.Name + " has been removed from Prescription");
                         // refresh halaman
                         FormDoctorPrescribeMedicine_Load(sender, e);
+
+                        MessageBox.Show("All " + m.Name + " has been removed from Prescription");
                     }
                 }
             }
@@ -339,10 +342,16 @@ namespace _160420046_160420082_UTS
             {
                 Checkup_Medicine.TambahData(cm);
                 Medicine.UpdateStockMed(cm);
-                Checkup.FinishCheckup(FormDoctorCheckUpSchedule.thisCheckup);
             }
-            
+
+            Checkup.FinishCheckup(FormDoctorCheckUpSchedule.thisCheckup);
+
             this.Close();
+        }
+
+        private void buttonSearch_Click(object sender, EventArgs e)
+        {
+            FormDoctorPrescribeMedicine_Load(sender, e);
         }
     }
 }

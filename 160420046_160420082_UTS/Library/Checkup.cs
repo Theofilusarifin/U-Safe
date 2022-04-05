@@ -252,7 +252,6 @@ namespace Library
             string sql = "select * from checkups ch " +
                          "inner join customers cu on ch.customer_username=cu.username " +
                          "inner join doctors d on ch.doctor_username=d.username " +
-                         "inner join hospitals h on d.hospital_id=h.id " +
                          "where cu.username = '" + patientName + "' " +
                          "and d.username = '" + doctorName + "' " +
                          "and ch.start_date = '" + startDate.ToString("yyyy-MM-dd HH:mm:ss") + "'";
@@ -280,6 +279,7 @@ namespace Library
                 byte[] docHashedBytes = Convert.FromBase64String(hasil.GetValue(17).ToString());
                 byte[] docSalt = new byte[16];
                 Array.Copy(docHashedBytes, 0, docSalt, 0, 16);
+                
                 string docSaltString = Convert.ToBase64String(docSalt).Replace("=", "");
 
                 string docPlainMail = HashAes.Decrypt(docSaltString, hasil.GetValue(15).ToString());
@@ -289,7 +289,7 @@ namespace Library
                 byte[] docImg = ((byte[])hasil.GetValue(18));
                 #endregion Decrypt
 
-                Hospital h = new Hospital(hasil.GetInt32(24), hasil.GetString(25), hasil.GetString(26));
+                Hospital h = Hospital.AmbilDataPertama();
 
                 Doctor d = new Doctor(hasil.GetString(14), docPlainMail, docPlainPhone, hasil.GetString(17), docImg, docPlainKTPnum, hasil.GetInt32(20), hasil.GetString(21), hasil.GetString(22), h);
 
@@ -303,7 +303,7 @@ namespace Library
         public static void FinishCheckup(Checkup c)
         {
             // Querry Insert
-            string sql = "update checkups set finished = " + 1 + "finish_date = '" + DateTime.Now + "' where id = " + c.Id;
+            string sql = "update checkups set finished = " + 1 + ", finish_date = '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' where id = " + c.Id;
             Koneksi.JalankanPerintahDML(sql);
         }
 
