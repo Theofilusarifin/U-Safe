@@ -76,6 +76,7 @@ namespace _160420046_160420082_UTS
             // textBoxEmail
             // 
             this.textBoxEmail.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxEmail.Cursor = System.Windows.Forms.Cursors.Hand;
             this.textBoxEmail.Font = new System.Drawing.Font("Montserrat", 12F);
             this.textBoxEmail.ForeColor = System.Drawing.Color.DimGray;
             this.textBoxEmail.Location = new System.Drawing.Point(50, 401);

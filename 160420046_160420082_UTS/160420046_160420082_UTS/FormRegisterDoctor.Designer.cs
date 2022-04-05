@@ -166,6 +166,7 @@ namespace _160420046_160420082_UTS
             this.Controls.Add(this.textBoxPasswordKonfirmasi);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormRegisterDoctor";

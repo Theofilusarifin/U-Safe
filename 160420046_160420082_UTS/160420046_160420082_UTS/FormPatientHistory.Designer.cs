@@ -127,7 +127,7 @@ namespace _160420046_160420082_UTS
             // 
             // btnPrintAll
             // 
-            this.btnPrintAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnPrintAll.AutoSize = true;
             this.btnPrintAll.BackColor = System.Drawing.Color.Transparent;
             this.btnPrintAll.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Button_Leave;

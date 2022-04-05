@@ -33,13 +33,13 @@ namespace _160420046_160420082_UTS
         #endregion
 
         #region Desain Button
-        private void buttonClose_MouseEnter(object sender, EventArgs e)
+        private void buttonClose_MouseEnter_1(object sender, EventArgs e)
         {
-            btnClose.BackgroundImage = Properties.Resources.Button_Hover;
+            buttonClose.BackgroundImage = Properties.Resources.Button_Hover;
         }
-        private void buttonClose_MouseLeave(object sender, EventArgs e)
+        private void buttonClose_MouseLeave_1(object sender, EventArgs e)
         {
-            btnClose.BackgroundImage = Properties.Resources.Button_Leave;
+            buttonClose.BackgroundImage = Properties.Resources.Button_Leave;
         }
         #endregion
 
@@ -67,6 +67,11 @@ namespace _160420046_160420082_UTS
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -70,7 +70,7 @@ namespace _160420046_160420082_UTS
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewMed.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewMed.GridColor = System.Drawing.Color.Coral;
-            this.dataGridViewMed.Location = new System.Drawing.Point(39, 341);
+            this.dataGridViewMed.Location = new System.Drawing.Point(38, 334);
             this.dataGridViewMed.Name = "dataGridViewMed";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -83,7 +83,7 @@ namespace _160420046_160420082_UTS
             this.dataGridViewMed.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Montserrat", 10F);
             this.dataGridViewMed.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewMed.Size = new System.Drawing.Size(379, 5);
+            this.dataGridViewMed.Size = new System.Drawing.Size(379, 237);
             this.dataGridViewMed.TabIndex = 56;
             this.dataGridViewMed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMed_CellContentClick);
             // 
@@ -112,7 +112,7 @@ namespace _160420046_160420082_UTS
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewPrescript.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewPrescript.GridColor = System.Drawing.Color.Coral;
-            this.dataGridViewPrescript.Location = new System.Drawing.Point(39, 599);
+            this.dataGridViewPrescript.Location = new System.Drawing.Point(37, 588);
             this.dataGridViewPrescript.Name = "dataGridViewPrescript";
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
@@ -125,7 +125,7 @@ namespace _160420046_160420082_UTS
             this.dataGridViewPrescript.RowHeadersWidth = 51;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Montserrat", 10F);
             this.dataGridViewPrescript.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewPrescript.Size = new System.Drawing.Size(379, 16);
+            this.dataGridViewPrescript.Size = new System.Drawing.Size(379, 250);
             this.dataGridViewPrescript.TabIndex = 59;
             this.dataGridViewPrescript.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPrescript_CellContentClick);
             // 
@@ -140,9 +140,9 @@ namespace _160420046_160420082_UTS
             this.buttonFinish.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonFinish.ForeColor = System.Drawing.Color.White;
-            this.buttonFinish.Location = new System.Drawing.Point(39, 874);
+            this.buttonFinish.Location = new System.Drawing.Point(37, 863);
             this.buttonFinish.Name = "buttonFinish";
-            this.buttonFinish.Size = new System.Drawing.Size(379, 44);
+            this.buttonFinish.Size = new System.Drawing.Size(380, 44);
             this.buttonFinish.TabIndex = 60;
             this.buttonFinish.Text = "Finish";
             this.buttonFinish.UseVisualStyleBackColor = false;
@@ -155,9 +155,9 @@ namespace _160420046_160420082_UTS
             this.txtMedName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtMedName.Font = new System.Drawing.Font("Montserrat", 12F);
             this.txtMedName.ForeColor = System.Drawing.Color.DimGray;
-            this.txtMedName.Location = new System.Drawing.Point(56, 278);
+            this.txtMedName.Location = new System.Drawing.Point(47, 277);
             this.txtMedName.Name = "txtMedName";
-            this.txtMedName.Size = new System.Drawing.Size(339, 20);
+            this.txtMedName.Size = new System.Drawing.Size(354, 20);
             this.txtMedName.TabIndex = 61;
             // 
             // FormDoctorPrescribeMedicine
@@ -166,7 +166,7 @@ namespace _160420046_160420082_UTS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Form_Prescribe;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(452, 749);
+            this.ClientSize = new System.Drawing.Size(452, 962);
             this.Controls.Add(this.txtMedName);
             this.Controls.Add(this.buttonFinish);
             this.Controls.Add(this.dataGridViewPrescript);

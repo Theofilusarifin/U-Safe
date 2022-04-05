@@ -221,5 +221,11 @@ namespace _160420046_160420082_UTS
                 passwordSeen = false;
             }
         }
+
+        private void pictureBoxDoctorLogin_Click(object sender, EventArgs e)
+        {
+            if (checkBoxDoctor.Checked) checkBoxDoctor.Checked = false;
+            else checkBoxDoctor.Checked = true;
+        }
     }
 }

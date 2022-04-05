@@ -149,6 +149,7 @@ namespace _160420046_160420082_UTS
             this.Controls.Add(this.textBoxPasswordKonfirmasi);
             this.Controls.Add(this.textBoxPassword);
             this.Controls.Add(this.textBoxUsername);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DoubleBuffered = true;
             this.Name = "FormRegisterAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

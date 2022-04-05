@@ -35,7 +35,9 @@ namespace _160420046_160420082_UTS
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.buttonLogin = new System.Windows.Forms.Button();
             this.checkBoxDoctor = new System.Windows.Forms.CheckBox();
+            this.pictureBoxDoctorLogin = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoctorLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBoxMata
@@ -120,6 +122,17 @@ namespace _160420046_160420082_UTS
             this.checkBoxDoctor.TabIndex = 2;
             this.checkBoxDoctor.UseVisualStyleBackColor = false;
             // 
+            // pictureBoxDoctorLogin
+            // 
+            this.pictureBoxDoctorLogin.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxDoctorLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBoxDoctorLogin.Location = new System.Drawing.Point(58, 448);
+            this.pictureBoxDoctorLogin.Name = "pictureBoxDoctorLogin";
+            this.pictureBoxDoctorLogin.Size = new System.Drawing.Size(162, 14);
+            this.pictureBoxDoctorLogin.TabIndex = 14;
+            this.pictureBoxDoctorLogin.TabStop = false;
+            this.pictureBoxDoctorLogin.Click += new System.EventHandler(this.pictureBoxDoctorLogin_Click);
+            // 
             // FormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +140,7 @@ namespace _160420046_160420082_UTS
             this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Login_Form1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(452, 630);
+            this.Controls.Add(this.pictureBoxDoctorLogin);
             this.Controls.Add(this.checkBoxDoctor);
             this.Controls.Add(this.pictureBoxMata);
             this.Controls.Add(this.labelRegistrasi);
@@ -140,6 +154,7 @@ namespace _160420046_160420082_UTS
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login User";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDoctorLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +168,7 @@ namespace _160420046_160420082_UTS
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.CheckBox checkBoxDoctor;
+        private System.Windows.Forms.PictureBox pictureBoxDoctorLogin;
     }
 }
 

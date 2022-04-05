@@ -38,9 +38,9 @@ namespace _160420046_160420082_UTS
             this.textBoxSaldo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxSaldo.Font = new System.Drawing.Font("Montserrat", 12F);
             this.textBoxSaldo.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxSaldo.Location = new System.Drawing.Point(59, 264);
+            this.textBoxSaldo.Location = new System.Drawing.Point(48, 265);
             this.textBoxSaldo.Name = "textBoxSaldo";
-            this.textBoxSaldo.Size = new System.Drawing.Size(339, 20);
+            this.textBoxSaldo.Size = new System.Drawing.Size(358, 20);
             this.textBoxSaldo.TabIndex = 19;
             // 
             // buttonTopUp
