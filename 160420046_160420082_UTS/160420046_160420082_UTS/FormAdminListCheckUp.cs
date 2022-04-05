@@ -22,6 +22,9 @@ namespace _160420046_160420082_UTS
             InitializeComponent();
         }
 
+        string person = "";
+        string username = "";
+
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -130,15 +133,26 @@ namespace _160420046_160420082_UTS
                 FormatDataGrid();
 
                 // Tampilkan semua data
-                listCheckUp = Checkup.BacaData("", "");
+                listCheckUp = Checkup.BacaData(person, username);
 
                 //Tampilkan semua isi list di datagridview (Panggil method TampilDataGridView)
                 TampilDataGrid();
 
                 #region ComboBox
-                cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
-                cmbNama.DataSource = listCheckUp;
-                cmbNama.DisplayMember = "customer_username";
+                cmbDoctorOrPatient.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                if (cmbNama.DataSource == null)
+                {
+                    List<string> listAll = new List<string>();
+                    List<string> listCusUsername = Customer.AmbilNama();
+                    List<string> listDocUsername = Doctor.AmbilNama();
+
+                    listAll.AddRange(listCusUsername);
+                    listAll.AddRange(listDocUsername);
+
+                    cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbNama.DataSource = listAll;
+                }
                 #endregion
             }
             catch (Exception ex)
@@ -178,19 +192,6 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                string person = "";
-                switch(cmbDoctorOrPatient.SelectedItem.ToString())
-                {
-                    case "All":
-                        person = "";
-                        break;
-                    case "Customer":
-                        person = "customer_username";
-                        break;
-                    case "Doctor":
-                        person = "doctor_username";
-                        break;
-                }
                 Checkup.CetakDaftarOrder(person, cmbNama.SelectedItem.ToString(), "daftarCheckup.txt");
                 MessageBox.Show("Seluruh Order berhasil dicetak!");
             }
@@ -198,6 +199,56 @@ namespace _160420046_160420082_UTS
             {
                 MessageBox.Show("Error Occured!\n" + ex.Message);
             }
+        }
+
+        private void cmbDoctorOrPatient_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch(cmbDoctorOrPatient.SelectedItem.ToString())
+            {
+                case "All":
+                    List<string> listAll = new List<string>();
+                    List<string> listCusUsername = Customer.AmbilNama();
+                    List<string> listDocUsername = Doctor.AmbilNama();
+
+                    listAll.AddRange(listCusUsername);
+                    listAll.AddRange(listDocUsername);
+
+                    cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbNama.DataSource = listAll;
+
+                    person = "";
+                    break;
+
+                case "Customer":
+                    List<Customer> listCustomer = Customer.BacaData("", "");
+
+                    cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbNama.DataSource = listCustomer;
+                    cmbNama.DisplayMember = "username";
+
+                    person = "customer_username";
+                    break;
+
+                case "Doctor":
+                    List<Doctor> listDoctor = Doctor.BacaData("", "");
+
+                    cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
+                    cmbNama.DataSource = listDoctor;
+                    cmbNama.DisplayMember = "username";
+
+                    person = "doctor_username";
+                    break;
+            }
+        }
+
+        private void cmbNama_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            username = cmbNama.SelectedItem.ToString();
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            FormAdminListCheckUp_Load(sender, e);
         }
     }
 }

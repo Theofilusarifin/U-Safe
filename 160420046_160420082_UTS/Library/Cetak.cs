@@ -105,7 +105,7 @@ namespace Library
 		{
 			PrintDocument p = new PrintDocument();
 			p.PrintPage += new PrintPageEventHandler(CetakTulisan);
-			p.Print();
+			//p.Print(); // kalau mau print hardcopy pakai ini
 			FileCetak.Close();
 		}
 		#endregion

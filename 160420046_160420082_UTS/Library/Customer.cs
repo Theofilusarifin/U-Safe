@@ -196,6 +196,23 @@ namespace Library
             return cus;
         }
 
+        public static List<string> AmbilNama()
+        {
+            string sql = "select distinct(username) from customers";
+
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<string> listUsername = new List<string>();
+
+            while (hasil.Read())
+            {
+                string username = hasil.GetString(0);
+
+                listUsername.Add(username);
+            }
+            return listUsername;
+        }
+
         public static void TopUpBalance(int nominal, Customer c)
         {
             string sql = "update customers set balance = balance + " + nominal + " where username = '" + c.Username + "'";

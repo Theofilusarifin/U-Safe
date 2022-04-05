@@ -226,6 +226,23 @@ namespace Library
             return d;
         }
 
+        public static List<string> AmbilNama()
+        {
+            string sql = "select distinct(username) from doctors";
+
+            DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
+
+            List<string> listUsername = new List<string>();
+
+            while (hasil.Read())
+            {
+                string username = hasil.GetString(0);
+
+                listUsername.Add(username);
+            }
+            return listUsername;
+        }
+
         public static void WithdrawBalance(int nominal, Doctor d)
         {
             string sql = "update doctors set balance = balance - " + nominal + " where username = '" + d.Username + "'";
