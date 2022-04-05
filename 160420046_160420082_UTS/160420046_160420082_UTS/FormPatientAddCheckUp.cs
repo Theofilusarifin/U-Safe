@@ -66,53 +66,62 @@ namespace _160420046_160420082_UTS
 
             try
             {
-                List<Checkup> listCheckup = Checkup.BacaData("customer_username", FormMain.active_patient.Username);
-                if(listCheckup.Count != 0)
+                // ambil nama doctor yang available pada jam NOW
+                availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
+
+                // baca semua data checkup dengan username pasien yang aktif sekarang
+                List<Checkup> listCheckup = Checkup.BacaCheckupBelumSelesai("customer_username", FormMain.active_patient.Username);
+                // kalau pasien punya checkup
+                if (listCheckup.Count != 0)
                 {
+                    // cari schedule checkup yang bentrokan jamnya dengan NOW
                     clashingSchedule = Customer.SearchClashingSchedule(upperLimit, lowerLimit, FormMain.active_patient.Username);
                 }
 
-                availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
-
-                Random random = new Random();
-                int randNum = random.Next(availableDoctorName.Count());
-
-                availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
-
-                Checkup ch = new Checkup(Now, FormMain.active_patient, availableDoctor);
-
-                if (clashingSchedule.Count == 0)
+                // kalau ada dokter yang available
+                if (availableDoctorName.Count() > 0)
                 {
-                    Checkup.TambahData(ch);
+                    // buat random
+                    Random random = new Random();
+                    // ambil angka random min = 0, max = sebanyak item di list dokter available
+                    int randNum = random.Next(availableDoctorName.Count());
 
-                    Customer.UpdateBalance(ch);
+                    // ambil data dokter yang available
+                    availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
 
-                    Customer cu = Customer.AmbilData(FormMain.active_patient.Username);
+                    // buat checkup baru
+                    Checkup ch = new Checkup(Now, FormMain.active_patient, availableDoctor);
 
-                    FormMain.active_patient = cu;
+                    // kalau tidak ada schedule checkup yang bentrokan
+                    if (clashingSchedule.Count == 0)
+                    {
+                        Checkup.TambahData(ch);
 
-                    FormMain.frmMain.labelSaldo.Text = cu.Balance.ToString();
+                        Customer.UpdateBalance(ch);
 
-                    MessageBox.Show("You have successfully added a checkup on " + ch.Start_date);
+                        Customer cu = Customer.AmbilData(FormMain.active_patient.Username);
+
+                        FormMain.active_patient = cu;
+
+                        FormMain.frmMain.labelSaldo.Text = cu.Balance.ToString();
+
+                        MessageBox.Show("You have successfully added a checkup on " + Now);
+                    }
+                    // kalau ada schedule checkup yang bentrokan
+                    else
+                    {
+                        MessageBox.Show("You have another checkup schedule on " + Now);
+                    }
                 }
+                // kalau tidak ada dokter yang available
                 else
                 {
-                    MessageBox.Show("You have another checkup schedule on " + ch.Start_date);
+                    MessageBox.Show("Sorry, there is no doctor available on " + Now);
                 }
             }
             catch (Exception ex)
             {
-                availableDoctorName = Doctor.SearchAvailableDoctor(upperLimit, lowerLimit);
-
-                Random random = new Random();
-                int randNum = random.Next(availableDoctorName.Count());
-
-                availableDoctor = Doctor.AmbilData(availableDoctorName[randNum]);
-
-                Checkup ch = new Checkup(Now, FormMain.active_patient, availableDoctor);
-
-                MessageBox.Show("Sorry, there is no doctor available on " + ch.Start_date);
-                //MessageBox.Show("Error Occured!\n" + ex.Message);
+                MessageBox.Show("Error Occured!\n" + ex.Message);
             }
 
         }

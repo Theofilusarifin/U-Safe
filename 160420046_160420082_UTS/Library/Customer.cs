@@ -221,7 +221,7 @@ namespace Library
 
         public static void UpdateBalance(Checkup ch)
         {
-            string sql = "update customers set saldo = saldo - " + ch.Price + " where username = '" + ch.Customer.Username + "'";
+            string sql = "update customers set balance = balance - " + ch.Price + " where username = '" + ch.Customer.Username + "'";
             Koneksi.JalankanPerintahDML(sql);
         }
 
@@ -230,10 +230,10 @@ namespace Library
             string sql = "select * from checkups ch " +
                          "inner join customers cu on ch.customer_username = cu.username " +
                          "inner join doctors d on ch.doctor_username = d.username " +
-                         "inner join hospitals h on d.hospital_id = h.id " +
-                         "where ch.start_date < '" + lowerLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                         "and ch.finish_date > '" + upperLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                         "and ch.customer_username = '" + customerUsername + "'";
+                         "where ch.start_date < '" + upperLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "and ch.start_date > '" + lowerLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "and ch.customer_username = '" + customerUsername + "' " +
+                         "and ch.finished = 0";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
@@ -268,7 +268,7 @@ namespace Library
                 byte[] docImg = ((byte[])hasil.GetValue(18));
                 #endregion Decrypt
 
-                Hospital h = new Hospital(hasil.GetInt32(24), hasil.GetString(25), hasil.GetString(26));
+                Hospital h = Hospital.AmbilDataPertama();
 
                 Doctor d = new Doctor(hasil.GetString(14), docPlainMail, docPlainPhone, hasil.GetString(17), docImg, docPlainKTPnum, hasil.GetInt32(20), hasil.GetString(21), hasil.GetString(22), h);
 

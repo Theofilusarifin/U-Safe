@@ -254,7 +254,8 @@ namespace Library
             string sql = "select distinct(d.username) from doctors d " +
                          "left join checkups c on c.doctor_username = d.username " +
                          "and c.start_date < '" + lowerLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
-                         "and c.finish_date > '" + upperLimit.ToString("yyyy-MM-dd HH:mm:ss") + "'";
+                         "and c.finish_date > '" + upperLimit.ToString("yyyy-MM-dd HH:mm:ss") + "' " +
+                         "and c.finished = " + 0;
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 

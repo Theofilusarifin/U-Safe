@@ -108,6 +108,7 @@ namespace _160420046_160420082_UTS
                 bcolPrescribeMed.HeaderText = "";
                 bcolPrescribeMed.Text = "Prescribe Medicine";
                 bcolPrescribeMed.Name = "btnPrescribeMed";
+                bcolPrescribeMed.Width = 200;
                 bcolPrescribeMed.UseColumnTextForButtonValue = true;
                 bcolPrescribeMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
                 dataGridView.Columns.Add(bcolPrescribeMed);
