@@ -47,6 +47,22 @@ namespace _160420046_160420082_UTS
         {
             buttonClose.BackgroundImage = Properties.Resources.Button_Leave;
         }
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            button1.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            button1.BackgroundImage = Properties.Resources.Button_Leave;
+        }
+        private void btnPrintAll_MouseEnter(object sender, EventArgs e)
+        {
+            btnPrintAll.BackgroundImage = Properties.Resources.Button_Hover;
+        }
+        private void btnPrintAll_MouseLeave(object sender, EventArgs e)
+        {
+            btnPrintAll.BackgroundImage = Properties.Resources.Button_Leave;
+        }
         #endregion
 
         #region Methods
