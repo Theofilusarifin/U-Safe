@@ -375,6 +375,14 @@ namespace Library
             file.WriteLine("Finish Date = " + Finish_date);
             file.WriteLine("Price = " + Price.ToString("#,###"));
 
+            List<Checkup_Medicine> ListMed = Checkup_Medicine.BacaData("checkup_id", Id.ToString());
+            foreach (Checkup_Medicine cm in ListMed)
+            {
+                file.WriteLine("-".PadRight(50, '-'));
+                file.WriteLine("Name: " + cm.Medicine.Name);
+                file.WriteLine("Amount: " + cm.Amount);
+            }
+
             file.WriteLine("-".PadRight(50, pemisah));
             file.WriteLine("Terima kasih!");
             file.WriteLine("=".PadRight(50, '='));
@@ -398,7 +406,7 @@ namespace Library
                 file.WriteLine("Doctor = " + ch.Doctor.Username);
                 file.WriteLine("Start Date = " + ch.Start_date);
                 file.WriteLine("Finish Date = " + ch.Finish_date);
-                file.WriteLine("Total Price = " + ch.Price.ToString("#,###"));
+                file.WriteLine("Price = " + ch.Price.ToString("#,###"));
 
                 file.WriteLine("-".PadRight(50, pemisah));
                 file.WriteLine("Terima kasih!");

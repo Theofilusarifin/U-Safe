@@ -194,7 +194,7 @@ namespace _160420046_160420082_UTS
                 if (e.ColumnIndex == dataGridView.Columns["btnPrint"].Index && e.RowIndex >= 0)
                 {
                     Checkup ch = Checkup.AmbilSatuData(patientName, doctorName, start);
-                    ch.CetakCheckup("Checkup " + ch.Id +".txt");
+                    ch.CetakCheckup("Admin_Checkup ID " + ch.Id + "_" + DateTime.Now.ToString("dd-MM-yyyy")+ ".txt");
                     MessageBox.Show("Checkup printed successfully!");
                 }
             }
@@ -208,7 +208,7 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                Checkup.CetakDaftarOrder(person, cmbNama.SelectedItem.ToString(), "daftarCheckup.txt");
+                Checkup.CetakDaftarOrder(person, cmbNama.SelectedItem.ToString(), "Admin_AllCheckup_" + DateTime.Now.ToString("dd-MM-yyyy") + ".txt");
                 MessageBox.Show("Seluruh Order berhasil dicetak!");
             }
             catch (Exception ex)

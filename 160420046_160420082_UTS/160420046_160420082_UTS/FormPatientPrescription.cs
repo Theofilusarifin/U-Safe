@@ -58,7 +58,6 @@ namespace _160420046_160420082_UTS
                     listBoxMedPrescription.Items.Add("-".PadRight(50,'-'));
                     listBoxMedPrescription.Items.Add("Name: " + cm.Medicine.Name);
                     listBoxMedPrescription.Items.Add("Amount: " + cm.Amount);
-                    listBoxMedPrescription.Items.Add("Total Price: " + cm.Price.ToString("#,###"));
                 }
                 listBoxMedPrescription.Items.Add("=".PadRight(50, '='));
 
