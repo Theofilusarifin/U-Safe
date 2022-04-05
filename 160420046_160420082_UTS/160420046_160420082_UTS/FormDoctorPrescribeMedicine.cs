@@ -58,16 +58,12 @@ namespace _160420046_160420082_UTS
 
             //Menambah kolom di datagridview
             dataGridViewMed.Columns.Add("name", "Name");
-            dataGridViewMed.Columns.Add("price", "Price");
-            dataGridViewMed.Columns.Add("stock", "Stock");
 
             dataGridViewMed.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(248, 142, 123);
             dataGridViewMed.EnableHeadersVisualStyles = false;
 
             //Agar lebar kolom dapat menyesuaikan panjang / isi data
             dataGridViewMed.Columns["name"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewMed.Columns["price"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewMed.Columns["stock"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
 
             // Agar user tidak bisa menambah baris maupun mengetik langsung di datagridview
@@ -88,7 +84,7 @@ namespace _160420046_160420082_UTS
                     // untuk setiap checkup di history
                     foreach (Medicine m in ListMed)
                     {
-                        dataGridViewMed.Rows.Add(m.Name, m.Price, m.Stock);
+                        dataGridViewMed.Rows.Add(m.Name);
                     }
                 }
                 else
@@ -101,6 +97,7 @@ namespace _160420046_160420082_UTS
                     //Button tambah ke keranjang
                     DataGridViewButtonColumn bcolAddMed = new DataGridViewButtonColumn();
 
+                    bcolAddMed.HeaderText = "";
                     bcolAddMed.Text = "Add to Med Prescript";
                     bcolAddMed.Name = "btnAddMed";
                     bcolAddMed.UseColumnTextForButtonValue = true;
@@ -144,6 +141,7 @@ namespace _160420046_160420082_UTS
             {
                 //Kosongi isi datagridview
                 dataGridViewPrescript.Rows.Clear();
+                MedPrescript.Clear();
 
                 #region MedPrescribe to MedPrescript
                 bool helper;
@@ -200,7 +198,7 @@ namespace _160420046_160420082_UTS
                     // untuk setiap med di med prescribe
                     foreach (Checkup_Medicine cm in MedPrescript)
                     {
-                        dataGridViewPrescript.Rows.Add(cm.Medicine.Name, cm.Medicine.Price, cm.Amount); ;
+                        dataGridViewPrescript.Rows.Add(cm.Medicine.Name, cm.Price, cm.Amount); ;
                     }
                 }
                 else
@@ -213,6 +211,7 @@ namespace _160420046_160420082_UTS
                     //Button tambah ke keranjang
                     DataGridViewButtonColumn bcolRemoveOneMed = new DataGridViewButtonColumn();
 
+                    bcolRemoveOneMed.HeaderText = "";
                     bcolRemoveOneMed.Text = "-";
                     bcolRemoveOneMed.Name = "btnRemoveOneMed";
                     bcolRemoveOneMed.UseColumnTextForButtonValue = true;
@@ -225,6 +224,7 @@ namespace _160420046_160420082_UTS
                     //Button tambah ke keranjang
                     DataGridViewButtonColumn bcolRemove = new DataGridViewButtonColumn();
 
+                    bcolRemove.HeaderText = "";
                     bcolRemove.Text = "Remove";
                     bcolRemove.Name = "btnRemove";
                     bcolRemove.UseColumnTextForButtonValue = true;
@@ -336,7 +336,5 @@ namespace _160420046_160420082_UTS
             
             this.Close();
         }
-
-        
     }
 }

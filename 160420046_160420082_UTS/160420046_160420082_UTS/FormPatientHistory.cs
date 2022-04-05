@@ -106,6 +106,7 @@ namespace _160420046_160420082_UTS
                 //Button tambah ke keranjang
                 DataGridViewButtonColumn bcolSeePrescription = new DataGridViewButtonColumn();
 
+                bcolSeePrescription.HeaderText = "";
                 bcolSeePrescription.Text = "Lihat Resep Obat";
                 bcolSeePrescription.Name = "btnLihatPrescription";
                 bcolSeePrescription.UseColumnTextForButtonValue = true;
@@ -118,6 +119,7 @@ namespace _160420046_160420082_UTS
                 //Button tambah ke keranjang
                 DataGridViewButtonColumn bcolPrint = new DataGridViewButtonColumn();
 
+                bcolPrint.HeaderText = "";
                 bcolPrint.Text = "Print";
                 bcolPrint.Name = "btnPrint";
                 bcolPrint.UseColumnTextForButtonValue = true;
