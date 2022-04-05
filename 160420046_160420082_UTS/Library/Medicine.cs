@@ -85,7 +85,7 @@ namespace Library
         public static void UbahData(Medicine m)
         {
             // Querry Insert
-            string sql = "update medicines set name = " + m.Name + ", price = " + m.Price + ", stock = " + m.Stock + " where id = " + m.Id;
+            string sql = "update medicines set name = '" + m.Name + "', price = " + m.Price + ", stock = " + m.Stock + " where id = " + m.Id;
             Koneksi.JalankanPerintahDML(sql);
         }
 
@@ -118,7 +118,7 @@ namespace Library
 
         public static Medicine AmbilData(string name)
         {
-            string sql = "select * from medicines where name = " + name;
+            string sql = "select * from medicines where name = '" + name + "'";
 
             DataTableReader hasil = Koneksi.JalankanPerintahQuery(sql);
 
