@@ -1,0 +1,27 @@
+
+U-Safe
+No. Checkup = 16
+Patient = henri
+Doctor = arifin
+Start Date = 4/6/2022 3:00:00 PM
+Finish Date = 4/6/2022 2:07:22 PM
+Price = 20,000
+Medicine:
+--------------------------------------------------
+Name: Vitacimin C Fresh Lemon 2 Tablet
+Amount: 1
+--------------------------------------------------
+Name: Azithromycin Kimia Farma 500 mg Tablet
+Amount: 1
+--------------------------------------------------
+Name: Hydroxyurea (Hydroxycarbamide) Medac 500 mg T
+Amount: 1
+--------------------------------------------------
+Name: Levocin (Levofloxacin) 500 mg Tablet
+Amount: 1
+--------------------------------------------------
+Name: Panadon
+Amount: 1
+--------------------------------------------------
+Terima kasih!
+==================================================
