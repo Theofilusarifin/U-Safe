@@ -25,6 +25,8 @@ namespace _160420046_160420082_UTS
         string person = "";
         string username = "";
 
+        bool setting = true;
+
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -149,25 +151,32 @@ namespace _160420046_160420082_UTS
                 FormatDataGrid();
 
                 // Tampilkan semua data
-                listCheckUp = Checkup.BacaData(person, username);
+                 listCheckUp = Checkup.BacaData(person, username);
 
                 //Tampilkan semua isi list di datagridview (Panggil method TampilDataGridView)
                 TampilDataGrid();
+
+                if (setting)
+                {
+                    cmbDoctorOrPatient.Text = "Customer";
+                    setting = false;
+                }
 
                 #region ComboBox
                 cmbDoctorOrPatient.DropDownStyle = ComboBoxStyle.DropDownList;
 
                 if (cmbNama.DataSource == null)
                 {
-                    List<string> listAll = new List<string>();
-                    List<string> listCusUsername = Customer.AmbilNama();
-                    List<string> listDocUsername = Doctor.AmbilNama();
+                    //List<string> listAll = new List<string>();
+                    //List<string> listCusUsername = Customer.AmbilNama();
+                    //List<string> listDocUsername = Doctor.AmbilNama();
 
-                    listAll.AddRange(listCusUsername);
-                    listAll.AddRange(listDocUsername);
+                    //listAll.AddRange(listCusUsername);
+                    //listAll.AddRange(listDocUsername);
 
                     cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
-                    cmbNama.DataSource = listAll;
+                    cmbNama.DataSource = null;
+                    cmbNama.SelectedItem = "";
                 }
                 #endregion
             }
@@ -208,7 +217,17 @@ namespace _160420046_160420082_UTS
         {
             try
             {
-                Checkup.CetakDaftarOrder(person, cmbNama.SelectedItem.ToString(), "Admin_AllCheckup_" + DateTime.Now.ToString("dd-MM-yyyy") + ".txt");
+                string kriteria = "";
+                switch (cmbDoctorOrPatient.Text)
+                {
+                    case "Customer":
+                        kriteria = "customer_username";
+                        break;
+                    case "Doctor":
+                        kriteria = "doctor_username";
+                        break;
+                }
+                Checkup.CetakDaftarOrder(kriteria, cmbNama.Text, "Admin_AllCheckup_" + DateTime.Now.ToString("dd-MM-yyyy") + ".txt");
                 MessageBox.Show("Seluruh Order berhasil dicetak!");
             }
             catch (Exception ex)
@@ -221,20 +240,6 @@ namespace _160420046_160420082_UTS
         {
             switch(cmbDoctorOrPatient.SelectedItem.ToString())
             {
-                case "All":
-                    List<string> listAll = new List<string>();
-                    List<string> listCusUsername = Customer.AmbilNama();
-                    List<string> listDocUsername = Doctor.AmbilNama();
-
-                    listAll.AddRange(listCusUsername);
-                    listAll.AddRange(listDocUsername);
-
-                    cmbNama.DropDownStyle = ComboBoxStyle.DropDownList;
-                    cmbNama.DataSource = listAll;
-
-                    person = "";
-                    break;
-
                 case "Customer":
                     List<Customer> listCustomer = Customer.BacaData("", "");
 
@@ -259,7 +264,7 @@ namespace _160420046_160420082_UTS
 
         private void cmbNama_SelectedIndexChanged(object sender, EventArgs e)
         {
-            username = cmbNama.SelectedItem.ToString();
+            username = cmbNama.Text;
         }
 
         private void btnSearch_Click(object sender, EventArgs e)

@@ -155,7 +155,6 @@ namespace _160420046_160420082_UTS
             this.cmbDoctorOrPatient.Font = new System.Drawing.Font("Montserrat", 12F);
             this.cmbDoctorOrPatient.FormattingEnabled = true;
             this.cmbDoctorOrPatient.Items.AddRange(new object[] {
-            "All",
             "Customer",
             "Doctor"});
             this.cmbDoctorOrPatient.Location = new System.Drawing.Point(453, 29);

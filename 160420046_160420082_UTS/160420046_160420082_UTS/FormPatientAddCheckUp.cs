@@ -106,6 +106,11 @@ namespace _160420046_160420082_UTS
                         FormMain.frmMain.labelSaldo.Text = cu.Balance.ToString();
 
                         MessageBox.Show("You have successfully added a checkup on " + Now);
+
+                        // Update Data Di Form Daftar
+                        FormPatientBookCheckUp frm = (FormPatientBookCheckUp)this.Owner;
+                        frm.FormPatientBookCheckUp_Load(sender, e);
+                        this.Close();
                     }
                     // kalau ada schedule checkup yang bentrokan
                     else

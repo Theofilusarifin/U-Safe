@@ -26,6 +26,7 @@ namespace _160420046_160420082_UTS
         List<Checkup_Medicine> MedPrescript = new List<Checkup_Medicine>();
 
         Checkup_Medicine checkup_Medicine;
+
         #region No Tick Constrols
         //Optimized Controls(No Tick)
         protected override CreateParams CreateParams
@@ -107,7 +108,7 @@ namespace _160420046_160420082_UTS
                     DataGridViewButtonColumn bcolAddMed = new DataGridViewButtonColumn();
 
                     bcolAddMed.HeaderText = "";
-                    bcolAddMed.Text = "Add to Med Prescript";
+                    bcolAddMed.Text = "Add";
                     bcolAddMed.Name = "btnAddMed";
                     bcolAddMed.UseColumnTextForButtonValue = true;
                     bcolAddMed.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
@@ -346,6 +347,9 @@ namespace _160420046_160420082_UTS
 
             Checkup.FinishCheckup(FormDoctorCheckUpSchedule.thisCheckup);
 
+            // Update Data Di Form Daftar
+            FormDoctorCheckUpSchedule frm = (FormDoctorCheckUpSchedule)this.Owner;
+            frm.FormDoctorCheckUpSchedule_Load(sender, e);
             this.Close();
         }
 

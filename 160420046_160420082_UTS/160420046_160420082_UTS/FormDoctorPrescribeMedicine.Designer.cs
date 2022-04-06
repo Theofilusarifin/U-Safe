@@ -84,7 +84,7 @@ namespace _160420046_160420082_UTS
             this.dataGridViewMed.RowHeadersWidth = 51;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Montserrat", 10F);
             this.dataGridViewMed.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewMed.Size = new System.Drawing.Size(571, 106);
+            this.dataGridViewMed.Size = new System.Drawing.Size(571, 172);
             this.dataGridViewMed.TabIndex = 56;
             this.dataGridViewMed.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewMed_CellContentClick);
             // 
@@ -126,7 +126,7 @@ namespace _160420046_160420082_UTS
             this.dataGridViewPrescript.RowHeadersWidth = 51;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Montserrat", 10F);
             this.dataGridViewPrescript.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewPrescript.Size = new System.Drawing.Size(571, 114);
+            this.dataGridViewPrescript.Size = new System.Drawing.Size(571, 180);
             this.dataGridViewPrescript.TabIndex = 59;
             this.dataGridViewPrescript.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewPrescript_CellContentClick);
             // 
@@ -188,7 +188,7 @@ namespace _160420046_160420082_UTS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::_160420046_160420082_UTS.Properties.Resources.Form_Prescribe1;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(638, 749);
+            this.ClientSize = new System.Drawing.Size(638, 815);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.txtMedName);
             this.Controls.Add(this.buttonFinish);

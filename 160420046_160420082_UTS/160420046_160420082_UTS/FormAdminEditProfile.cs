@@ -59,7 +59,8 @@ namespace _160420046_160420082_UTS
                 textBoxNomorKTP.Text = FormMain.active_admin.KTPNum;
 
                 // Convert Byte yang ada di database ke image
-                pictureBoxFoto.Image = FormMain.ConvertByte(FormMain.active_admin.Profile_photo);
+                PictureBox pb = (PictureBox)pictureBoxFoto;
+                pb.Image = FormMain.ConvertByte(FormMain.active_admin.Profile_photo);
             }
             catch (Exception ex)
             {

@@ -374,6 +374,7 @@ namespace Library
             file.WriteLine("Start Date = " + Start_date);
             file.WriteLine("Finish Date = " + Finish_date);
             file.WriteLine("Price = " + Price.ToString("#,###"));
+            file.WriteLine("Medicine:");
 
             List<Checkup_Medicine> ListMed = Checkup_Medicine.BacaData("checkup_id", Id.ToString());
             foreach (Checkup_Medicine cm in ListMed)
@@ -398,7 +399,7 @@ namespace Library
             StreamWriter file = new StreamWriter(namaFile);
             char pemisah = '-';
             file.WriteLine(""); //Cetak 1 baris kosong
-            file.WriteLine("Online Mart - Trivial");
+            file.WriteLine("U-Safe");
             foreach (Checkup ch in listData)
             {
                 file.WriteLine("No Checkup = " + ch.Id);

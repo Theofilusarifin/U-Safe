@@ -1,0 +1,47 @@
+
+U-Safe
+No Checkup = 1
+Patient = Henri
+Doctor = Arifin
+Start Date = 4/5/2022 9:00:00 AM
+Finish Date = 4/5/2022 10:01:51 AM
+Price = 20,000
+--------------------------------------------------
+Terima kasih!
+==================================================
+No Checkup = 5
+Patient = Henri
+Doctor = Arifin
+Start Date = 4/6/2022 9:00:00 AM
+Finish Date = 4/5/2022 9:41:22 PM
+Price = 20,000
+--------------------------------------------------
+Terima kasih!
+==================================================
+No Checkup = 8
+Patient = Henri
+Doctor = Arifin
+Start Date = 4/6/2022 9:41:31 AM
+Finish Date = 4/6/2022 9:51:33 AM
+Price = 20,000
+--------------------------------------------------
+Terima kasih!
+==================================================
+No Checkup = 9
+Patient = Henri
+Doctor = Arifin
+Start Date = 4/7/2022 9:41:43 AM
+Finish Date = 12/31/9999 11:59:59 PM
+Price = 20,000
+--------------------------------------------------
+Terima kasih!
+==================================================
+No Checkup = 10
+Patient = Henri
+Doctor = Arifin
+Start Date = 4/7/2022 12:45:08 PM
+Finish Date = 12/31/9999 11:59:59 PM
+Price = 20,000
+--------------------------------------------------
+Terima kasih!
+==================================================

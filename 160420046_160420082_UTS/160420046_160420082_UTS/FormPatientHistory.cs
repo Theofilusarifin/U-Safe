@@ -115,10 +115,11 @@ namespace _160420046_160420082_UTS
                 DataGridViewButtonColumn bcolSeePrescription = new DataGridViewButtonColumn();
 
                 bcolSeePrescription.HeaderText = "";
-                bcolSeePrescription.Text = "Lihat Resep Obat";
+                bcolSeePrescription.Text = "See Prescribe";
                 bcolSeePrescription.Name = "btnLihatPrescription";
                 bcolSeePrescription.UseColumnTextForButtonValue = true;
                 bcolSeePrescription.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                bcolSeePrescription.Width = 125;
                 dataGridView.Columns.Add(bcolSeePrescription);
             }
 

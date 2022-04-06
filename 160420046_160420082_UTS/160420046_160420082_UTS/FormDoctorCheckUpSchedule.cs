@@ -121,7 +121,7 @@ namespace _160420046_160420082_UTS
             this.Close();
         }
 
-        private void FormDoctorCheckUpSchedule_Load(object sender, EventArgs e)
+        public void FormDoctorCheckUpSchedule_Load(object sender, EventArgs e)
         {
             try
             {

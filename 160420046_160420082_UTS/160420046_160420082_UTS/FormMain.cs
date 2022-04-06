@@ -75,24 +75,6 @@ namespace _160420046_160420082_UTS
 
             return img;
         }
-
-        public static void NumberCheck(object sender, KeyPressEventArgs e)
-        {
-            if ((!char.IsNumber(e.KeyChar)) && (!char.IsControl(e.KeyChar)))
-            {
-                e.Handled = true;
-            }
-        }
-
-        public static void NumConverter(object sender, EventArgs e)
-        {
-            TextBox tb = (TextBox)sender;
-            if (tb.Text != "")
-            {
-                tb.Text = string.Format(System.Globalization.CultureInfo.GetCultureInfo("id-ID"), "{0:#,###}", double.Parse(tb.Text));
-                tb.SelectionStart = tb.TextLength;
-            }
-        }
         #endregion
 
         #region OpenChildForm
